@@ -37,27 +37,27 @@ public class FarmProcess {
     /*
     农田
      */
-    private static MoleFarm farm = Home.farm;
+    private MoleFarm farm = Home.farm;
     //仓库
-    private static MoleFarmWarehouse warehouse = Home.farmWarehouse;
+    private MoleFarmWarehouse warehouse = Home.farmWarehouse;
     /*
     摩尔角色
      */
-    private static Mole mole=Home.mole;
+    private Mole mole = Home.mole;
     /*
         商店
          */
-    private static Shop shop = Home.shop;
+    private Shop shop = Home.shop;
     /*
     具体工厂，负责生产种子/作物/肥料
      */
-    private static final SeedFactory seedFactory = SeedFactory.newInstance();
-    private static final CropsFactory cropFactory = CropsFactory.newInstance();
-    private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
+    private final SeedFactory seedFactory = SeedFactory.newInstance();
+    private final CropsFactory cropFactory = CropsFactory.newInstance();
+    private final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
     /*
     Map<String,String>，负责将product的中英文名对应
      */
-    private static final Map<String, String> map = JsonOp.searchMapper();
+    private final Map<String, String> map = JsonOp.searchMapper();
 
     private FarmProcess() {
     }
@@ -127,10 +127,10 @@ public class FarmProcess {
                     System.out.println("作物已经成熟，请立即收获");
                 } else {
                     try {
-                        System.out.println("请选择肥料：高级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
-                                "AdvancedFertilizer"))+")，中级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
-                                "MiddleFertilizer"))+")，初级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
-                                "PrimaryFertilizer"))+")");
+                        System.out.println("请选择肥料：高级肥料(库存：" + warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "AdvancedFertilizer")) + ")，中级肥料(库存：" + warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "MiddleFertilizer")) + ")，初级肥料(库存：" + warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "PrimaryFertilizer")) + ")");
                         String fertilizerName = input.next();
                         FarmGrowth.applyFertilizer(fertilizerName, block);
                     } catch (FertilizerNotFoundException e) {
@@ -331,14 +331,5 @@ public class FarmProcess {
                 warehouseProcess(str4);
             }
         }
-    }
-
-    public static void main(String[] args) throws CloneNotSupportedException {
-        MoleManor MM=MoleManor.getInstance();
-        MM.flowController();
-        FarmProcess farmProcess = FarmProcess.newInstance();
-        //Home.mole=MM.getPlayer();
-        //mole.setMoney(100);
-        farmProcess.process();
     }
 }
