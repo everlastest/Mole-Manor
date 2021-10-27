@@ -14,7 +14,8 @@ import MoleFarm.common.product.AbstractSeed;
 import MoleFarm.common.product.IProduct;
 import MoleFarm.common.MoleFarmWarehouse;
 import MoleFarm.common.utils.JsonOp;
-import MoleFarm.pattern.adapter.Mole;
+
+import SimpleFactory.Mole;
 import MoleFarm.pattern.adapter.conc.WeatherAdapter;
 import MoleFarm.pattern.builder.Director;
 import MoleFarm.pattern.builder.conc.ConcreteBuilder1;
@@ -41,7 +42,7 @@ public class FarmProcess {
     /*
     摩尔角色
      */
-    private static Mole mole = Home.mole;
+    private static Mole mole;
     /*
         商店
          */
@@ -334,7 +335,8 @@ public class FarmProcess {
 
     public static void main(String[] args) {
         FarmProcess farmProcess = FarmProcess.newInstance();
-        mole.setMoney(100.0);
+        Mole mole = new Mole();
+        mole.setMoney(100);
         farmProcess.process(mole);
     }
 }
