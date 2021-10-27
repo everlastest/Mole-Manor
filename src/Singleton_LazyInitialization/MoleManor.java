@@ -121,6 +121,9 @@ public class MoleManor {
         System.out.println("您即将离开摩尔庄园，再见是为了更好的重逢！");
     }
 
+    public Mole getPlayer() {
+        return player;
+    }
     //需要才创建，保证线程安全
     private static class SingletonHolder{
         private static MoleManor instance =new MoleManor();
