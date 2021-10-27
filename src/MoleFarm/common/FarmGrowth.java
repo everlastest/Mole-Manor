@@ -1,4 +1,4 @@
-package MoleFarm;
+package MoleFarm.common;
 
 import MoleFarm.common.exception.product.conc.CropsNotFoundException;
 import MoleFarm.common.exception.product.conc.FertilizerNotFoundException;
@@ -69,7 +69,7 @@ public class FarmGrowth {
      */
     public static void eradicateCrops(MoleFarmBlock farmBlock) {
         if (farmBlock.getSeed() != null) {
-            moleFarmWarehouse.shovel.ToolBehavior();
+            moleFarmWarehouse.getShovel().ToolBehavior();
             farmBlock.setSeed(null);
         } else {
             System.out.println("该土地上没有作物，不能铲除");

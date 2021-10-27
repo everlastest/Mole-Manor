@@ -1,6 +1,6 @@
 package MoleFarm.pattern.command.conc;
 
-import MoleFarm.Shop;
+import MoleFarm.common.Shop;
 import MoleFarm.common.product.AbstractSeed;
 
 /**

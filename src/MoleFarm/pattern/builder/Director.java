@@ -1,6 +1,6 @@
 package MoleFarm.pattern.builder;
 
-import MoleFarm.MoleFarmBlock;
+import MoleFarm.common.MoleFarmBlock;
 import MoleFarm.common.product.AbstractSeed;
 
 public class Director {

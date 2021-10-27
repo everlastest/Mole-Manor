@@ -1,4 +1,4 @@
-package MoleFarm;
+package MoleFarm.common.farm;
 
 import MoleFarm.common.exception.product.conc.SeedNotFoundException;
 import MoleFarm.common.product.AbstractCrops;

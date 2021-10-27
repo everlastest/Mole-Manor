@@ -1,7 +1,7 @@
 package MoleFarm.pattern.chainOfResponsibility;
 
-import MoleFarm.Home;
-import MoleFarm.MoleFarmWarehouse;
+import MoleFarm.common.Home;
+import MoleFarm.common.MoleFarmWarehouse;
 import MoleFarm.common.product.IProduct;
 import MoleFarm.pattern.adapter.Mole;
 

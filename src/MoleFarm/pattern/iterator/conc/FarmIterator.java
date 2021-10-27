@@ -1,6 +1,6 @@
 package MoleFarm.pattern.iterator.conc;
 
-import MoleFarm.MoleFarmBlock;
+import MoleFarm.common.MoleFarmBlock;
 import MoleFarm.pattern.iterator.Iterator;
 
 import java.util.List;

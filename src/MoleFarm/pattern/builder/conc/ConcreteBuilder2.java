@@ -1,6 +1,6 @@
 package MoleFarm.pattern.builder.conc;
 
-import MoleFarm.FarmGrowth;
+import MoleFarm.common.FarmGrowth;
 import MoleFarm.common.product.AbstractSeed;
 import MoleFarm.common.product.fertilizer.MiddleFertilizer;
 import MoleFarm.pattern.builder.Builder;

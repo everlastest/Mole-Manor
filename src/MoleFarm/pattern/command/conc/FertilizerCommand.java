@@ -1,7 +1,7 @@
 package MoleFarm.pattern.command.conc;
 
-import MoleFarm.Home;
-import MoleFarm.Shop;
+import MoleFarm.common.Home;
+import MoleFarm.common.Shop;
 import MoleFarm.common.product.AbstractFertilizer;
 
 /**

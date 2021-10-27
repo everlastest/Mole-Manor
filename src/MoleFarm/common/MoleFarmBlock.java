@@ -1,5 +1,6 @@
-package MoleFarm;
+package MoleFarm.common;
 
+import MoleFarm.common.farm.IFarmBlock;
 import MoleFarm.common.product.AbstractCrops;
 import MoleFarm.common.product.AbstractSeed;
 import MoleFarm.common.status.FarmBlockStatus;

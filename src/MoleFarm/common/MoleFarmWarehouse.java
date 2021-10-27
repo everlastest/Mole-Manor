@@ -1,4 +1,4 @@
-package MoleFarm;
+package MoleFarm.common;
 
 import MoleFarm.common.product.AbstractCrops;
 import MoleFarm.common.product.AbstractFertilizer;
@@ -10,6 +10,7 @@ import MoleFarm.common.product.fertilizer.MiddleFertilizer;
 import MoleFarm.common.product.fertilizer.PrimaryFertilizer;
 import MoleFarm.common.product.seed.*;
 import MoleFarm.common.product.tool.*;
+import MoleFarm.common.repository.IFarmWareHouse;
 import MoleFarm.pattern.adapter.Mole;
 import MoleFarm.pattern.adapter.Target;
 import MoleFarm.pattern.adapter.conc.MoleAdapter;
@@ -41,15 +42,15 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
      */
     private Map<AbstractCrops, Integer> cropsMap = new HashMap<>();
 
-    protected Hoe hoe = Hoe.newInstance();
+    private Hoe hoe = Hoe.newInstance();
 
-    protected Sickle sickle = Sickle.newInstance();
+    private Sickle sickle = Sickle.newInstance();
 
-    protected WateringCan wateringCan = WateringCan.newInstance();
+    private WateringCan wateringCan = WateringCan.newInstance();
 
-    protected Pesticide pesticide = Pesticide.newInstance();
+    private Pesticide pesticide = Pesticide.newInstance();
 
-    protected Shovel shovel = Shovel.newInstance();
+    private Shovel shovel = Shovel.newInstance();
 
     private MoleFarmWarehouse() {
         this.seedMap.put(new CabbageSeed(), 5);

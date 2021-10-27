@@ -1,6 +1,6 @@
 package MoleFarm.pattern.builder;
 
-import MoleFarm.MoleFarmBlock;
+import MoleFarm.common.MoleFarmBlock;
 import MoleFarm.common.product.seed.CabbageSeed;
 import MoleFarm.pattern.builder.conc.ConcreteBuilder1;
 

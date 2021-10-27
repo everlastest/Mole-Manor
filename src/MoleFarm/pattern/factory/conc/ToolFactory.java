@@ -1,6 +1,6 @@
 package MoleFarm.pattern.factory.conc;
 
-import MoleFarm.MoleFarmWarehouse;
+import MoleFarm.common.MoleFarmWarehouse;
 import MoleFarm.common.exception.product.conc.ToolNotFoundException;
 import MoleFarm.common.product.AbstractTool;
 import MoleFarm.common.utils.JsonOp;

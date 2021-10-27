@@ -1,6 +1,6 @@
 package MoleFarm.pattern.state.conc;
 
-import MoleFarm.MoleFarm;
+import MoleFarm.common.MoleFarm;
 import MoleFarm.pattern.state.Weather;
 
 public class SunnyWeather implements Weather {

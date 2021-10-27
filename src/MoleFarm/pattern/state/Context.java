@@ -1,6 +1,6 @@
 package MoleFarm.pattern.state;
 
-import MoleFarm.MoleFarm;
+import MoleFarm.common.MoleFarm;
 
 public class Context {
     private Weather weather;

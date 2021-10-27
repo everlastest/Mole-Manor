@@ -1,7 +1,7 @@
 package MoleFarm.pattern.state.conc;
 
-import MoleFarm.MoleFarm;
-import MoleFarm.MoleFarmBlock;
+import MoleFarm.common.MoleFarm;
+import MoleFarm.common.MoleFarmBlock;
 import MoleFarm.common.status.FarmBlockStatus;
 import MoleFarm.pattern.iterator.conc.FarmIterator;
 import MoleFarm.pattern.state.Weather;

@@ -1,8 +1,9 @@
-package MoleFarm;
+package MoleFarm.common;
 
 import MoleFarm.common.exception.MyException;
 import MoleFarm.common.exception.product.conc.CropsNotFoundException;
 import MoleFarm.common.exception.product.conc.SeedNotFoundException;
+import MoleFarm.common.farm.IFarm;
 import MoleFarm.common.product.AbstractCrops;
 import MoleFarm.common.product.AbstractSeed;
 import MoleFarm.common.status.product.Shape;

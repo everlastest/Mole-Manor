@@ -1,6 +1,6 @@
 package MoleFarm.pattern.state;
 
-import MoleFarm.MoleFarm;
+import MoleFarm.common.MoleFarm;
 
 public interface Weather {
     void watering(MoleFarm moleFarm);

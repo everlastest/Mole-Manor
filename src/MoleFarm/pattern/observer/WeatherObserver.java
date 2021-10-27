@@ -1,6 +1,6 @@
 package MoleFarm.pattern.observer;
 
-import MoleFarm.MoleFarm;
+import MoleFarm.common.MoleFarm;
 import MoleFarm.common.status.FarmBlockStatus;
 import MoleFarm.pattern.adapter.conc.WeatherAdapter;
 import MoleFarm.pattern.iterator.conc.FarmIterator;

@@ -1,4 +1,4 @@
-package MoleFarm;
+package MoleFarm.common;
 
 import MoleFarm.pattern.adapter.Mole;
 
