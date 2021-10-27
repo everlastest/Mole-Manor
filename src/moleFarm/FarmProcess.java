@@ -1,5 +1,6 @@
 package moleFarm;
 
+import Singleton_LazyInitialization.MoleManor;
 import moleFarm.common.Home;
 import moleFarm.common.Shop;
 import moleFarm.common.exception.product.ProductNotFoundException;
@@ -42,7 +43,7 @@ public class FarmProcess {
     /*
     摩尔角色
      */
-    private static Mole mole;
+    private static Mole mole=Home.mole;
     /*
         商店
          */
@@ -294,8 +295,7 @@ public class FarmProcess {
     /**
      * 农场主函数
      */
-    public void process(Mole Imole) {
-        mole = Imole;
+    public void process() {
         System.out.println("输入y进入农场：");
         Scanner input = new Scanner(System.in);
         String str = input.next();
@@ -333,10 +333,12 @@ public class FarmProcess {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        MoleManor MM=MoleManor.getInstance();
+        MM.flowController();
         FarmProcess farmProcess = FarmProcess.newInstance();
-        Mole mole = new Mole();
-        mole.setMoney(100);
-        farmProcess.process(mole);
+        //Home.mole=MM.getPlayer();
+        //mole.setMoney(100);
+        farmProcess.process();
     }
 }

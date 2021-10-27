@@ -2,16 +2,17 @@ package moleFarm.pattern.adapter.conc;
 
 
 //import MoleFarm.pattern.adapter.Mole;
-import moleFarm.pattern.adapter.Target;
+
 import SimpleFactory.Mole;
-import Singleton_LazyInitialization.MoleManor;
+import moleFarm.common.Home;
+import moleFarm.pattern.adapter.Target;
 
 /**
  * 摩尔角色适配器
  */
 public class MoleAdapter extends Mole implements Target {
 
-    private Mole mole= MoleManor.getInstance().getPlayer();
+    private Mole mole= Home.mole;
 
     private MoleAdapter(){}
     @Override
