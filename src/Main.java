@@ -16,7 +16,7 @@ public class Main {
             MM.flowController();
         }
         else if(key==2){
-            System.out.println("测试模式！");
+
 
         }
     }
