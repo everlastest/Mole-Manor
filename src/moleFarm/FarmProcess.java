@@ -260,7 +260,7 @@ public class FarmProcess {
                 case "2":
                     String text2 = "肥料";
                     System.out.println("请输入想要购买的" + text2 + "类型" +
-                            "(高级肥料--10.0，中级肥料--5.0，初级肥料--2.0)，" +
+                            "(高级肥料--10.0，中级肥料--5.0，低级肥料--2.0)，" +
                             "输入0返回上级：");
                     String objName1 = input.next();
                     if ("0".equals(objName1)) {
