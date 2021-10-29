@@ -32,8 +32,6 @@ public class Robot implements Runnable {
 
     public void run() {
 
-        System.out.println("机器人" + RobotName + "已启用!");
-
         try {
             while (exit) {
 
@@ -51,7 +49,6 @@ public class Robot implements Runnable {
             System.out.println("Thread " +  RobotName + " interrupted.");
         }
 
-        System.out.println("机器人" + RobotName + "已停用!");
 
     }
 

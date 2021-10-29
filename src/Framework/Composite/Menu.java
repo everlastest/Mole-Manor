@@ -21,9 +21,11 @@ public class Menu extends Component {
     }
 
     @Override
-    public void add(Component component) {
-        menu.add(component);
-        component.setLastMenu(this);
+    public void add(Component... component) {
+        for (Component i : component){
+            menu.add(i);
+            i.setLastMenu(this);
+        }
     }
 
     @Override
@@ -37,7 +39,7 @@ public class Menu extends Component {
             i++;
             System.out.println(i + " ----- " + item.getName());
         }
-        if (lastMenu != null) System.out.println("0 ----- 回退");
+        if (lastMenu != null) System.out.println("0 ----- 返回" + lastMenu.getName());
         else System.out.println("0 ----- 退出");
     }
 
@@ -51,6 +53,7 @@ public class Menu extends Component {
         this.lastMenu = lastMenu;
     }
 
+    @Override
     public ArrayList<Component> getMenu() {
         return menu;
     }

@@ -1,9 +1,9 @@
 package Singleton_LazyInitialization;
 
-import Framework.Composite.Menu;
-import Framework.Composite.MenuOption;
-import Framework.SimpleFactory.Mole;
-import Framework.SimpleFactory.MoleFactory;
+import Framework.Composite.*;
+import Framework.SimpleFactory.*;
+import MoleAmuse.RobotPackage.*;
+import MoleAmuse.ChatRoom.*;
 
 import java.util.Scanner;
 
@@ -30,95 +30,56 @@ public class MoleManor {
 
     //整个流程
     public void flowController() throws CloneNotSupportedException{
-        System.out.println("欢迎来到摩尔庄园！");
-        Scanner input=new Scanner(System.in);
-        //创建角色
-        System.out.println("请输入你的名字：");
-        String name=input.nextLine();
-        System.out.println("选择你的角色：[1]Molele [2]Momo [3]Kura");
-        int roleNum=input.nextInt();
-        System.out.println("选择外观颜色：[1]Red [2]Green [3]Blue");
-        int colorNum=input.nextInt();
-        String role="Molele";
-        String color="Red";
-        switch(roleNum){
-            case 1:
-                role="Molele";
-                break;
-            case 2:
-                role="Momo";
-                break;
-            case 3:
-                role="Krua";
-                break;
-            default:
-                break;
-        }
-        switch(colorNum){
-            case 1:
-                color="Red";
-                break;
-            case 2:
-                color="Green";
-                break;
-            case 3:
-                color="Blue";
-                break;
-            default:
-                break;
-        }
-        MoleFactory moleFactory=new MoleFactory();
-        player=moleFactory.createMole(role,color);
-        player.setMoleName(name);
+        System.out.println("欢迎来到摩尔庄园！\n\n\n");
+        Scanner input = new Scanner(System.in);
 
         /**
-         * 设置菜单
+         * 创建角色
          */
-        Menu totalMenu=new Menu("分区选择");
+        MoleCreator moleCreator = MoleCreator.getInstance();
+        player = moleCreator.createMole();
+        System.out.println("\n角色创建成功，正在进入摩尔大厅！！！\n\n\n");
+
         /**
-         * 第一个分区游乐园为二级菜单
+         * 添加聊天机器人
          */
-        Menu amuseMenu=new Menu("游乐园");
+        RobotList robotList = RobotList.getInstance();
+        robotList.addRobot("菩提大伯", "么么公主", "瑞琪");
+
         /**
-         * 几个游戏
+         * 主菜单
          */
-        MenuOption Cooking=new MenuOption("Cooking",0);
-        MenuOption Racing=new MenuOption("Racing",1);
-        MenuOption Tictactoe=new MenuOption("Tictactoe",2);
-        amuseMenu.add(Cooking);
-        amuseMenu.add(Racing);
-        amuseMenu.add(Tictactoe);
-        /**
-         * 其他选项
-         */
-        MenuOption a=new MenuOption("a",0);
-        MenuOption b=new MenuOption("b",0);
-        totalMenu.add(amuseMenu);
-        totalMenu.add(a);
-        totalMenu.add(b);
-        /**
-         * 菜单及返回
-         */
+        MenuList menuList = MenuList.getInstance();
+        Component totalMenu = menuList.getMenulist("摩尔大厅");
         totalMenu.printMenu();
-        int ch=input.nextInt();
-        while(ch!=0){
-            switch(ch){
+
+        while(true){
+
+            switch(input.nextInt()){
                 case 1:
-                    System.out.println("欢迎来到游乐园！");
-                    System.out.println("请选择想要玩的游戏：");
-                    amuseMenu.printMenu();
+                    System.out.println("\n欢迎来到游乐园！\n请选择想要玩的游戏：");
                     break;
                 case 2:
-                    System.out.println("欢迎来到农场！");
+                    System.out.println("欢迎来到农场！\n");
                     break;
                 case 3:
-                    System.out.println("欢迎来到商场！");
+                    System.out.println("欢迎来到商场！\n");
                     break;
+                case 4:
+                    System.out.println("正在进入聊天室！\n");
+                    ChatUI chatroom = new ChatUI(player);
+                    chatroom.chating();
+                    break;
+                case 0:
+                    System.out.println("\n您即将离开摩尔庄园，再见是为了更好的重逢！");
+                    robotList.stop();
+                    return;
                 default:
                     break;
             }
+
+            totalMenu.printMenu();
         }
-        System.out.println("您即将离开摩尔庄园，再见是为了更好的重逢！");
     }
 
     public Mole getPlayer() {

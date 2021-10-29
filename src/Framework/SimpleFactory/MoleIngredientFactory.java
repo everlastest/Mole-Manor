@@ -1,12 +1,7 @@
 package Framework.SimpleFactory;
 
-import Framework.SimpleFactory.Color.Blue;
-import Framework.SimpleFactory.Color.Color;
-import Framework.SimpleFactory.Color.Green;
-import Framework.SimpleFactory.Color.Red;
-import Framework.SimpleFactory.Role.Molele;
-import Framework.SimpleFactory.Role.Momo;
-import Framework.SimpleFactory.Role.Role;
+import Framework.SimpleFactory.Color.*;
+import Framework.SimpleFactory.Role.*;
 
 public class MoleIngredientFactory {
     //设置角色
@@ -14,8 +9,8 @@ public class MoleIngredientFactory {
         if(role==null){
             return null;
         }
-        if(role.equalsIgnoreCase("Lily")){
-            return new Momo();
+        if(role.equalsIgnoreCase("Kura")){
+            return new Kura();
         }
         else if(role.equalsIgnoreCase("Molele")){
             return new Molele();

@@ -1,12 +1,15 @@
 package Framework.Composite;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+
 //组合模式：菜单和菜单选项的组合
 public abstract class Component {
     public Object option;
 
     public abstract String getName();
 
-    public void add(Component component){
+    public void add(Component... component){
         System.out.println("");
     }
 
@@ -21,4 +24,6 @@ public abstract class Component {
     public void setLastMenu(Menu lastMenu){
         System.out.println("");
     }
+
+    public ArrayList<Component> getMenu(){return null;}
 }

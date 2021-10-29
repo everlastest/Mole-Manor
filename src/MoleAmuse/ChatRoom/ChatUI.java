@@ -1,6 +1,7 @@
 package MoleAmuse.ChatRoom;
 
 import Framework.SimpleFactory.Mole;
+import Framework.Composite.*;
 
 import java.util.Scanner;
 
@@ -10,9 +11,12 @@ public class ChatUI {
     //添加角色和聊天室
     private Mole mole;
     private Chatroom chatroom = Chatroom.getInstance();
+    private MenuList menuList = MenuList.getInstance();
+    private Component chatMenu;
 
     public ChatUI(Mole mole){
         this.mole = mole;
+        this.chatMenu = menuList.getMenulist("摩尔聊天室");
     }
 
     //发送消息
@@ -24,9 +28,10 @@ public class ChatUI {
         chatroom.showMessage();
     }
 
+
     //聊天界面接口
     public void chating(){
-        System.out.println("\n进入聊天室:\n发送信息亲——请输入”1“+”信息“\n显示聊天室信息——请输入“2“\n退出聊天室请输入——”0“\n");
+        chatMenu.printMenu();
         while (true){
             Scanner scan = new Scanner(System.in);
             switch (scan.nextInt()) {
@@ -48,7 +53,7 @@ public class ChatUI {
                     showMessage();
                     break;
                 case 0:
-                    System.out.println("已退出聊天室！");
+                    System.out.println("已退出聊天室，即将返回摩尔大厅！！！\n\n");
                     return;
                 default:
                     break;
