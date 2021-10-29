@@ -9,9 +9,9 @@ public class Context {
      */
     private Weather weather;
 
-    private MoleFarm moleFarm = Home.farm;
+    private MoleFarm moleFarm;
 
-    public Context(Weather weather) {
+    public Context(Weather weather,MoleFarm moleFarm) {
         this.weather = weather;
     }
 
@@ -28,7 +28,7 @@ public class Context {
         weather.watering(moleFarm);
     }
 
-    public void disinsection() {
+    public void disinsection(){
         weather.disinsection(moleFarm);
     }
 }

@@ -18,8 +18,8 @@ public class ShopHandler extends Handler {
                 System.out.println("抱歉，摩尔豆不足，进货失败");
                 return false;
             } else {
-                Double newPrice = mole.getMoney() - price;
-                mole.setMoney(newPrice.intValue());
+                double newPrice = mole.getMoney() - price;
+                mole.setMoney(newPrice);
             }
         }
         System.out.println("进货成功！");

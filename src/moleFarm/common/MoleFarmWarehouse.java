@@ -1,5 +1,7 @@
 package moleFarm.common;
 
+import Framework.SimpleFactory.Mole;
+import moleFarm.Home;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -11,7 +13,6 @@ import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.common.product.seed.*;
 import moleFarm.common.product.tool.*;
 import moleFarm.common.repository.IFarmWareHouse;
-import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.Target;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.chainOfResponsibility.conc.ShopHandler;
@@ -28,7 +29,7 @@ import java.util.Map;
  * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
-    private Mole mole = Mole.getInstance();
+    private Mole mole = Home.mole;
     /**
      * 种子存储
      */

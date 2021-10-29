@@ -17,7 +17,7 @@ public class MoleAdapter extends Mole implements Target {
     private MoleAdapter(){}
     @Override
     public Double getMoleDou() {
-        double money = getMoney();
+        int money = getMoney();
         return Double.valueOf(money);
     }
 
