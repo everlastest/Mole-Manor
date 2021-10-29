@@ -28,7 +28,7 @@ public class Tictactoe implements Game {
         chessBoard = tictactoeFactory.getChessBoard();
 
         //初始化摩尔选择的棋子
-        System.out.println("请选择你的棋子，‘B’代表黑棋，‘W’代表黑棋");
+        System.out.println("请选择你的棋子，‘B’代表黑棋，‘W’代表白棋");
         Character chesstype = null;
         Scanner scan = new Scanner(System.in);
         while (chesstype == null) {
@@ -66,8 +66,6 @@ public class Tictactoe implements Game {
         {
             //情况一：摩尔选择“⚪”
             if(chesstype == 'W') {
-
-
                 try {
                     System.out.println("电脑正在思考中......");
                     Thread.sleep(800);
@@ -163,7 +161,7 @@ public class Tictactoe implements Game {
             }
         }
 
-        System.out.println("正在退出井字棋游戏......、\n成功退出，已返回游乐园！！！\n\n");
+        System.out.println("正在退出井字棋游戏......\n成功退出，已返回游乐园！！！\n");
 
 
     }

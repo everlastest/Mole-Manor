@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import java.util.Scanner;
+
 public abstract class AbstractRacing{
     private int ticket;
     private int score;
@@ -24,7 +26,19 @@ public abstract class AbstractRacing{
      */
     public void Prepare(){
         System.out.println("请摩尔系好安全带，戴好头盔，游戏马上开始！！");
-        System.out.println("输入1：确保安全带系好，输入2：确保头盔戴好，输入s：比赛开始！！");
+        System.out.println("输入1：确保安全带系好");
+        Scanner input=new Scanner(System.in);
+        while(input.nextInt()!=1){
+            System.out.println("还未系好安全带，请重新输入");
+        }
+        System.out.println("输入2：确保头盔戴好");
+        while(input.nextInt()!=2){
+            System.out.println("还未戴好头盔，请重新输入");
+        }
+        System.out.println("输入3：游戏马上开始");
+        while(input.nextInt()!=3){
+            System.out.println("输入3：比赛开始！！！");
+        }
     }
 
     /**

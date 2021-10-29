@@ -59,10 +59,12 @@ public class ObstacleRace extends AbstractRacing{
             System.out.println("小摩尔成功通过障碍赛！！");
             System.out.println("小摩尔的最终的成绩为："+Score+"（满分为7分）");
             System.out.println("请收下膝盖！！");
+            System.out.println("正在退出赛车游戏......\n成功退出，已返回游乐园！！！\n");
         }else{
             System.out.println("小摩尔止遗憾步障碍赛第"+ (Score + 1) + "关!!");
             System.out.println("最终的成绩为："+Score+"（满分为7分）");
             System.out.println("再接再厉！！");
+            System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
         }
     }
 }

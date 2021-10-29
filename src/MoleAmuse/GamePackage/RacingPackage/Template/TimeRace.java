@@ -54,10 +54,12 @@ public class TimeRace extends AbstractRacing{
         System.out.println("小摩尔在规定的时间内成功完成比赛！！");
         System.out.println("小摩尔的最终的成绩为："+Score+"秒");
         System.out.println("再接再厉！！");
+        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
         }
         else{
         System.out.println("小摩尔在规定的时间内未完成比赛！！");
         System.out.println("成绩无效，再接再厉！！");
+        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
         }
     }
 }
