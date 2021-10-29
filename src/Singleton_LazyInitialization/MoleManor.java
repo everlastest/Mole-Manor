@@ -3,7 +3,8 @@ package Singleton_LazyInitialization;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
-import MoleAmuse.ChatRoom.*;
+import ChatRoom.*;
+import MoleAmuse.GamePackage.*;
 
 import java.util.Scanner;
 
@@ -57,16 +58,18 @@ public class MoleManor {
 
             switch(input.nextInt()){
                 case 1:
-                    System.out.println("\n欢迎来到游乐园！\n请选择想要玩的游戏：");
+                    System.out.println("\n欢迎来到摩尔游乐园！\n请选择想要玩的游戏：");
+                    GameUI gamemaker=new GameUI(player);
+                    gamemaker.playGame();
                     break;
                 case 2:
-                    System.out.println("欢迎来到农场！\n");
+                    System.out.println("欢迎来到摩尔农场！\n");
                     break;
                 case 3:
-                    System.out.println("欢迎来到商场！\n");
+                    System.out.println("欢迎来到摩尔商场！\n");
                     break;
                 case 4:
-                    System.out.println("正在进入聊天室！\n");
+                    System.out.println("正在进入摩尔聊天室！\n");
                     ChatUI chatroom = new ChatUI(player);
                     chatroom.chating();
                     break;

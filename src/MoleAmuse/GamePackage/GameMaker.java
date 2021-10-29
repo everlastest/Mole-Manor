@@ -12,6 +12,8 @@ public class GameMaker {
     private Game cooking;
     private Game racing;
 
+    private static GameMaker instance=new GameMaker();
+    public static GameMaker getInstance(){return instance;}
     public GameMaker() {
         tictactoe = new Tictactoe();
         cooking = new Cooking();

@@ -1,7 +1,8 @@
-package MoleAmuse.ChatRoom;
+package ChatRoom;
 
+import Framework.SimpleFactory.Mole;
+import Framework.SimpleFactory.MoleFactory;
 import MoleAmuse.RobotPackage.Robot;
-import Framework.SimpleFactory.*;
 
 public class ChatTestDemo {
     public static void main(String[] args) {

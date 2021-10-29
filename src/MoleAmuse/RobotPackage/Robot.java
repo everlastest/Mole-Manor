@@ -1,6 +1,6 @@
 package MoleAmuse.RobotPackage;
 
-import MoleAmuse.ChatRoom.Chatroom;
+import ChatRoom.Chatroom;
 
 import java.util.Random;
 

@@ -1,7 +1,8 @@
-package MoleAmuse.ChatRoom;
+package ChatRoom;
 
+import Framework.Composite.Component;
+import Framework.Composite.MenuList;
 import Framework.SimpleFactory.Mole;
-import Framework.Composite.*;
 
 import java.util.Scanner;
 

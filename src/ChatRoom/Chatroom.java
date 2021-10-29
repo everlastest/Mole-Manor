@@ -1,4 +1,4 @@
-package MoleAmuse.ChatRoom;
+package ChatRoom;
 
 import java.util.Date;
 import java.util.Iterator;

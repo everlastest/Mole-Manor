@@ -1,9 +1,6 @@
 package Framework.Composite;
 
-import MoleAmuse.ChatRoom.Chatroom;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MenuList {
     /**
@@ -43,6 +40,7 @@ public class MenuList {
         /**
          * 游乐园菜单
          */
+        amuseMenu.add(new MenuOption("做菜"),new MenuOption("摩摩赛车"),new MenuOption("井字棋"));
 
         /**
          * 农场菜单
