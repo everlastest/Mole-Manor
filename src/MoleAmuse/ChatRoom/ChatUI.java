@@ -47,7 +47,6 @@ public class ChatUI {
                     } finally {
                         chatroom.lock.unlock();
                     }
-
                     break;
                 case 2:
                     showMessage();

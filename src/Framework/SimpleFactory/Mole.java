@@ -8,9 +8,9 @@ public class Mole {
     private String MoleName;      //名字
     private Role MoleRole;      //角色
     private Color MoleColor;      //颜色
-    private int money;      //摩尔豆
+    private double money;      //摩尔豆
     private int ticket;      //游乐园票数
-    private int score;      //游戏积分
+    private double score;      //游戏积分
 
     public Mole(){
     }
@@ -55,18 +55,18 @@ public class Mole {
     }
     public Role getMoleRole(){return MoleRole;}
 
-    public void setMoney(int money){
+    public void setMoney(double money){
         this.money=money;
     }
-    public int getMoney(){return money;}
+    public double getMoney(){return money;}
 
     public void setTicket(int ticket){
         this.ticket=ticket;
     }
-    public int getTicket(){return ticket;}
+    public double getTicket(){return ticket;}
 
-    public void setScore(int score){this.score=score;}
-    public int getScore(){return score;}
+    public void setScore(double score){this.score=score;}
+    public double getScore(){return score;}
 
     public void showMoleInformation(){
         System.out.println("Name is"+MoleName+"!");
