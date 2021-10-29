@@ -207,7 +207,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         System.out.println("白菜种子\t茄子种子\t水稻种子\t草莓种子\t西瓜种子\t小麦种子");
         System.out.println(seedMap.get(new CabbageSeed()) + "\t\t" + seedMap.get(new EggplantSeed()) + "\t\t" + seedMap.get(new RiceSeed()) + "\t\t" +
                 seedMap.get(new StrawberrySeed()) + "\t\t" + seedMap.get(new WatermelonSeed()) + "\t\t" + seedMap.get(new WheatSeed()) + "\t\t");
-        System.out.println("高级肥料\t中级肥料\t低级肥料");
+        System.out.println("高级肥料\t中级肥料\t初级肥料");
         System.out.println(fertilizerMap.get(new AdvancedFertilizer()) + "\t\t" + fertilizerMap.get(new MiddleFertilizer()) + "\t\t" +
                 fertilizerMap.get(new PrimaryFertilizer()));
     }

@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 具体生产种子，肥料，农具的工厂
  * 生产茄子、西瓜、小麦的作物及种子
- * 生产中低级肥料
+ * 生产中初级肥料
  * 生产锄头
  * 此类生产产品去moleFarm.pattern.factory.conc下的对应工厂调用方法
  */

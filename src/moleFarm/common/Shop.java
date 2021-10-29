@@ -1,5 +1,6 @@
 package moleFarm.common;
 
+import moleFarm.Home;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -11,7 +12,7 @@ import moleFarm.common.product.AbstractSeed;
  */
 public class Shop {
 
-    private MoleFarmWarehouse moleFarmWarehouse;
+    private MoleFarmWarehouse moleFarmWarehouse= Home.farmWarehouse;
 
     //关联商店与仓库
     private Shop() {
