@@ -19,13 +19,14 @@ public class ObstacleRace extends AbstractRacing{
         }
         else{
             ticket--;
-            System.out.println("检票成功！！");
+            System.out.println("检票成功！\n目前剩余票数为：" + ticket);
             return true;
         }
     }
 
     @Override
     protected void RacingProcess(int Score) {
+        System.out.println("\n障碍赛正式开始！");
         Random random=new Random();
         int r=0;
         for(int i=0;i<7;i++) {
@@ -54,17 +55,20 @@ public class ObstacleRace extends AbstractRacing{
     }
 
     @Override
-    protected void getScore(int Score) {
-        if(Score==7){
-            System.out.println("小摩尔成功通过障碍赛！！");
-            System.out.println("小摩尔的最终的成绩为："+Score+"（满分为7分）");
+    protected int getScore(int Score) {
+        if(Score == 7){
+
+            System.out.println("\n小摩尔成功通过障碍赛！！");
+            System.out.println("小摩尔的最终的成绩为：" + Score + "（满分为7分）");
             System.out.println("请收下膝盖！！");
-            System.out.println("正在退出赛车游戏......\n成功退出，已返回游乐园！！！\n");
-        }else{
-            System.out.println("小摩尔止遗憾步障碍赛第"+ (Score + 1) + "关!!");
+
+            return Score * 2;
+        } else{
+            System.out.println("\n小摩尔止遗憾步障碍赛第"+ (Score + 1) + "关!!");
             System.out.println("最终的成绩为："+Score+"（满分为7分）");
             System.out.println("再接再厉！！");
-            System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
+
+            return Score;
         }
     }
 }

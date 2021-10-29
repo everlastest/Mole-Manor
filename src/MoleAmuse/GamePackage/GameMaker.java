@@ -1,5 +1,6 @@
 package MoleAmuse.GamePackage;
 
+import Framework.SimpleFactory.Mole;
 import MoleAmuse.GamePackage.CookingPackage.Cooking;
 import MoleAmuse.GamePackage.RacingPackage.Racing;
 import MoleAmuse.GamePackage.TictactoePackage.Tictactoe;

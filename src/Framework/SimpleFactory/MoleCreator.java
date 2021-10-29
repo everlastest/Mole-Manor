@@ -57,7 +57,11 @@ public class MoleCreator {
 
         MoleFactory moleFactory = new MoleFactory();
         Mole mole = moleFactory.createMole(role,color);
+
         mole.setMoleName(name);
+        mole.setMoney(1000);
+        mole.setTicket(2);
+        mole.setScore(0);
 
         return mole;
     }

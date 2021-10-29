@@ -20,14 +20,14 @@ public class DriftRace extends AbstractRacing{
         }
         else{
             ticket--;
-            System.out.println("检票成功！！");
+            System.out.println("检票成功！\n目前剩余票数为：" + ticket);
             return true;
         }
     }
 
     @Override
     protected void RacingProcess(int Score) {
-        System.out.println("漂移赛正式开始！！");
+        System.out.println("\n漂移赛正式开始！");
         Random random=new Random();
         int r=0;
         for(int i=0;i<10;i++) {
@@ -57,10 +57,11 @@ public class DriftRace extends AbstractRacing{
     }
 
     @Override
-    protected void getScore(int Score) {
-        System.out.println("小摩尔完成此次漂移赛");
+    protected int getScore(int Score) {
+        System.out.println("\n小摩尔完成此次漂移赛");
         System.out.println("小摩尔的最终的分为："+Score+"（满分10分）");
         System.out.println("再接再厉！！");
-        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
+
+        return Score;
     }
 }

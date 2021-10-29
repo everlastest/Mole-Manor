@@ -7,11 +7,8 @@ import MoleAmuse.RobotPackage.Robot;
 public class ChatTestDemo {
     public static void main(String[] args) {
 
-        MoleFactory mf = new MoleFactory();
 
-        Mole me = mf.createMole("Kura", "Red");
-
-        ChatUI myChatUI = new ChatUI(me);
+        ChatUI myChatUI = new ChatUI();
 
         Robot r1 = new Robot("阿巴");
         Robot r2 = new Robot("呆瓜");

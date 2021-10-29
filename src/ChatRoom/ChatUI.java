@@ -1,8 +1,8 @@
 package ChatRoom;
 
-import Framework.Composite.Component;
-import Framework.Composite.MenuList;
+import Framework.Composite.*;
 import Framework.SimpleFactory.Mole;
+import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
 
@@ -10,13 +10,12 @@ import java.util.Scanner;
 public class ChatUI {
 
     //添加角色和聊天室
-    private Mole mole;
+    private Mole mole = MoleManor.getPlayer();
     private Chatroom chatroom = Chatroom.getInstance();
     private MenuList menuList = MenuList.getInstance();
     private Component chatMenu;
 
-    public ChatUI(Mole mole){
-        this.mole = mole;
+    public ChatUI(){
         this.chatMenu = menuList.getMenulist("摩尔聊天室");
     }
 

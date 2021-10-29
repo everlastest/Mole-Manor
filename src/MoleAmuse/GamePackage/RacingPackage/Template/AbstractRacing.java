@@ -1,19 +1,25 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import Framework.SimpleFactory.Mole;
+import Singleton_LazyInitialization.MoleManor;
+
 import java.util.Scanner;
 
 public abstract class AbstractRacing{
+
+    private Mole mole = MoleManor.getPlayer();
     private int ticket;
     private int score;
     private int type;
 
-    public AbstractRacing(int type){this.type=type;}
-    public void score(int score){this.score=score;}
-
-    public void getTicketInfo(int ticket){
-        this.ticket=ticket;
-        this.score=0;
+    public AbstractRacing(int type) {
+        this.type = type;
+        this.ticket = mole.getTicket();
+        this.score = 0;
     }
+
+    public void score(int score){this.score = score;}
+
 
     /**
      * 检票
@@ -25,7 +31,7 @@ public abstract class AbstractRacing{
      * 准备阶段
      */
     public void Prepare(){
-        System.out.println("请摩尔系好安全带，戴好头盔，游戏马上开始！！");
+        System.out.println("\n请摩尔系好安全带，戴好头盔，游戏马上开始！！");
         System.out.println("输入1：确保安全带系好");
         Scanner input=new Scanner(System.in);
         while(input.nextInt()!=1){
@@ -49,17 +55,28 @@ public abstract class AbstractRacing{
     /**
      * 获取得分
      */
-    protected abstract void getScore(int score);
+    protected abstract int getScore(int score);
 
     /**
      * 整个过程模板
      */
     public void StartRacing(){
 
-        if(checkTicket(ticket)==false) return;
+        if(checkTicket(ticket)==false) {
+            System.out.println("\n正在返回摩摩赛车城...\n");
+            return;
+        }
+
+        mole.setTicket(ticket - 1);
+
         Prepare();
+
         RacingProcess(score);
-        getScore(score);
+
+        mole.setScore(mole.getScore() + getScore(score));
+        System.out.println("小摩尔此次获得游戏积分：" + getScore(score) + ", 总积分为：" + mole.getScore());
+
+        System.out.println("正在返回摩摩赛车城...\n");
     }
 
 }

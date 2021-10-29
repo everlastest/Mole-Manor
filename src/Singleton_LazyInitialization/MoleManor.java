@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class MoleManor {
     //创建一个MoleManor的一个对象
-    private Mole player;
+    private static Mole player;
 
     /**
      * 天气情况
@@ -58,8 +58,8 @@ public class MoleManor {
 
             switch(input.nextInt()){
                 case 1:
-                    System.out.println("\n欢迎来到摩尔游乐园！\n请选择想要玩的游戏：");
-                    GameUI gamemaker=new GameUI(player);
+                    System.out.println("\n正在进入摩尔游乐园！");
+                    GameUI gamemaker=new GameUI();
                     gamemaker.playGame();
                     break;
                 case 2:
@@ -69,8 +69,8 @@ public class MoleManor {
                     System.out.println("欢迎来到摩尔商场！\n");
                     break;
                 case 4:
-                    System.out.println("正在进入摩尔聊天室！\n");
-                    ChatUI chatroom = new ChatUI(player);
+                    System.out.println("\n正在进入摩尔聊天室！");
+                    ChatUI chatroom = new ChatUI();
                     chatroom.chating();
                     break;
                 case 0:
@@ -85,7 +85,7 @@ public class MoleManor {
         }
     }
 
-    public Mole getPlayer() {
+    public static Mole getPlayer() {
         return player;
     }
     //需要才创建，保证线程安全

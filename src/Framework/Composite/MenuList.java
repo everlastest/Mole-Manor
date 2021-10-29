@@ -40,8 +40,9 @@ public class MenuList {
         /**
          * 游乐园菜单
          */
-        amuseMenu.add(new MenuOption("做菜"),new MenuOption("摩摩赛车"),new MenuOption("井字棋"));
-
+        Menu raceMenu = new Menu("摩摩赛车场");
+        amuseMenu.add(new MenuOption("摩尔厨房"), raceMenu, new MenuOption("摩摩井字棋"), new MenuOption("摩尔备忘录"));
+        raceMenu.add(new MenuOption("摩摩竞速赛"), new MenuOption("摩摩漂移赛"), new MenuOption("摩摩障碍赛"));
         /**
          * 农场菜单
          */
@@ -60,8 +61,14 @@ public class MenuList {
         return getSublist(menulist.getMenu(), menuname);
     }
 
-    public Component getSublist(ArrayList<Component> sublist, String menuname){
+    private Component getSublist(ArrayList<Component> sublist, String menuname){
         Component temp;
+
+        if (sublist == null){return null;}
+
+        /**
+         * 递归
+         */
         for (Component i : sublist){
             if(i.getName() == menuname){
                 return i;

@@ -10,33 +10,9 @@ public class Mole {
     private Color MoleColor;      //颜色
     private double money;      //摩尔豆
     private int ticket;      //游乐园票数
-    private double score;      //游戏积分
+    private int score;      //游戏积分
 
     public Mole(){
-    }
-    private Mole(Role role,Color color){
-        MoleRole=role;
-        MoleColor=color;
-        MoleName= MoleColor.getColor()+MoleRole.getRole();
-
-        if(role.getRole()=="Molele")
-        {
-            money=500;
-            ticket=0;
-            score=0;
-        }
-        else if(role.getRole()=="Kura")
-        {
-            money=600;
-            ticket=0;
-            score=0;
-        }
-        else if(role.getRole()=="Momo")
-        {
-            money=400;
-            ticket=0;
-            score=0;
-        }
     }
 
     //set和get函数
@@ -63,10 +39,10 @@ public class Mole {
     public void setTicket(int ticket){
         this.ticket=ticket;
     }
-    public double getTicket(){return ticket;}
+    public int getTicket(){return ticket;}
 
-    public void setScore(double score){this.score=score;}
-    public double getScore(){return score;}
+    public void setScore(int score){this.score=score;}
+    public int getScore(){return score;}
 
     public void showMoleInformation(){
         System.out.println("Name is"+MoleName+"!");

@@ -20,13 +20,14 @@ public class TimeRace extends AbstractRacing{
         }
         else{
             ticket--;
-            System.out.println("检票成功！！");
+            System.out.println("检票成功！\n目前剩余票数为：" + ticket);
             return true;
         }
     }
 
     @Override
     protected void RacingProcess(int Score) {
+        System.out.println("\n竞速赛正式开始！");
         Random random=new Random();
         int r=0;
         for(int i=0;i<5;i++) {
@@ -49,17 +50,18 @@ public class TimeRace extends AbstractRacing{
     }
 
     @Override
-    protected void getScore(int Score) {
-        if(Score<540){
-        System.out.println("小摩尔在规定的时间内成功完成比赛！！");
-        System.out.println("小摩尔的最终的成绩为："+Score+"秒");
-        System.out.println("再接再厉！！");
-        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
-        }
-        else{
-        System.out.println("小摩尔在规定的时间内未完成比赛！！");
-        System.out.println("成绩无效，再接再厉！！");
-        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
+    protected int getScore(int Score) {
+        if(Score < 540){
+
+            System.out.println("\n小摩尔在规定的时间内成功完成比赛！！");
+            System.out.println("小摩尔的最终的成绩为：" + Score + "秒");
+            System.out.println("再接再厉！！");
+
+            return (1000 - Score) / 50;
+        } else{
+            System.out.println("\n小摩尔在规定的时间内未完成比赛！！");
+            System.out.println("成绩无效，再接再厉！！");
+            return 0;
         }
     }
 }

@@ -96,14 +96,14 @@ public class ChessBoard {
             }
             else if(result[i] == -3){
                 System.out.println("游戏结束，’⚪‘方获胜！！");
-                return 1;
+                return 2;
             }
 
         }
         //判断是否为平局
         if(num == 9){
             System.out.println("游戏结束，平局！！");
-            return 1;
+            return 3;
         }
         else return 0;
 

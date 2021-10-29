@@ -1,20 +1,48 @@
 package MoleAmuse.GamePackage.TictactoePackage;
 
 import MoleAmuse.GamePackage.Game;
-import MoleAmuse.GamePackage.TictactoePackage.Object.AbstractChess;
-import MoleAmuse.GamePackage.TictactoePackage.Object.ChessBoard;
+import MoleAmuse.GamePackage.TictactoePackage.Object.*;
+import Framework.SimpleFactory.*;
+import Singleton_LazyInitialization.MoleManor;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+
+
 
 public class Tictactoe implements Game {
+
+    private Mole mole = MoleManor.getPlayer();
+
+    /**
+     * 检票
+     * @return
+     */
+    private boolean checkTicket() {
+        System.out.println("\n正在检票......");
+        if(mole.getTicket() == 0) {
+            System.out.println("票数不足，无法进行井字棋游戏，请先购买票！！");
+            return false;
+        }
+        else{
+            mole.setTicket(mole.getTicket() - 1);
+            System.out.println("检票成功！\n目前剩余票数为：" + mole.getTicket());
+            return true;
+        }
+    }
 
     @Override
     public void Play() {
 
         //初始化棋子
-        System.out.println("启动井字棋游戏，开始初始化！！！");
+        System.out.println("\n启动摩摩井字棋！");
 
+        //检票
+        if (!checkTicket()){
+            System.out.println("\n正在退出摩摩井字棋......\n成功退出，已返回游乐园！\n");
+            return;
+        }
+
+        System.out.println("\n开始初始化！");
         //创造井字棋工厂
         TictactoeFactory tictactoeFactory = TictactoeFactory.getInstance();
 
@@ -28,17 +56,17 @@ public class Tictactoe implements Game {
         chessBoard = tictactoeFactory.getChessBoard();
 
         //初始化摩尔选择的棋子
-        System.out.println("请选择你的棋子，‘B’代表黑棋，‘W’代表白棋");
-        Character chesstype = null;
+        System.out.println("请选择你的棋子，1代表黑棋，2代表白棋");
+        int chesstype = 0;
         Scanner scan = new Scanner(System.in);
-        while (chesstype == null) {
-            switch (scan.next()) {
-                case "B":
-                    chesstype = 'B';
+        while (chesstype == 0) {
+            switch (scan.nextInt()) {
+                case 1:
+                    chesstype = 1;
                     System.out.println("你已选择黑棋！");
                     break;
-                case "W":
-                    chesstype = 'W';
+                case 2:
+                    chesstype = 2;
                     System.out.println("你已选择白棋！");
                     break;
                 default:
@@ -65,7 +93,7 @@ public class Tictactoe implements Game {
         while(result == 0)
         {
             //情况一：摩尔选择“⚪”
-            if(chesstype == 'W') {
+            if(chesstype == 2) {
                 try {
                     System.out.println("电脑正在思考中......");
                     Thread.sleep(800);
@@ -89,7 +117,7 @@ public class Tictactoe implements Game {
 
                 //判断结果
                 result = tictactoeFactory.getresult(r, abstractChess, chessBoard);
-                if(result == 1)
+                if(result != 0)
                     break;
 
 
@@ -133,7 +161,7 @@ public class Tictactoe implements Game {
 
                 //判断结果
                 result = tictactoeFactory.getresult(point, abstractChess, chessBoard);
-                if(result == 1)
+                if(result != 0)
                     break;
 
                 try {
@@ -161,7 +189,14 @@ public class Tictactoe implements Game {
             }
         }
 
-        System.out.println("正在退出井字棋游戏......\n成功退出，已返回游乐园！！！\n");
+        //获取游戏积分
+        int score = 0;
+        if (result == 3) {score = 5;}
+        if (result == chesstype) {score = 10;}
+        mole.setScore(score + mole.getScore());
+        System.out.println("小摩尔此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
+
+        System.out.println("\n正在退出摩摩井字棋......\n成功退出，已返回游乐园！\n");
 
 
     }

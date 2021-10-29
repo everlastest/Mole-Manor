@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage;
 
+import Framework.Composite.Component;
+import Framework.Composite.MenuList;
 import MoleAmuse.GamePackage.Game;
 import MoleAmuse.GamePackage.RacingPackage.Template.AbstractRacing;
 import MoleAmuse.GamePackage.RacingPackage.Template.DriftRace;
@@ -11,36 +13,41 @@ import java.util.Scanner;
 public class Racing implements Game{
     @Override
     public void Play() {
-        System.out.println("欢迎来到摩摩赛车城，请选择你要进行的项目：");
-        System.out.println("1.竞速赛");
-        System.out.println("2.漂移赛");
-        System.out.println("3.障碍赛");
+
+        MenuList menuList = MenuList.getInstance();
+        Component raceMenu = menuList.getMenulist("摩摩赛车场");
+
         AbstractRacing abstractRacing = null;
         int racingType = 0;
+
         Scanner scan = new Scanner(System.in);
+
         while (racingType == 0) {
+            raceMenu.printMenu();
             switch (scan.nextInt()) {
                 case 1:
                     racingType = 1;
-                    System.out.println("你已选择竞速赛！");
+                    System.out.println("\n正在启动摩摩竞速赛！");
                     abstractRacing = new TimeRace();
                     break;
                 case 2:
                     racingType = 2;
-                    System.out.println("你已选择漂移赛！");
+                    System.out.println("\n正在启动摩摩漂移赛！");
                     abstractRacing = new DriftRace();
                     break;
                 case 3:
                     racingType = 3;
-                    System.out.println("你已选择障碍赛！");
+                    System.out.println("\n正在启动摩摩障碍赛！");
                     abstractRacing = new ObstacleRace();
                     break;
+                case 0:
+                    System.out.println("\n" + "正在退出摩摩赛车场......\n成功离开，已返回游乐园！\n");
+                    return;
                 default:
-                    System.out.println("输入错误，请重新选择：");
                     break;
             }
+            abstractRacing.StartRacing();
+            racingType = 0;
         }
-        abstractRacing.getTicketInfo(1);
-        abstractRacing.StartRacing();
     }
 }
