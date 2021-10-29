@@ -61,5 +61,6 @@ public class DriftRace extends AbstractRacing{
         System.out.println("小摩尔完成此次漂移赛");
         System.out.println("小摩尔的最终的分为："+Score+"（满分10分）");
         System.out.println("再接再厉！！");
+        System.out.println("正在退出赛车游戏......\n成功离开，已返回游乐园！！！\n");
     }
 }
