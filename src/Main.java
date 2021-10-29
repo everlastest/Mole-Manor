@@ -17,7 +17,6 @@ public class Main {
         }
         else if(key==2){
 
-
         }
     }
 }

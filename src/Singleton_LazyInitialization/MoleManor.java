@@ -1,9 +1,9 @@
 package Singleton_LazyInitialization;
 
-import Composite.Menu;
-import Composite.MenuOption;
-import SimpleFactory.Mole;
-import SimpleFactory.MoleFactory;
+import Framework.Composite.Menu;
+import Framework.Composite.MenuOption;
+import Framework.SimpleFactory.Mole;
+import Framework.SimpleFactory.MoleFactory;
 
 import java.util.Scanner;
 
