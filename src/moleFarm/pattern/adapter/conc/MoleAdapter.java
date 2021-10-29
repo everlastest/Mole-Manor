@@ -17,13 +17,12 @@ public class MoleAdapter extends Mole implements Target {
     private MoleAdapter(){}
     @Override
     public Double getMoleDou() {
-        int money = getMoney();
-        return Double.valueOf(money);
+        return getMoney();
     }
 
     @Override
     public void setMoleDou(Double money) {
-        mole.setMoney(money.intValue());
+        mole.setMoney(money);
     }
 
     public static MoleAdapter getInstance(){

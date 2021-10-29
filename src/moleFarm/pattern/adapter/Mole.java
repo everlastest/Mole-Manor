@@ -10,7 +10,7 @@ public class Mole {
     private Double money;
 
     private static Mole mole = new Mole();
-    
+
 
     public static Mole getInstance() {
         return mole;

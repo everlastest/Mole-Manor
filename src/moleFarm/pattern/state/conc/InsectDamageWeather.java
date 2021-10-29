@@ -12,7 +12,6 @@ public class InsectDamageWeather implements Weather {
     @Override
     public void disinsection(MoleFarm moleFarm) {
         FarmIterator iterator=moleFarm.getIterator();
-        MoleFarmBlock first = iterator.first();
         while(iterator.hasNext()){
             MoleFarmBlock next = iterator.next();
             Set<FarmBlockStatus> set = next.getBlockStatusSet();
