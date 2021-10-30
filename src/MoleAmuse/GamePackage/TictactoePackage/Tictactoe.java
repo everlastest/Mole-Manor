@@ -13,8 +13,6 @@ public class Tictactoe implements Game {
 
     private Mole mole = MoleManor.getPlayer();
 
-    public Tictactoe(){mole = MoleManor.getPlayer();}
-
     /**
      * 检票
      * @return
@@ -60,9 +58,18 @@ public class Tictactoe implements Game {
         //初始化摩尔选择的棋子
         System.out.println("请选择你的棋子，1代表黑棋，2代表白棋");
         int chesstype = 0;
-        Scanner scan = new Scanner(System.in);
         while (chesstype == 0) {
-            switch (scan.nextInt()) {
+            int s=0;
+            /**
+             * 异常处理
+             */
+            try{
+                Scanner Scan = new Scanner(System.in);
+                s=Scan.nextInt();
+            }catch(InputMismatchException e){
+                System.out.println("Exception thrown  :" + e);
+            }
+            switch (s) {
                 case 1:
                     chesstype = 1;
                     System.out.println("你已选择黑棋！");
@@ -128,11 +135,22 @@ public class Tictactoe implements Game {
                 abstractChess = tictactoeFactory.getChessObject('W');
 
                 //选择要走的坐标
-                System.out.println("请输入要走的坐标:");
                 do {
-                    if (scan.hasNext()) {
-                        point = scan.nextInt();
+                    point=0;
+                    /**
+                     * 异常处理
+                     */
+                    while(point==0){
+                        try{
+                            System.out.println("请输入要走的坐标:");
+                            Scanner Scan = new Scanner(System.in);
+                            point=Scan.nextInt();
+                        }catch(InputMismatchException e){
+                            System.out.println("Exception thrown  :" + e);
+                            System.out.println("输入错误，应输入数字！！");
+                        }
                     }
+
                 }
                 while (tictactoeFactory.getchess(point, abstractChess, chessBoard) == false);
 
@@ -150,9 +168,19 @@ public class Tictactoe implements Game {
 
                 //选择要走的坐标
                 do {
-                    System.out.println("请输入要走的坐标:");
-                    if (scan.hasNext()) {
-                        point = scan.nextInt();
+                    point=0;
+                    /**
+                     * 异常处理
+                     */
+                    while(point==0){
+                        try{
+                            System.out.println("请输入要走的坐标:");
+                            Scanner Scan = new Scanner(System.in);
+                            point=Scan.nextInt();
+                        }catch(InputMismatchException e){
+                            System.out.println("Exception thrown  :" + e);
+                            System.out.println("输入错误，应输入数字！！");
+                        }
                     }
                 }
                 while (tictactoeFactory.getchess(point, abstractChess, chessBoard) == false);

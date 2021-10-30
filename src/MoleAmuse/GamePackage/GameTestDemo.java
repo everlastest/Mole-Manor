@@ -1,5 +1,6 @@
 package MoleAmuse.GamePackage;
 
+import Framework.SimpleFactory.Mole;
 import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;
@@ -8,10 +9,8 @@ import Singleton_LazyInitialization.MoleManor;
 public class GameTestDemo {
 
     public static void main(String[] args) {
-
         MoleManor moleManor = MoleManor.getInstance();
         moleManor.test();
-
         ScoreOriginator scoreOriginator = new ScoreOriginator();
         RecordList pointRecordList = new RecordList();
         GameMaker gameMaker = new GameMaker();
