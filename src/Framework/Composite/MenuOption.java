@@ -28,7 +28,7 @@ public class MenuOption extends Component {
 
     @Override
     public Menu getLast() {
-        return lastMenu.getLast();
+        return lastMenu;
     }
 
 
@@ -46,5 +46,8 @@ public class MenuOption extends Component {
     public ArrayList<Component> getMenu() {
         return null;
     }
+
+    @Override
+    public Component moveTo(int index){return this;}
 
 }

@@ -1,22 +1,20 @@
 package Singleton_LazyInitialization;
 
-import Framework.Blackboard.BlackboardUI;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
-import moleFarm.FarmProcess;
 
 import java.util.Scanner;
 
 
 public class MoleManor {
-    //创建一个MoleManor的一个对象
+    //创建一个MoleManor的一个静态对象
     private static Mole player;
 
-    //农场进程类
-    private FarmProcess farmProcess = FarmProcess.newInstance();
+    //菜单
+    private static Component currentMenu;
 
     /**
      * 天气情况
@@ -28,6 +26,20 @@ public class MoleManor {
     private MoleManor(){
     }
     public static MoleManor getInstance(){return SingletonHolder.instance;}
+
+    /**
+     * 测试用例！！！！
+     * 不使用该函数！！！！
+     */
+    public void test() {
+        MoleFactory moleFactory = new MoleFactory();
+        player = moleFactory.createMole("Momo","Red");
+        player.setMoleName("test");
+        player.setMoney(1000);
+        player.setTicket(2);
+        player.setScore(0);
+    }
+
 
     //输出测试信息
     public void showMessage(){
@@ -42,40 +54,36 @@ public class MoleManor {
         /**
          * 创建角色
          */
-        MoleCreator moleCreator = MoleCreator.getInstance();
-        player = moleCreator.createMole();
+        player = MoleCreator.getInstance().createMole();
         System.out.println("\n角色创建成功，正在进入摩尔大厅！！！\n\n\n");
-
-        /**
-         * 显示公告
-         */
-        BlackboardUI blackboard=new BlackboardUI();
-        blackboard.showBlackboard();
 
         /**
          * 添加聊天机器人
          */
-        RobotList robotList = RobotList.getInstance();
-        robotList.addRobot("菩提大伯", "么么公主", "瑞琪");
+
+        RobotList.getInstance().addRobot("菩提大伯", "么么公主", "瑞琪");
 
         /**
          * 主菜单
          */
-        MenuList menuList = MenuList.getInstance();
-        Component totalMenu = menuList.getMenulist("摩尔大厅");
-        totalMenu.printMenu();
+        currentMenu = MenuList.getInstance().meanMenu();
 
         while(true){
 
-            switch(input.nextInt()){
+            printMenu();
+
+            int i = input.nextInt();
+
+            moveTo(i - 1);
+
+            switch(i){
                 case 1:
                     System.out.println("\n正在进入摩尔游乐园！");
-                    GameUI gamemaker=new GameUI();
+                    GameUI gamemaker = new GameUI();
                     gamemaker.playGame();
                     break;
                 case 2:
                     System.out.println("欢迎来到摩尔农场！\n");
-                    farmProcess.process();
                     break;
                 case 3:
                     System.out.println("欢迎来到摩尔商场！\n");
@@ -85,19 +93,17 @@ public class MoleManor {
                     ChatUI chatroom = new ChatUI();
                     chatroom.chating();
                     break;
-                case 5:
-                    BlackboardUI bbd=new BlackboardUI();
-                    bbd.showBlackboard();
-                    break;
                 case 0:
+                    goback();
                     System.out.println("\n您即将离开摩尔庄园，再见是为了更好的重逢！");
-                    robotList.stop();
+                    RobotList.getInstance().stop();
                     return;
                 default:
                     break;
             }
 
-            totalMenu.printMenu();
+            goback();
+
         }
     }
 
@@ -108,4 +114,21 @@ public class MoleManor {
     private static class SingletonHolder{
         private static MoleManor instance =new MoleManor();
     }
+
+    /**
+     * 菜单切换，打印操作
+     * @param index
+     */
+    public static void moveTo(int index){
+        currentMenu = currentMenu.moveTo(index);
+    }
+
+    public static void goback(){
+        currentMenu = currentMenu.getLast();
+    }
+
+    public static void printMenu(){
+        currentMenu.printMenu();
+    }
+
 }

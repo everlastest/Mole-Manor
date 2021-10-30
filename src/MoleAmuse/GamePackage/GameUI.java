@@ -1,25 +1,31 @@
 package MoleAmuse.GamePackage;
 
-import Framework.SimpleFactory.Mole;
-import Framework.Composite.*;
+
+import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
 
 public class GameUI {
 
     private GameMaker gameMaker = GameMaker.getInstance();
-    private MenuList menuList = MenuList.getInstance();
-    private Component amuseMenu;
+
 
     public GameUI(){
-        this.amuseMenu = menuList.getMenulist("摩尔游乐园");
     }
 
     public void playGame(){
+
         while(true){
-            amuseMenu.printMenu();
+
+            MoleManor.printMenu();
+
             Scanner scan = new Scanner(System.in);
-            switch(scan.nextInt()){
+
+            int i = scan.nextInt();
+
+            MoleManor.moveTo(i - 1);
+
+            switch(i){
                 case 1:
                     gameMaker.playCooking();
                     break;
@@ -30,11 +36,18 @@ public class GameUI {
                 case 3:
                     gameMaker.playTictactoe();
                     break;
+                case 4:
+                    break;
                 case 0:
+                    MoleManor.goback();
                     System.out.println("\n已离开游乐园，即将返回摩尔大厅！！！\n\n\n");
+                    return;
                 default:
                     break;
             }
+
+            MoleManor.goback();
+
         }
     }
 }
