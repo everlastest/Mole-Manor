@@ -127,10 +127,10 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         try {
             Method method = MoleFarmWarehouse.class.getDeclaredMethod(methodName);
             Map<T, Integer> objectMap = (Map<T, Integer>) method.invoke(this);
-            Integer orinum = objectMap.putIfAbsent(object, num);
+            Integer oriNum = objectMap.putIfAbsent(object, num);
             //若仓库中原本有库存，则将其与新增进货量累加
-            if (orinum != null) {
-                objectMap.put(object, num + orinum);
+            if (oriNum != null) {
+                objectMap.put(object, num + oriNum);
             }
             return true;
             //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
