@@ -10,18 +10,22 @@ import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.Home;
+import moleFarm.pattern.state.Context;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * 种植方法是一个静态类()有很多静态方法
+ */
 public class FarmGrowth {
-    /**
-     * 种植方法是一个静态类()有很多静态方法
-     */
+    private static WeatherAdapter weather=WeatherAdapter.getInstance();
+
     private static MoleAdapter mole=MoleAdapter.getInstance();
 
     private static final SeedFactory seedFactory = Home.seedFactory;
@@ -33,16 +37,11 @@ public class FarmGrowth {
     private static final MoleFarmWarehouse moleFarmWarehouse=mole.getFarmWarehouse();
 
     private static final Map<String, String> map = JsonOp.searchMapper();
-
-    public FarmGrowth() {
-    }
-
     /**
      * 播种
-     *
      * @param seed
      */
-    public static boolean plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
+    public static boolean plantSeed(AbstractSeed seed,MoleFarmBlock farmBlock) {
         if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
             return false;
@@ -94,13 +93,16 @@ public class FarmGrowth {
      * 浇水
      */
     public static void watering(MoleFarmBlock farmBlock) {
-        //判断是否存在干旱状态，若存在则将其去除
-        farmBlock.getBlockStatusSet().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT));
-        //使用浇水壶浇水
-        moleFarmWarehouse.getWateringCan().ToolBehavior();
-
+        Context context=new Context(weather,farmBlock);
+        context.watering();
     }
-
+    /**
+     * 除虫
+     */
+    public static void disinsection(MoleFarmBlock farmBlock) {
+        Context context=new Context(weather,farmBlock);
+        context.disInsection();
+    }
     /**
      * 施肥
      *
@@ -147,17 +149,6 @@ public class FarmGrowth {
         farmBlock.getBlockStatusSet().removeIf(s -> s.equals(FarmBlockStatus.WEEDS));
         //调用镰刀除草
         moleFarmWarehouse.getSickle().ToolBehavior();
-    }
-
-    /**
-     * 除虫
-     */
-    public static void disinsection(MoleFarmBlock farmBlock) {
-        if (farmBlock.getBlockStatusSet().removeIf(s -> s.equals(FarmBlockStatus.INSECT_DISASTER))) {
-            moleFarmWarehouse.getPesticide().ToolBehavior();
-        } else {
-            System.out.println("农场一片祥和，没有遭遇虫灾");
-        }
     }
 
     /**

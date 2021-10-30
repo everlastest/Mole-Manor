@@ -1,14 +1,47 @@
 package moleFarm.pattern.adapter.conc;
 
+import MoleMall.MallProcess;
+import MoleMall.visitor.ClothesLeaseVisitor;
+import moleFarm.common.MoleFarmBlock;
+import moleFarm.common.product.tool.Pesticide;
+import moleFarm.common.product.tool.WateringCan;
 import moleFarm.pattern.adapter.Target;
 import moleFarm.pattern.adapter.Weather;
+import moleFarm.pattern.state.conc.CloudyWeather;
+import moleFarm.pattern.state.conc.InsectDamageWeather;
+import moleFarm.pattern.state.conc.RainWeather;
+import moleFarm.pattern.state.conc.SunnyWeather;
+
+import java.util.Random;
 
 /**
  * 天气适配器
  */
 public class WeatherAdapter extends Weather implements Target {
-    private WeatherAdapter(){}
 
+    public static MoleAdapter mole=MoleAdapter.getInstance();
+
+    public static WateringCan wateringCan= mole.getFarmWarehouse().getWateringCan();
+
+    public static Pesticide pesticide= mole.getFarmWarehouse().getPesticide();
+
+    private static WeatherAdapter adapter;
+    static
+    {
+        //随机跳转天气
+        Random random = new Random();
+        int ran = random.nextInt(4);
+        if(ran==0) {
+            adapter = new SunnyWeather();
+        }else if(ran==1){
+            adapter=new RainWeather();
+        }else if(ran==2){
+            adapter=new InsectDamageWeather();
+        }
+        else {
+            adapter=new CloudyWeather();
+        }
+    }
     /**
      * 获取天气
      * @return
@@ -17,18 +50,11 @@ public class WeatherAdapter extends Weather implements Target {
     public String getWeather() {
         return getWeatherStatus();
     }
-
-    /**
-     * 天气转变
-     * @return
-     */
-    public String transfer(){
-        //随机跳转天气
-        double ran = Math.random() * 3;
-        weatherStatus = ran<1?"晴天":ran<2?"雨天":"阴天";
-        return weatherStatus;
-    }
     public static WeatherAdapter getInstance(){
-        return new WeatherAdapter();
+        return adapter;
     }
+
+    public void watering(MoleFarmBlock farmBlock){}
+
+    public void disInsection(MoleFarmBlock farmBlock){}
 }

@@ -1,22 +1,27 @@
 package moleFarm.pattern.state.conc;
 
-import moleFarm.common.MoleFarm;
 import moleFarm.common.MoleFarmBlock;
+import moleFarm.common.product.tool.Pesticide;
 import moleFarm.common.status.FarmBlockStatus;
-import moleFarm.pattern.iterator.conc.FarmIterator;
-import moleFarm.pattern.state.Weather;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
-import java.util.Set;
+public class InsectDamageWeather extends WeatherAdapter {
+    private final String weatherStatus="虫灾";
 
-public class InsectDamageWeather implements Weather {
     @Override
-    public void disinsection(MoleFarm moleFarm) {
-        FarmIterator iterator=moleFarm.getIterator();
-        while(iterator.hasNext()){
-            MoleFarmBlock next = iterator.next();
-            Set<FarmBlockStatus> set = next.getBlockStatusSet();
-            //如果存在虫灾状态就删除
-            set.removeIf(s->s.equals(FarmBlockStatus.INSECT_DISASTER));
-        }
+    public String getWeather() {
+        return weatherStatus;
+    }
+
+    @Override
+    public void watering(MoleFarmBlock farmBlock) {
+        wateringCan.ToolBehavior();
+        farmBlock.getBlockStatusSet().removeIf((s)->s.equals(FarmBlockStatus.DROUGHT));
+    }
+
+    @Override
+    public void disInsection(MoleFarmBlock farmBlock) {
+        pesticide.ToolBehavior();
+        farmBlock.getBlockStatusSet().removeIf(s->s.equals(FarmBlockStatus.INSECT_DISASTER));
     }
 }
