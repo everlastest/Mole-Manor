@@ -24,6 +24,7 @@ import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
+import moleFarm.pattern.observer.WeatherObserver;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -294,23 +295,25 @@ public class FarmProcess {
      * 农场主函数
      */
     public void process() {
-        System.out.println("输入y进入农场：");
         Scanner input = new Scanner(System.in);
-        String str = input.next();
         //获取今日天气并输出
         WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
         weatherAdapter.transfer();
-        while (!"0".equals(str)) {
+        while (true) {
             //欢迎辞
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
             System.out.print(weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
             String str1 = input.next();
+            if("0".equals(str1))break;
             //农田模块
             while ("1".equals(str1)) {
                 //绘制农田状态图
                 farm.showFarm();
+                //观察者模式
+                WeatherObserver weatherObserver = WeatherObserver.getInstance();
+                weatherObserver.observer(weatherAdapter);
                 System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入b选择批量操作：");
                 String str2 = input.next();
                 if ("0".equals(str2)) {
