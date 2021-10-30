@@ -5,12 +5,13 @@ import moleFarm.common.MoleFarmWarehouse;
 import moleFarm.common.Shop;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
+import moleFarm.pattern.command.Command;
 
 /**
  * 具体命令
  * 仓库发送请求，从商店进货种子
  */
-public class SeedCommand {
+public class SeedCommand extends Command {
     /**
      * 命令接收方，仓库
      */
