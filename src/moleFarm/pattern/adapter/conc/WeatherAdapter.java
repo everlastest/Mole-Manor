@@ -25,21 +25,20 @@ public class WeatherAdapter extends Weather implements Target {
 
     public static Pesticide pesticide= mole.getFarmWarehouse().getPesticide();
 
-    private static WeatherAdapter adapter;
-    static
-    {
-        //随机跳转天气
+    public static WeatherAdapter adapter;
+    //随机跳转天气
+    public static WeatherAdapter changeWeather(){
         Random random = new Random();
         int ran = random.nextInt(4);
         if(ran==0) {
-            adapter = new SunnyWeather();
+            return new SunnyWeather();
         }else if(ran==1){
-            adapter=new RainWeather();
+            return new RainWeather();
         }else if(ran==2){
-            adapter=new InsectDamageWeather();
+            return new InsectDamageWeather();
         }
         else {
-            adapter=new CloudyWeather();
+            return new CloudyWeather();
         }
     }
     /**

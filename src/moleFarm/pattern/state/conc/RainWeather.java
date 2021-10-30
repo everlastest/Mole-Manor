@@ -13,7 +13,7 @@ public class RainWeather extends WeatherAdapter {
 
     @Override
     public void watering(MoleFarmBlock farmBlock) {
-        System.out.println("下雨天，再浇水可就gg了...");
+        System.out.println("下雨天还敢浇水，不怕烂根么！！！");
     }
 
     @Override

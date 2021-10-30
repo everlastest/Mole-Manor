@@ -181,7 +181,7 @@ public class FarmProcess {
                 MoleFarmBlock block = iterator.getByIndex(index);
                 //控制台输出农田块信息
                 block.getInfo();
-                System.out.println("请选择：[0]返回上级 [1]种植作物 [2]收获作物 [3]浇水 [4]——除草 [5]——除虫 [6]——施肥 [7]—铲除作物");
+                System.out.println("请选择：[0]返回上级 [1]种植作物 [2]收获作物 [3]浇水 [4]除草 [5]除虫 [6]施肥 [7]铲除作物");
                 String str3 = input.next();
                 if ("0".equals(str3)) {
                     break;
@@ -284,7 +284,9 @@ public class FarmProcess {
      */
     public void process() {
         Scanner input = new Scanner(System.in);
-        //观察者模式
+        //观察者模式,通过修改天气，修改除草和浇水的方法
+        WeatherAdapter.adapter=WeatherAdapter.changeWeather();
+        weatherAdapter=WeatherAdapter.getInstance();
         WeatherObserver weatherObserver = WeatherObserver.getInstance();
         weatherObserver.observer(weatherAdapter);
         while (true) {
@@ -292,14 +294,14 @@ public class FarmProcess {
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
             //获取今日天气并输出
-            System.out.print(weatherAdapter.getWeather() + "\n");
+            System.out.print(this.weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：[0]游戏首页 [1]农田 [2]仓库 ");
             String str1 = input.next();
             if("0".equals(str1))break;
             //农田模块
             while ("1".equals(str1)) {
                 //绘制农田状态图
-                farm.showFarm(weatherAdapter.getWeather());
+                farm.showFarm(this.weatherAdapter.getWeather());
                 for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
                     MoleFarmBlock next = it.next();
                     if (next.getSeed() != null && next.getSeedStatus() != null) {
