@@ -1,5 +1,6 @@
 package Singleton_LazyInitialization;
 
+import Framework.Blackboard.BlackboardUI;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
@@ -46,6 +47,12 @@ public class MoleManor {
         System.out.println("\n角色创建成功，正在进入摩尔大厅！！！\n\n\n");
 
         /**
+         * 显示公告
+         */
+        BlackboardUI blackboard=new BlackboardUI();
+        blackboard.showBlackboard();
+
+        /**
          * 添加聊天机器人
          */
         RobotList robotList = RobotList.getInstance();
@@ -77,6 +84,10 @@ public class MoleManor {
                     System.out.println("\n正在进入摩尔聊天室！");
                     ChatUI chatroom = new ChatUI();
                     chatroom.chating();
+                    break;
+                case 5:
+                    BlackboardUI bbd=new BlackboardUI();
+                    bbd.showBlackboard();
                     break;
                 case 0:
                     System.out.println("\n您即将离开摩尔庄园，再见是为了更好的重逢！");
