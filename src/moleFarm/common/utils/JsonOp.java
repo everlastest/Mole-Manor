@@ -50,7 +50,7 @@ public class JsonOp {
         List<String> list = null;
         try {
             JSONObject json = getJson(jsonPath);
-            JSONObject temp = (JSONObject) (json.get("farm"));
+            JSONObject temp =json.getJSONObject("farm");
             list = (List<String>) temp.get(text);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -73,19 +73,19 @@ public class JsonOp {
             JSONObject json = getJson(jsonPath);
             if (size == 1) {
                 if (Objects.equals(name, difference[0])) {
-                    return (String) json.get(name);
+                    return json.getString(name);
                 } else {
-                    JSONObject factory = (JSONObject) json.get("factory");
-                    JSONObject conc = (JSONObject) factory.get("conc");
-                    return (String) conc.get(name);
+                    JSONObject factory = json.getJSONObject("factory");
+                    JSONObject conc = factory.getJSONObject("conc");
+                    return conc.getString(name);
                 }
             } else {
                 if (Objects.equals(name, difference[0]) || Objects.equals(name, difference[1])) {
-                    return (String) json.get(name);
+                    return json.getString(name);
                 } else {
-                    JSONObject factory = (JSONObject) json.get("factory");
-                    JSONObject conc = (JSONObject) factory.get("conc");
-                    return (String) conc.get(name);
+                    JSONObject factory = json.getJSONObject("factory");
+                    JSONObject conc = factory.getJSONObject("conc");
+                    return conc.getString(name);
                 }
             }
         } catch (FileNotFoundException e) {
