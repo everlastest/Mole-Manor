@@ -1,0 +1,9 @@
+{
+  "AbstractFactory": "MoleMall.abstractFactory.AbstractFactory.",
+  "ClothesFactory": "MoleMall.abstractFactory.factory.ClothesFactory.",
+  "FoodFactory": "MoleMall.abstractFactory.factory.FoodFactory.",
+  "SeedFactory": "MoleMall.abstractFactory.factory.SeedFactory.",
+  "Clothes": "MoleMall.commodities.clothes.",
+  "Food": "MoleMall.commodities.food.",
+  "Seed": "MoleMall.commodities.seed."
+}
