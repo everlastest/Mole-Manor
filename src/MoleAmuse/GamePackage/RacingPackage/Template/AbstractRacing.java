@@ -2,6 +2,7 @@ package MoleAmuse.GamePackage.RacingPackage.Template;
 
 import ExceptionHandle.ExceptionHandle;
 import Framework.SimpleFactory.Mole;
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
@@ -82,8 +83,9 @@ public abstract class AbstractRacing{
 
         RacingProcess(score);
 
-        mole.setScore(mole.getScore() + getScore(score));
-        System.out.println("小摩尔此次获得游戏积分：" + getScore(score) + ", 总积分为：" + mole.getScore());
+        score = getScore(score);
+        mole.setScore(mole.getScore() + score);
+        System.out.println("小摩尔" + MoleManor.getPlayer().getMoleName() + "此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
 
         System.out.println("正在返回摩摩赛车城...\n");
     }

@@ -30,7 +30,7 @@ public class RecordList {
      * @param
      */
     public void printList(){
-        System.out.println("----- 备忘录 -----");
+        System.out.println("\n----- 备忘录 -----");
 
         if (recordList.size() == 0){
             System.out.println("\n你还没有玩过游戏呢..去游乐场看看吧！\n");
@@ -38,7 +38,7 @@ public class RecordList {
         }
 
         for(RecordMemento i : recordList){
-            System.out.println("游戏名称：" + i.getName() + " 分数为:" + i.getScore());
+            System.out.println("游戏时间：" + i.getDate() + " 游戏名称：" + i.getName() + " 分数为:" + i.getScore());
         }
         System.out.println();
     }

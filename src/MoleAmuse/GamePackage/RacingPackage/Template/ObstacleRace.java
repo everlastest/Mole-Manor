@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
+import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Random;
@@ -64,11 +66,25 @@ public class ObstacleRace extends AbstractRacing{
             System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"的最终的成绩为：" + Score + "（满分为7分）");
             System.out.println("请收下膝盖！！");
 
+            /**
+             * 添加备忘录
+             */
+            ScoreOriginator scoreOriginator = new ScoreOriginator();
+            scoreOriginator.setRecord(Score * 2,"摩摩障碍赛");
+            RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
+
             return Score * 2;
         } else{
             System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"止遗憾步障碍赛第"+ (Score + 1) + "关!!");
             System.out.println("最终的成绩为："+Score+"（满分为7分）");
             System.out.println("再接再厉！！");
+
+            /**
+             * 添加备忘录
+             */
+            ScoreOriginator scoreOriginator = new ScoreOriginator();
+            scoreOriginator.setRecord(Score,"摩摩障碍赛");
+            RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
 
             return Score;
         }

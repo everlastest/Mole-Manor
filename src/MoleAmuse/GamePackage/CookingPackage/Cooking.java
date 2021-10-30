@@ -2,6 +2,8 @@ package MoleAmuse.GamePackage.CookingPackage;
 
 import Framework.SimpleFactory.Mole;
 import MoleAmuse.GamePackage.Game;
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
+import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
@@ -29,6 +31,13 @@ public class Cooking implements Game {
 
         mole.setMoney(mole.getMoney() + 100);
         System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得摩尔豆：" + 100 + ", 总摩尔豆为：" + mole.getMoney());
+
+        /**
+         * 添加备忘录
+         */
+        ScoreOriginator scoreOriginator = new ScoreOriginator();
+        scoreOriginator.setRecord(1,"摩摩厨房");
+        RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
 
         System.out.println("\n正在退出摩尔厨房......\n成功退出，已返回游乐园！\n");
     }

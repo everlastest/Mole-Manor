@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
+import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Random;
@@ -60,9 +62,17 @@ public class DriftRace extends AbstractRacing{
 
     @Override
     protected int getScore(int Score) {
+
         System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"完成此次漂移赛");
         System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"的最终的分为："+Score+"（满分10分）");
         System.out.println("再接再厉！！");
+
+        /**
+         * 添加备忘录
+         */
+        ScoreOriginator scoreOriginator = new ScoreOriginator();
+        scoreOriginator.setRecord(Score,"摩摩漂移赛");
+        RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
 
         return Score;
     }
