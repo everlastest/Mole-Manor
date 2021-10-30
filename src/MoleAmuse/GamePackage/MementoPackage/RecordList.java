@@ -42,4 +42,16 @@ public class RecordList {
         }
         System.out.println();
     }
+
+    /**
+     * 获取游戏记录
+     */
+    public void getRecord(int index){
+        if (index <= 0 || index > recordList.size()) {
+            System.out.println("找不到该游戏记录！");
+            return;
+        }
+        RecordMemento i = recordList.get(index - 1);
+        System.out.println("游戏时间：" + i.getDate() + " 游戏名称：" + i.getName() + " 分数为:" + i.getScore());
+    }
 }
