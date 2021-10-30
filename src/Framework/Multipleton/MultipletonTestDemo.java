@@ -2,7 +2,7 @@ package Framework.Multipleton;
 
 public class MultipletonTestDemo {
     void testMultipleton(){
-        String[] zonesName={"MoleManor","MoleFarm","MoleMall","Chatroom"};
+        String[] zonesName={"MoleManor","MoleFarm", "MoleMall1","Chatroom"};
         String zone1 = ManorZones.getInstance("movieZone").toString();
         String zone2 = ManorZones.getInstance("amusementZone").toString();
         String zone3 = ManorZones.getInstance("restaurantZone").toString();
