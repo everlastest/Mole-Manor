@@ -5,6 +5,7 @@ import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
+import moleFarm.FarmProcess;
 
 import java.util.Scanner;
 
@@ -12,6 +13,9 @@ import java.util.Scanner;
 public class MoleManor {
     //创建一个MoleManor的一个对象
     private static Mole player;
+
+    //农场进程类
+    private FarmProcess farmProcess = FarmProcess.newInstance();
 
     /**
      * 天气情况
@@ -64,6 +68,7 @@ public class MoleManor {
                     break;
                 case 2:
                     System.out.println("欢迎来到摩尔农场！\n");
+                    farmProcess.process();
                     break;
                 case 3:
                     System.out.println("欢迎来到摩尔商场！\n");
