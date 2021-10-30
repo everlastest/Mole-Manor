@@ -299,7 +299,7 @@ public class FarmProcess {
             //农田模块
             while ("1".equals(str1)) {
                 //绘制农田状态图
-                farm.showFarm();
+                farm.showFarm(weatherAdapter.getWeather());
                 for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
                     MoleFarmBlock next = it.next();
                     if (next.getSeed() != null && next.getSeedStatus() != null) {
@@ -338,4 +338,5 @@ public class FarmProcess {
             }
         }
     }
+
 }

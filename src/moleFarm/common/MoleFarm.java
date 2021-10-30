@@ -9,6 +9,7 @@ import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.product.Shape;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
@@ -139,7 +140,7 @@ public class MoleFarm implements IFarm {
     /**
      * 展示农场
      */
-    public void showFarm() {
+    public void showFarm(String weather) {
         System.out.println("\n农田状态如下：");
         for (int i = 0; i < farmBlockList.size(); i += 3) {
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┏━┓" : "┎┰┒");
@@ -153,7 +154,7 @@ public class MoleFarm implements IFarm {
         }
         //随即添加农田块状态
         for(MoleFarmBlock block:farmBlockList){
-            block.addStatus();
+            block.addStatus(weather);
         }
     }
 }

@@ -35,8 +35,6 @@ public class MoleFarmBlock implements IFarmBlock {
      */
     private Set<FarmBlockStatus> blockStatusSet = new LinkedHashSet<>();
 
-    private WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
-
 
     public Shape getShape() {
         return shape;
@@ -96,12 +94,12 @@ public class MoleFarmBlock implements IFarmBlock {
      * 增加农田状态
      * 随机
      */
-    public void addStatus() {
+    public void addStatus(String weather) {
         //0~2随机增加状态，3不增加异常状态
         Double random = Math.floor(Math.random() * 5);
         int i = random.intValue();
         if(i>=3) return;
-        if(i==2&&weatherAdapter.getWeather()=="雨天")return;
+        if(i==2&&weather=="雨天")return;
         FarmBlockStatus value = FarmBlockStatus.values()[i];
         blockStatusSet.add(value);
 //        for (FarmBlockStatus value : FarmBlockStatus.values()) {
