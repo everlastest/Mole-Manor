@@ -5,6 +5,6 @@ import moleFarm.common.product.IProduct;
 /**
  * 抽象命令
  */
-public abstract class Command {
-    public boolean execute(){return false;};
+public interface Command {
+    public boolean execute(String name, int num);
 }

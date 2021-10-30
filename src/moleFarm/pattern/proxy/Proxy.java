@@ -12,12 +12,12 @@ import moleFarm.pattern.command.conc.SeedCommand;
 public class Proxy {
     private FertilizerCommand fertilizerCommand;
     private SeedCommand seedCommand;
-    public boolean seedPurchase(AbstractSeed seed, int num){
+    public boolean seedPurchase(String name, int num){
         seedCommand=new SeedCommand();
-        return seedCommand.execute(seed,num);
+        return seedCommand.execute(name,num);
     }
-    public boolean fertilizerPurchase(AbstractFertilizer fertilizer, int num){
+    public boolean fertilizerPurchase(String name, int num){
         fertilizerCommand=new FertilizerCommand();
-        return fertilizerCommand.execute(fertilizer,num);
+        return fertilizerCommand.execute(name,num);
     }
 }
