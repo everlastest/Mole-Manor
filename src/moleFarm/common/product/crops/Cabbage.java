@@ -25,25 +25,7 @@ public class Cabbage extends AbstractCrops implements Cloneable {
      */
     private final Double price = 10.0;
 
-    /**
-     * 构造方法
-     *
-     * @param name
-     * @param color
-     * @param size
-     * @param price
-     */
-    private Cabbage(String name, Color color, Size size, Double price) {
-        super(name, color, size, price);
-    }
-
     public Cabbage() {
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        Cabbage cabbage = new Cabbage(this.name, this.color, this.size, this.price);
-        return cabbage;
     }
 
     @Override

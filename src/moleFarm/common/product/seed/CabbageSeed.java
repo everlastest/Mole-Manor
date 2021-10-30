@@ -36,16 +36,6 @@ public class CabbageSeed extends AbstractSeed implements Cloneable {
     public CabbageSeed() {
     }
 
-    /**
-     * 原型模式，重写clone方法
-     *
-     * @return
-     */
-    @Override
-    public Object clone() {
-        CabbageSeed cabbageSeed = new CabbageSeed(this.name, this.color, this.size, this.growthCycle, this.price);
-        return cabbageSeed;
-    }
 
     public String getName() {
         return name;

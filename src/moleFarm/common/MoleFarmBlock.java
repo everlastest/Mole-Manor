@@ -6,6 +6,7 @@ import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.status.product.Shape;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -33,6 +34,8 @@ public class MoleFarmBlock implements IFarmBlock {
      * 农田块状态列表
      */
     private Set<FarmBlockStatus> blockStatusSet = new LinkedHashSet<>();
+
+    private WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
 
 
     public Shape getShape() {
@@ -98,6 +101,7 @@ public class MoleFarmBlock implements IFarmBlock {
         Double random = Math.floor(Math.random() * 5);
         int i = random.intValue();
         if(i>=3) return;
+        if(i==2&&weatherAdapter.getWeather()=="雨天")return;
         FarmBlockStatus value = FarmBlockStatus.values()[i];
         blockStatusSet.add(value);
 //        for (FarmBlockStatus value : FarmBlockStatus.values()) {

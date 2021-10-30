@@ -36,17 +36,6 @@ public class EggplantSeed extends AbstractSeed implements Cloneable {
     public EggplantSeed() {
     }
 
-    /**
-     * 原型模式，重写clone方法
-     *
-     * @return
-     */
-    @Override
-    public Object clone() {
-        EggplantSeed eggplantSeed = new EggplantSeed(this.name, this.color, this.size, this.growthCycle, this.price);
-        return eggplantSeed;
-    }
-
     public String getName() {
         return name;
     }

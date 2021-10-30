@@ -32,25 +32,6 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable {
     public WatermelonSeed() {
     }
 
-    /**
-     * 构造方法
-     *
-     * @param name
-     * @param color
-     * @param size
-     * @param growthCycle
-     * @param price
-     */
-    private WatermelonSeed(String name, Color color, Size size, String growthCycle, Double price) {
-        super(name, color, size, growthCycle, price);
-    }
-
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        WatermelonSeed watermelonSeed = new WatermelonSeed(this.name, this.color, this.size, this.growthCycle, this.price);
-        return watermelonSeed;
-    }
 
     public String getName() {
         return name;

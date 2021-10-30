@@ -25,26 +25,7 @@ public class Eggplant extends AbstractCrops implements Cloneable {
      */
     private final Double price = 20.0;
 
-    /**
-     * 构造方法
-     *
-     * @param name
-     * @param color
-     * @param size
-     * @param price
-     */
-    private Eggplant(String name, Color color, Size size, Double price) {
-        super(name, color, size, price);
-    }
-
     public Eggplant() {
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-
-        Eggplant eggplant = new Eggplant(this.name, this.color, this.size, this.price);
-        return eggplant;
     }
 
     @Override

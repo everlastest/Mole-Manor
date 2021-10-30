@@ -32,24 +32,6 @@ public class WheatSeed extends AbstractSeed implements Cloneable {
     public WheatSeed() {
     }
 
-    /**
-     * 构造方法
-     *
-     * @param name
-     * @param color
-     * @param size
-     * @param growthCycle
-     * @param price
-     */
-    private WheatSeed(String name, Color color, Size size, String growthCycle, Double price) {
-        super(name, color, size, growthCycle, price);
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        WheatSeed wheatSeed = new WheatSeed(this.name, this.color, this.size, this.growthCycle, this.price);
-        return wheatSeed;
-    }
 
     public String getName() {
         return name;

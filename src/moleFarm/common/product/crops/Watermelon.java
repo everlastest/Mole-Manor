@@ -25,25 +25,8 @@ public class Watermelon extends AbstractCrops implements Cloneable {
      */
     private final Double price = 20.0;
 
-    /**
-     * 构造方法
-     *
-     * @param name
-     * @param color
-     * @param size
-     * @param price
-     */
-    private Watermelon(String name, Color color, Size size, Double price) {
-        super(name, color, size, price);
-    }
 
     public Watermelon() {
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Watermelon watermelon = new Watermelon(this.name, this.color, this.size, this.price);
-        return watermelon;
     }
 
     @Override
