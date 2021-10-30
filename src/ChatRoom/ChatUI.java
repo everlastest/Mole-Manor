@@ -27,19 +27,17 @@ public class ChatUI {
 
 
     //聊天界面接口
-    public void chating(){
-
-        MoleManor.printMenu();
+    public void chatting(){
 
         Scanner scan = new Scanner(System.in);
         ExceptionHandle exceptionHandle=new ExceptionHandle();
         int i = 0;
 
+        MoleManor.printMenu();
+
         while (true){
 
             i= exceptionHandle.exception();
-
-
             switch (i) {
                 case 1:
                     String message = null;

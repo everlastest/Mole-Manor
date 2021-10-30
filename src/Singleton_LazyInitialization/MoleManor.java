@@ -1,12 +1,11 @@
 package Singleton_LazyInitialization;
 
-import ExceptionHandle.ExceptionHandle;
+import Framework.Blackboard.BlackboardUI;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
-import moleFarm.FarmProcess;
 
 import java.util.Scanner;
 
@@ -53,8 +52,6 @@ public class MoleManor {
         System.out.println("欢迎来到摩尔庄园！\n\n\n");
         Scanner input = new Scanner(System.in);
 
-        ExceptionHandle exceptionHandle=new ExceptionHandle();
-
         /**
          * 创建角色
          */
@@ -76,8 +73,7 @@ public class MoleManor {
 
             printMenu();
 
-            int i = exceptionHandle.exception();
-
+            int i = input.nextInt();
 
             moveTo(i - 1);
 
@@ -89,7 +85,6 @@ public class MoleManor {
                     break;
                 case 2:
                     System.out.println("欢迎来到摩尔农场！\n");
-                    FarmProcess.newInstance().process();
                     break;
                 case 3:
                     System.out.println("欢迎来到摩尔商场！\n");
@@ -97,7 +92,12 @@ public class MoleManor {
                 case 4:
                     System.out.println("\n正在进入摩尔聊天室！");
                     ChatUI chatroom = new ChatUI();
-                    chatroom.chating();
+                    chatroom.chatting();
+                    break;
+                case 5:
+                    System.out.println("\n正在显示广告牌内容！");
+                    BlackboardUI blackboard = new BlackboardUI();
+                    blackboard.showBlackboard();
                     break;
                 case 0:
                     goback();

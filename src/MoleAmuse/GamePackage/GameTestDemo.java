@@ -9,10 +9,11 @@ import Singleton_LazyInitialization.MoleManor;
 public class GameTestDemo {
 
     public static void main(String[] args) {
+
         MoleManor moleManor = MoleManor.getInstance();
         moleManor.test();
         ScoreOriginator scoreOriginator = new ScoreOriginator();
-        RecordList pointRecordList = new RecordList();
+        RecordList pointRecordList = RecordList.getInstance();
         GameMaker gameMaker = new GameMaker();
 
 
@@ -32,8 +33,6 @@ public class GameTestDemo {
         System.out.println("\n当前游戏名称："+scoreOriginator.getName()+"\n当前分数为:"+scoreOriginator.getScore()+"\n");
 
         System.out.println("\n开始打印得分备忘录内容...");
-        for (int i=2;i>=0;i--) {
-            pointRecordList.get(i);
-        }
+        pointRecordList.printList();
     }
 }
