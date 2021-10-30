@@ -30,7 +30,7 @@ public class GameUI {
                     gameMaker.playCooking();
                     break;
                 case 2:
-                    System.out.println("\n正在进入摩摩赛车城！");
+                    System.out.println("\n正在进入摩摩赛车场！");
                     gameMaker.playRacing();
                     break;
                 case 3:
