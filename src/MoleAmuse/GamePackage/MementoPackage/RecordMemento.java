@@ -7,11 +7,11 @@ package MoleAmuse.GamePackage.MementoPackage;
  */
 public class RecordMemento {
     private int score;
-    private String game_name;
+    private String gameName;
 
-    public RecordMemento(int score, String game_name){
+    public RecordMemento(int score, String gameName){
         this.score = score;
-        this.game_name = game_name;
+        this.gameName = gameName;
     }
     /**
      * 获取分数
@@ -22,9 +22,9 @@ public class RecordMemento {
     }
     /**
      * 获取游戏名称
-     * @return game_name
+     * @return gameName
      */
     public String getName(){
-        return game_name;
+        return gameName;
     }
 }
