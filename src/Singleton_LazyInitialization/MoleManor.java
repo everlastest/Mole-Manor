@@ -1,5 +1,6 @@
 package Singleton_LazyInitialization;
 
+import ExceptionHandle.ExceptionHandle;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
@@ -51,6 +52,8 @@ public class MoleManor {
         System.out.println("欢迎来到摩尔庄园！\n\n\n");
         Scanner input = new Scanner(System.in);
 
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
+
         /**
          * 创建角色
          */
@@ -72,7 +75,8 @@ public class MoleManor {
 
             printMenu();
 
-            int i = input.nextInt();
+            int i = exceptionHandle.exception();
+
 
             moveTo(i - 1);
 

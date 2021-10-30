@@ -1,5 +1,6 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import ExceptionHandle.ExceptionHandle;
 import Framework.SimpleFactory.Mole;
 import Singleton_LazyInitialization.MoleManor;
 
@@ -31,19 +32,27 @@ public abstract class AbstractRacing{
      * 准备阶段
      */
     public void Prepare(){
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
         System.out.println("\n请摩尔系好安全带，戴好头盔，游戏马上开始！！");
         System.out.println("输入1：确保安全带系好");
         Scanner input=new Scanner(System.in);
-        while(input.nextInt()!=1){
+        int s=0;
+        s=exceptionHandle.exception();
+        while(s!=1){
             System.out.println("还未系好安全带，请重新输入");
+            s=exceptionHandle.exception();
         }
         System.out.println("输入2：确保头盔戴好");
-        while(input.nextInt()!=2){
+        s=exceptionHandle.exception();
+        while(s!=2){
             System.out.println("还未戴好头盔，请重新输入");
+            s=exceptionHandle.exception();
         }
-        System.out.println("输入3：游戏马上开始");
-        while(input.nextInt()!=3){
-            System.out.println("输入3：比赛开始！！！");
+        System.out.println("输入3：确认游戏开始");
+        s=exceptionHandle.exception();
+        while(s!=3){
+            System.out.println("输入3：确认开始比赛");
+            s=exceptionHandle.exception();
         }
     }
 

@@ -1,6 +1,7 @@
 package MoleAmuse.GamePackage;
 
 
+import ExceptionHandle.ExceptionHandle;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
@@ -20,8 +21,8 @@ public class GameUI {
             MoleManor.printMenu();
 
             Scanner scan = new Scanner(System.in);
-
-            int i = scan.nextInt();
+            ExceptionHandle exceptionHandle=new ExceptionHandle();
+            int i = exceptionHandle.exception();
 
             MoleManor.moveTo(i - 1);
 
