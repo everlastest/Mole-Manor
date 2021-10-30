@@ -70,12 +70,12 @@ public class MoleFarmBlock implements IFarmBlock {
 
     @Override
     public void plantSeed(AbstractSeed seed) {
-
+        FarmGrowth.plantSeed(seed,this);
     }
 
     @Override
     public AbstractCrops harvestCrops() {
-        return null;
+        return FarmGrowth.harvestCrops(this);
     }
 
     /**

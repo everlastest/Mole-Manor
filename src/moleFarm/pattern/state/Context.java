@@ -1,35 +1,24 @@
 package moleFarm.pattern.state;
 
-import moleFarm.Home;
-import moleFarm.common.MoleFarm;
 import moleFarm.common.MoleFarmBlock;
-import moleFarm.pattern.adapter.Weather;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
 public class Context {
-    /**
-     * 当前天气状态
-     */
-    private Weather weather;
+    //当前天气状态
+    private WeatherAdapter weather;
+    //选取的农田块
+    private MoleFarmBlock farmBlock;
 
-
-    public Context(Weather weather){
+    public Context(WeatherAdapter weather, MoleFarmBlock farmBlock){
+        this.farmBlock=farmBlock;
         this.weather = weather;
     }
-
-    public Weather getWeather() {
-        return weather;
-    }
-
-    public void setWeather(Weather weather) {
-        System.out.println("当前状态为" + weather);
-        this.weather = weather;
-    }
-
+    //浇水
     public void watering() {
-        weather.watering();
+        weather.watering(farmBlock);
     }
-
-    public void disinsection(){
-        weather.disinsection(farmBlock);
+    //除虫
+    public void disInsection(){
+        weather.disInsection(farmBlock);
     }
 }

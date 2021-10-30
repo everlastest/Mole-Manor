@@ -1,17 +1,23 @@
 package moleFarm.pattern.state.conc;
 
-import moleFarm.common.MoleFarm;
 import moleFarm.common.MoleFarmBlock;
-import moleFarm.common.product.tool.WateringCan;
-import moleFarm.common.status.FarmBlockStatus;
-import moleFarm.pattern.adapter.Weather;
-import moleFarm.pattern.iterator.conc.FarmIterator;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
-import java.util.Set;
+public class RainWeather extends WeatherAdapter {
+    private final String weatherStatus="雨天";
 
-public class RainWeather extends Weather {
+    @Override
+    public String getWeather() {
+        return weatherStatus;
+    }
+
     @Override
     public void watering(MoleFarmBlock farmBlock) {
-        System.out.println("下雨天，不能浇水哦");
+        System.out.println("下雨天，再浇水可就gg了...");
+    }
+
+    @Override
+    public void disInsection(MoleFarmBlock farmBlock) {
+        System.out.println("农场一片祥和，没有遭遇虫灾");
     }
 }

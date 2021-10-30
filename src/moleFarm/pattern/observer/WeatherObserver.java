@@ -31,8 +31,14 @@ public class WeatherObserver {
             //下雨天去除干旱状态
             FarmIterator iterator = moleFarm.getIterator();
             while (iterator.hasNext()) {
-                Set<FarmBlockStatus> statusList = iterator.next().getBlockStatusSet();
-                statusList.remove(FarmBlockStatus.DROUGHT);
+                Set<FarmBlockStatus> statusSet = iterator.next().getBlockStatusSet();
+                statusSet.remove(FarmBlockStatus.DROUGHT);
+            }
+        } else if ("虫灾".equals(weatherAdapter.getWeather())) {
+            FarmIterator iterator = moleFarm.getIterator();
+            while (iterator.hasNext()) {
+                Set<FarmBlockStatus> statusSet = iterator.next().getBlockStatusSet();
+                statusSet.add(FarmBlockStatus.INSECT_DISASTER);
             }
         }
     }

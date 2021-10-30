@@ -4,14 +4,13 @@ import moleFarm.common.MoleFarmBlock;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
-public class SunnyWeather extends WeatherAdapter {
-    private final String weatherStatus="晴天";
+public class CloudyWeather extends WeatherAdapter {
+    private final String weatherStatus="阴天";
 
     @Override
     public String getWeather() {
         return weatherStatus;
     }
-
     @Override
     public void watering(MoleFarmBlock farmBlock) {
         wateringCan.ToolBehavior();

@@ -45,6 +45,8 @@ public class FarmProcess {
     private final CropsFactory cropFactory = Home.cropsFactory;
 
     private final FertilizerFactory fertilizerFactory = Home.fertilizerFactory;
+    //天气适配器
+    private WeatherAdapter weatherAdapter=WeatherAdapter.getInstance();
 
     //Map<String,String>，负责将product的中英文名对应
     private final Map<String, String> map = JsonOp.searchMapper();
@@ -283,14 +285,14 @@ public class FarmProcess {
     public void process() {
         Scanner input = new Scanner(System.in);
         //获取今日天气并输出
-        WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
-        weatherAdapter.transfer();
         while (true) {
             //欢迎辞
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
             System.out.print(weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：[0]游戏首页 [1]农田 [2]仓库 ");
+            WeatherObserver weatherObserver = WeatherObserver.getInstance();
+            weatherObserver.observer(weatherAdapter);
             String str1 = input.next();
             if("0".equals(str1))break;
             //农田模块
@@ -298,8 +300,8 @@ public class FarmProcess {
                 //绘制农田状态图
                 farm.showFarm();
                 //观察者模式
-                WeatherObserver weatherObserver = WeatherObserver.getInstance();
-                weatherObserver.observer(weatherAdapter);
+//                WeatherObserver weatherObserver = WeatherObserver.getInstance();
+//                weatherObserver.observer(weatherAdapter);
                 for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
                     MoleFarmBlock next = it.next();
                     if (next.getSeed() != null && next.getSeedStatus() != null) {

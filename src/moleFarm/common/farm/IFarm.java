@@ -15,12 +15,6 @@ public interface IFarm {
      * @param seed
      */
     void plantBatchSeeds(AbstractSeed seed);
-    /**
-     * 种植种子
-     *
-     * @param seed
-     */
-    void plantSeeds(AbstractSeed seed);
 
     /**
      * 一键收获作物
