@@ -95,8 +95,10 @@ public class MoleFarmBlock implements IFarmBlock {
      */
     public void addStatus() {
         //0~2随机增加状态，3不增加异常状态
-        Double random = Math.floor(Math.random() * 3);
-        FarmBlockStatus value = FarmBlockStatus.values()[random.intValue()];
+        Double random = Math.floor(Math.random() * 5);
+        int i = random.intValue();
+        if(i>=3) return;
+        FarmBlockStatus value = FarmBlockStatus.values()[i];
         blockStatusSet.add(value);
 //        for (FarmBlockStatus value : FarmBlockStatus.values()) {
 //            if (random.intValue() == value.ordinal()) {

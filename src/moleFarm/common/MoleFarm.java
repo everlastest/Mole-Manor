@@ -8,6 +8,7 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.product.Shape;
 import moleFarm.common.utils.JsonOp;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
@@ -18,7 +19,8 @@ import java.util.*;
  * implements IFarm
  */
 public class MoleFarm implements IFarm {
-    private final Map<String, String> mapJson = JsonOp.searchMapper();
+
+    private static final Map<String, String> mapJson = JsonOp.searchMapper();
     /**
      * 农田块数量
      */
@@ -36,19 +38,16 @@ public class MoleFarm implements IFarm {
      */
     private List<MoleFarmBlock> farmBlockList;
 
-    private static volatile MoleFarm moleFarm = new MoleFarm();
-
-    public static synchronized MoleFarm getInstance() {
-        return moleFarm;
+    public static MoleFarm getInstance(){
+        return new MoleFarm();
     }
 
-    private MoleFarm() {
+    private MoleFarm(){
         farmBlockList = new ArrayList<>();
         for (int i = 0; i < farmBlockCount; ++i) {
             farmBlockList.add(new MoleFarmBlock());
         }
     }
-
     /**
      * 迭代器
      *

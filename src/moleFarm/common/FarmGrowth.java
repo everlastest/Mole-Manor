@@ -9,6 +9,7 @@ import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.JsonOp;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
@@ -19,12 +20,18 @@ import java.util.Map;
 
 public class FarmGrowth {
     /**
-     * 此处农场是单例模式
+     * 种植方法是一个静态类()有很多静态方法
      */
+    private static MoleAdapter mole=MoleAdapter.getInstance();
+
     private static final SeedFactory seedFactory = Home.seedFactory;
+
     private static final FertilizerFactory fertilizerFactory = Home.fertilizerFactory;
+
     private static final CropsFactory cropsFactory = Home.cropsFactory;
-    private static final MoleFarmWarehouse moleFarmWarehouse=Home.farmWarehouse;
+
+    private static final MoleFarmWarehouse moleFarmWarehouse=mole.getFarmWarehouse();
+
     private static final Map<String, String> map = JsonOp.searchMapper();
 
     public FarmGrowth() {
@@ -160,7 +167,7 @@ public class FarmGrowth {
      */
     public static AbstractCrops harvestCrops(MoleFarmBlock farmBlock) {
         if (farmBlock.getSeed() == null) {
-            System.out.println("该土地上没有种植作物");
+            System.out.println("该土地上没有作物，无法收获");
         } else if (farmBlock.getSeedStatus() < 6) {
             System.out.println("作物" + farmBlock.getSeed().getName() + "正处于" +
                     SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText() + "期，请过一段时间后再来收获"

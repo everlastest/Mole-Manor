@@ -2,6 +2,7 @@ package moleFarm.pattern.observer;
 
 import moleFarm.common.MoleFarm;
 import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
@@ -11,12 +12,17 @@ import java.util.Set;
  * 天气状态
  */
 public class WeatherObserver {
-    private MoleFarm moleFarm = MoleFarm.getInstance();
-    private WeatherObserver(){}
+
+    private MoleAdapter mole=MoleAdapter.getInstance();
+
+    private MoleFarm moleFarm = mole.getMoleFarm();
+
+    private WeatherObserver(){
+    }
+
     public static WeatherObserver getInstance(){
         return new WeatherObserver();
     }
-
     /**
      * 观察天气
      */

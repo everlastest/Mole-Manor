@@ -1,7 +1,5 @@
 package moleFarm.common;
 
-import Framework.SimpleFactory.Mole;
-import moleFarm.Home;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -13,7 +11,6 @@ import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.common.product.seed.*;
 import moleFarm.common.product.tool.*;
 import moleFarm.common.repository.IFarmWareHouse;
-import moleFarm.pattern.adapter.Target;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.chainOfResponsibility.conc.ShopHandler;
 import moleFarm.pattern.chainOfResponsibility.conc.WareHouseHandler;
@@ -29,7 +26,27 @@ import java.util.Map;
  * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
-    private Mole mole = Home.mole;
+
+    private MoleAdapter mole;
+
+    private MoleFarmWarehouse(MoleAdapter mole) {
+        this.mole=mole;
+        this.seedMap.put(new CabbageSeed(), 5);
+        this.seedMap.put(new EggplantSeed(), 5);
+        this.seedMap.put(new RiceSeed(), 5);
+        this.seedMap.put(new StrawberrySeed(), 5);
+        this.seedMap.put(new WatermelonSeed(), 5);
+        this.seedMap.put(new WheatSeed(), 5);
+        this.cropsMap.put(new Cabbage(), 3);
+        this.cropsMap.put(new Eggplant(), 3);
+        this.cropsMap.put(new Rice(), 3);
+        this.cropsMap.put(new Strawberry(), 3);
+        this.cropsMap.put(new Watermelon(), 3);
+        this.cropsMap.put(new Wheat(), 3);
+        this.fertilizerMap.put(new AdvancedFertilizer(), 2);
+        this.fertilizerMap.put(new MiddleFertilizer(), 2);
+        this.fertilizerMap.put(new PrimaryFertilizer(), 2);
+    }
     /**
      * 种子存储
      */
@@ -53,28 +70,8 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     private Shovel shovel = Shovel.newInstance();
 
-    private static volatile MoleFarmWarehouse moleFarmWarehouse = new MoleFarmWarehouse();
-
-    public static synchronized MoleFarmWarehouse getInstance() {
-        return moleFarmWarehouse;
-    }
-
-    private MoleFarmWarehouse() {
-        this.seedMap.put(new CabbageSeed(), 5);
-        this.seedMap.put(new EggplantSeed(), 5);
-        this.seedMap.put(new RiceSeed(), 5);
-        this.seedMap.put(new StrawberrySeed(), 5);
-        this.seedMap.put(new WatermelonSeed(), 5);
-        this.seedMap.put(new WheatSeed(), 5);
-        this.cropsMap.put(new Cabbage(), 3);
-        this.cropsMap.put(new Eggplant(), 3);
-        this.cropsMap.put(new Rice(), 3);
-        this.cropsMap.put(new Strawberry(), 3);
-        this.cropsMap.put(new Watermelon(), 3);
-        this.cropsMap.put(new Wheat(), 3);
-        this.fertilizerMap.put(new AdvancedFertilizer(), 2);
-        this.fertilizerMap.put(new MiddleFertilizer(), 2);
-        this.fertilizerMap.put(new PrimaryFertilizer(), 2);
+    public void setMole(MoleAdapter mole) {
+        this.mole = mole;
     }
 
     public Hoe getHoe() {
@@ -97,10 +94,6 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return shovel;
     }
 
-    public static MoleFarmWarehouse getMoleFarmWarehouse() {
-        return moleFarmWarehouse;
-    }
-
     public Map<AbstractSeed, Integer> getSeedMap() {
         return seedMap;
     }
@@ -113,11 +106,14 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return cropsMap;
     }
 
+    public static MoleFarmWarehouse getInstance(MoleAdapter mole){
+        return new MoleFarmWarehouse(mole);
+    }
+
     public <T extends IProduct> boolean buyObject(T object, int num, String methodName) {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器
-        Target mole = MoleAdapter.getInstance();
         Double money = mole.getMoleDou();
         if (money < price) {
             return false;

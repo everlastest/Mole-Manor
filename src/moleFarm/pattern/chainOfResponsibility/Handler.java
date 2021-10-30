@@ -1,10 +1,10 @@
 package moleFarm.pattern.chainOfResponsibility;
 
+import Framework.SimpleFactory.Mole;
 import moleFarm.Home;
 import moleFarm.common.MoleFarmWarehouse;
 import moleFarm.common.product.IProduct;
-import Framework.SimpleFactory.Mole;
-
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 
 import java.util.List;
 
@@ -13,9 +13,11 @@ import java.util.List;
  * 任务接收者抽象类
  */
 public abstract class Handler {
-    protected MoleFarmWarehouse farmWarehouse = Home.farmWarehouse;
+    protected MoleAdapter mole=MoleAdapter.getInstance();
+
+    protected MoleFarmWarehouse farmWarehouse = mole.getFarmWarehouse();
+
     private Handler next;
-    protected Mole mole = Home.mole;
 
     public void setNext(Handler next) {
         this.next = next;

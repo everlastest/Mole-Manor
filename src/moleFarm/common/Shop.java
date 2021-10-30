@@ -4,6 +4,7 @@ import moleFarm.Home;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 
 /**
  * 商店类
@@ -12,7 +13,9 @@ import moleFarm.common.product.AbstractSeed;
  */
 public class Shop {
 
-    private MoleFarmWarehouse moleFarmWarehouse= Home.farmWarehouse;
+    private MoleAdapter mole=MoleAdapter.getInstance();
+
+    private MoleFarmWarehouse moleFarmWarehouse= mole.getFarmWarehouse();
 
     //关联商店与仓库
     private Shop() {
