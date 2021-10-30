@@ -16,7 +16,7 @@ public class ChatTestDemo {
         r1.start();
         r2.start();
 
-        myChatUI.chating();
+        myChatUI.chatting();
 
         r1.stop();
         r2.stop();

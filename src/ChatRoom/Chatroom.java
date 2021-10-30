@@ -1,8 +1,6 @@
 package ChatRoom;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 //中介者模式：聊天室

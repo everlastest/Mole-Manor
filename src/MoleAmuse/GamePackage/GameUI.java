@@ -2,6 +2,7 @@ package MoleAmuse.GamePackage;
 
 
 import ExceptionHandle.ExceptionHandle;
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
@@ -38,6 +39,7 @@ public class GameUI {
                     gameMaker.playTictactoe();
                     break;
                 case 4:
+                    RecordList.getInstance().printList();
                     break;
                 case 0:
                     MoleManor.goback();

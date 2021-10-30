@@ -2,6 +2,8 @@ package MoleAmuse.GamePackage.TictactoePackage;
 
 import ExceptionHandle.ExceptionHandle;
 import MoleAmuse.GamePackage.Game;
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
+import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import MoleAmuse.GamePackage.TictactoePackage.Object.*;
 import Framework.SimpleFactory.*;
 import Singleton_LazyInitialization.MoleManor;
@@ -214,6 +216,13 @@ public class Tictactoe implements Game {
         if (result == chesstype) {score = 10;}
         mole.setScore(score + mole.getScore());
         System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
+
+        /**
+         * 添加备忘录
+         */
+        ScoreOriginator scoreOriginator = new ScoreOriginator();
+        scoreOriginator.setRecord(score,"摩摩井字棋");
+        RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
 
         System.out.println("\n正在退出摩摩井字棋......\n成功退出，已返回游乐园！\n");
 

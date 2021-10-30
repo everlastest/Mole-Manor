@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import MoleAmuse.GamePackage.MementoPackage.RecordList;
+import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Random;
@@ -59,10 +61,25 @@ public class TimeRace extends AbstractRacing{
             System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"的最终的成绩为：" + Score + "秒");
             System.out.println("再接再厉！！");
 
+            /**
+             * 添加备忘录
+             */
+            ScoreOriginator scoreOriginator = new ScoreOriginator();
+            scoreOriginator.setRecord((1000 - Score) / 50,"摩摩竞速赛");
+            RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
+
             return (1000 - Score) / 50;
         } else{
             System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"在规定的时间内未完成比赛！！");
             System.out.println("成绩无效，再接再厉！！");
+
+            /**
+             * 添加备忘录
+             */
+            ScoreOriginator scoreOriginator = new ScoreOriginator();
+            scoreOriginator.setRecord(0,"摩摩竞速赛");
+            RecordList.getInstance().add(scoreOriginator.saveRecordToMemento());
+
             return 0;
         }
     }

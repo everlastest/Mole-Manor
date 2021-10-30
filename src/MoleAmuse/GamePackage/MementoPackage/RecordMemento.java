@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.MementoPackage;
 
+import java.util.Date;
+
 /**
  * @author 罗检
  *
@@ -7,11 +9,13 @@ package MoleAmuse.GamePackage.MementoPackage;
  */
 public class RecordMemento {
     private int score;
-    private String game_name;
+    private String gameName;
+    private String date;
 
-    public RecordMemento(int score, String game_name){
+    public RecordMemento(int score, String gameName){
         this.score = score;
-        this.game_name = game_name;
+        this.gameName = gameName;
+        this.date = new Date().toString();
     }
     /**
      * 获取分数
@@ -22,9 +26,16 @@ public class RecordMemento {
     }
     /**
      * 获取游戏名称
-     * @return game_name
+     * @return gameName
      */
     public String getName(){
-        return game_name;
+        return gameName;
+    }
+    /**
+     * 获取游戏时间
+     * @return gameName
+     */
+    public String getDate(){
+        return date;
     }
 }

@@ -28,26 +28,29 @@ public class Racing implements Game{
                 case 1:
                     System.out.println("\n正在启动摩摩竞速赛！");
                     abstractRacing = new TimeRace();
+                    abstractRacing.StartRacing();
+                    racingType = 0;
                     break;
                 case 2:
                     System.out.println("\n正在启动摩摩漂移赛！");
                     abstractRacing = new DriftRace();
+                    abstractRacing.StartRacing();
+                    racingType = 0;
                     break;
                 case 3:
                     System.out.println("\n正在启动摩摩障碍赛！");
                     abstractRacing = new ObstacleRace();
+                    abstractRacing.StartRacing();
+                    racingType = 0;
                     break;
                 case 0:
                     System.out.println("\n" + "正在退出摩摩赛车场......\n成功离开，已返回游乐园！\n");
                     return;
                 default:
                     System.out.println("输入错误，请重新输入！！");
-                    racingType=0;
+                    racingType = 0;
                     break;
             }
-
-            abstractRacing.StartRacing();
-            racingType = 0;
         }
     }
 }
