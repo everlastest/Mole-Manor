@@ -66,7 +66,7 @@ public class FarmProcess {
                 if (block.getSeed() == null) {
                     System.out.println("请输入想要种植的作物种子：(白菜/茄子/水稻/草莓/西瓜/小麦种子)");
                     String seedName = input.next();
-                    System.out.println("请输入1选择普通种植，输入2选择一键种植(种植+初级肥料)，输入3选择超级一键种植(松土+种植+浇水+除草+高级肥料)");
+                    System.out.println("请选择种植方式：[1]普通种植 [2]一键种植(种植+初级肥料) [3]超级一键种植(松土+种植+浇水+除草+高级肥料)");
                     String way = input.next();
                     try {
                         switch (way) {
@@ -151,7 +151,7 @@ public class FarmProcess {
             //批量操作
             if ("b".equals(str2)) {
                 System.out.println("\n批量操作");
-                System.out.println("请输入1选择批量播种，2选择批量收获，0返回上级：");
+                System.out.println("请选择操作：[1]选择批量播种 [2]选择批量收获 [3]返回上级：");
                 String str3 = input.next();
                 if ("1".equals(str3)) {
                     System.out.println("请输入想要种植的作物种子：(白菜/茄子/水稻/草莓/西瓜/小麦种子)");
@@ -179,7 +179,7 @@ public class FarmProcess {
                 MoleFarmBlock block = iterator.getByIndex(index);
                 //控制台输出农田块信息
                 block.getInfo();
-                System.out.println("请选择：0——返回上级，1——种植作物，2——收获作物，3——浇水，4——除草，5——除虫，6——施肥，7——铲除作物");
+                System.out.println("请选择：[0]返回上级 [1]种植作物 [2]收获作物 [3]浇水 [4]——除草 [5]——除虫 [6]——施肥 [7]—铲除作物");
                 String str3 = input.next();
                 if ("0".equals(str3)) {
                     break;
@@ -200,7 +200,7 @@ public class FarmProcess {
             Double price = objNum * obj.getPrice();
             if (obj instanceof AbstractSeed) {
                 //if (shop.buySeeds((AbstractSeed) obj, objNum)) {
-                if (proxy.seedPurchase((AbstractSeed) obj, objNum)) {
+                if (proxy.seedPurchase(objName, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoleDou() + "摩尔豆\n");
@@ -208,7 +208,7 @@ public class FarmProcess {
                     System.out.println("抱歉你的摩尔豆不足");
                 }
             } else {
-                if (proxy.fertilizerPurchase((AbstractFertilizer) obj, objNum)) {
+                if (proxy.fertilizerPurchase(objName, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoleDou() + "摩尔豆\n");
@@ -290,7 +290,7 @@ public class FarmProcess {
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
             System.out.print(weatherAdapter.getWeather() + "\n");
-            System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
+            System.out.println("请选择您要去的地方：[0]游戏首页 [1]农田 [2]仓库 ");
             String str1 = input.next();
             if("0".equals(str1))break;
             //农田模块
@@ -306,7 +306,7 @@ public class FarmProcess {
                         next.growth();
                     }
                 }
-                System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入b选择批量操作：");
+                System.out.println("请选择操作：[0]返回农场首页 [1~9]查看具体农田块状态 [b]批量操作：");
                 String str2 = input.next();
                 List<String> con = new ArrayList<>();
                 for (int i = 0; i < 10; i++) {
@@ -323,7 +323,7 @@ public class FarmProcess {
             //仓库模块
             while ("2".equals(str1)) {
                 warehouse.showRepertory();
-                System.out.println("请选择操作：0——返回农场首页，1——买入种子，2——买入肥料，3——卖出作物");
+                System.out.println("请选择操作：[0]返回农场首页 [1]买入种子 [2]买入肥料 [3]卖出作物");
                 String str4 = input.next();
                 List<String> con=new ArrayList<>();
                 for(int i=0;i<4;i++){

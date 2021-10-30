@@ -2,6 +2,8 @@ package moleFarm.pattern.state;
 
 import moleFarm.Home;
 import moleFarm.common.MoleFarm;
+import moleFarm.common.MoleFarmBlock;
+import moleFarm.pattern.adapter.Weather;
 
 public class Context {
     /**
@@ -9,9 +11,8 @@ public class Context {
      */
     private Weather weather;
 
-    private MoleFarm moleFarm;
 
-    public Context(Weather weather,MoleFarm moleFarm) {
+    public Context(Weather weather){
         this.weather = weather;
     }
 
@@ -25,10 +26,10 @@ public class Context {
     }
 
     public void watering() {
-        weather.watering(moleFarm);
+        weather.watering();
     }
 
     public void disinsection(){
-        weather.disinsection(moleFarm);
+        weather.disinsection(farmBlock);
     }
 }

@@ -1,9 +1,12 @@
 package moleFarm.pattern.adapter;
 
+import moleFarm.common.MoleFarm;
+import moleFarm.common.MoleFarmBlock;
+
 /**
  * 天气类
  */
-public class Weather {
+public abstract class Weather {
     /*
     天气状况
      */
@@ -16,4 +19,12 @@ public class Weather {
     public String getWeatherStatus() {
         return weatherStatus;
     }
+
+    public Weather getFarmWeather(){
+        return this;
+    }
+
+     public void watering(){}
+
+     public void disinsection(){}
 }
