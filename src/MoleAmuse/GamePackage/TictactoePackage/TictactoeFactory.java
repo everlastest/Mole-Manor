@@ -72,8 +72,11 @@ public class TictactoeFactory {
     //填入棋子
     public Boolean getchess(int point, AbstractChess abstractChess, ChessBoard chessBoard){
 
-        if(point < 1 || point > 9)
+        if(point < 1 || point > 9){
+            System.out.println("坐标越界！！请输入1——9！！");
             return false;
+        }
+
 
         int x = (point - 1) / 3;
         int y = (point - 1) % 3;
@@ -83,6 +86,7 @@ public class TictactoeFactory {
             return true;
         }
         else{
+            System.out.println("此坐标已有棋子！！");
             return false;
         }
 

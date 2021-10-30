@@ -1,5 +1,7 @@
 package MoleAmuse.GamePackage.RacingPackage.Template;
 
+import Singleton_LazyInitialization.MoleManor;
+
 import java.util.Random;
 
 /**
@@ -31,18 +33,18 @@ public class ObstacleRace extends AbstractRacing{
         int r=0;
         for(int i=0;i<7;i++) {
             try {
-                System.out.println("小摩尔来到第"+(i+1)+"关......");
+                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"来到第"+(i+1)+"关......");
                 Thread.sleep(1500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             r= random.nextInt(15);
             if(r>(i+1)) {
-                System.out.println("小摩尔成功通过第" + (i + 1) + "关!!");
+                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"成功通过第" + (i + 1) + "关!!");
                 Score++;
                 score(Score);
             }else{
-                System.out.println("小摩尔在第" + (i + 1) + "关失误，胜败乃兵家常事，摩尔请从新来过！！");
+                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"在第" + (i + 1) + "关失误，胜败乃兵家常事，摩尔请从新来过！！");
                 break;
             }
             try {
@@ -58,13 +60,13 @@ public class ObstacleRace extends AbstractRacing{
     protected int getScore(int Score) {
         if(Score == 7){
 
-            System.out.println("\n小摩尔成功通过障碍赛！！");
-            System.out.println("小摩尔的最终的成绩为：" + Score + "（满分为7分）");
+            System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"成功通过障碍赛！！");
+            System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"的最终的成绩为：" + Score + "（满分为7分）");
             System.out.println("请收下膝盖！！");
 
             return Score * 2;
         } else{
-            System.out.println("\n小摩尔止遗憾步障碍赛第"+ (Score + 1) + "关!!");
+            System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"止遗憾步障碍赛第"+ (Score + 1) + "关!!");
             System.out.println("最终的成绩为："+Score+"（满分为7分）");
             System.out.println("再接再厉！！");
 

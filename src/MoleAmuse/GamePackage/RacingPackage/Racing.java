@@ -1,5 +1,6 @@
 package MoleAmuse.GamePackage.RacingPackage;
 
+import ExceptionHandle.ExceptionHandle;
 import MoleAmuse.GamePackage.Game;
 import MoleAmuse.GamePackage.RacingPackage.Template.*;
 import Singleton_LazyInitialization.MoleManor;
@@ -14,19 +15,14 @@ public class Racing implements Game{
         AbstractRacing abstractRacing = null;
         int racingType = 0;
 
+        //用于异常处理
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
+
         while (racingType == 0) {
 
             MoleManor.printMenu();
-            /**
-             * 异常处理
-             */
-            try {
-                Scanner scan = new Scanner(System.in);
-                racingType = scan.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Exception thrown  :" + e);
-                System.out.println("输入错误，应输入数字！！");
-            }
+
+            racingType=exceptionHandle.exception();
 
             switch (racingType) {
                 case 1:
@@ -46,6 +42,7 @@ public class Racing implements Game{
                     return;
                 default:
                     System.out.println("输入错误，请重新输入！！");
+                    racingType=0;
                     break;
             }
 

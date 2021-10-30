@@ -1,5 +1,6 @@
 package ChatRoom;
 
+import ExceptionHandle.ExceptionHandle;
 import Framework.Composite.*;
 import Framework.SimpleFactory.Mole;
 import Singleton_LazyInitialization.MoleManor;
@@ -30,11 +31,16 @@ public class ChatUI {
 
         MoleManor.printMenu();
 
+        Scanner scan = new Scanner(System.in);
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
+        int i = 0;
+
         while (true){
 
-            Scanner scan = new Scanner(System.in);
+            i= exceptionHandle.exception();
 
-            switch (scan.nextInt()) {
+
+            switch (i) {
                 case 1:
                     String message = null;
                     if (scan.hasNext()) {

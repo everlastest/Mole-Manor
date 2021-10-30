@@ -1,5 +1,6 @@
 package MoleAmuse.GamePackage.TictactoePackage;
 
+import ExceptionHandle.ExceptionHandle;
 import MoleAmuse.GamePackage.Game;
 import MoleAmuse.GamePackage.TictactoePackage.Object.*;
 import Framework.SimpleFactory.*;
@@ -55,32 +56,36 @@ public class Tictactoe implements Game {
         ChessBoard chessBoard = null;
         chessBoard = tictactoeFactory.getChessBoard();
 
+        //用于输入异常处理
+        int s=-1;
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
+
         //初始化摩尔选择的棋子
         System.out.println("请选择你的棋子，1代表黑棋，2代表白棋");
         int chesstype = 0;
         while (chesstype == 0) {
-            int s=0;
+
             /**
              * 异常处理
              */
-            try{
-                Scanner Scan = new Scanner(System.in);
-                s=Scan.nextInt();
-            }catch(InputMismatchException e){
-                System.out.println("Exception thrown  :" + e);
-            }
-            switch (s) {
-                case 1:
-                    chesstype = 1;
-                    System.out.println("你已选择黑棋！");
-                    break;
-                case 2:
-                    chesstype = 2;
-                    System.out.println("你已选择白棋！");
-                    break;
-                default:
-                    System.out.println("输入错误，请重新选择：");
-                    break;
+            while(s==-1)
+            {
+
+                s = exceptionHandle.exception();
+                switch (s) {
+                    case 1:
+                        chesstype = 1;
+                        System.out.println("你已选择黑棋！");
+                        break;
+                    case 2:
+                        chesstype = 2;
+                        System.out.println("你已选择白棋！");
+                        break;
+                    default:
+                        System.out.println("输入错误，请重新选择：");
+                        s=-1;
+                        break;
+                }
             }
         }
 
@@ -140,17 +145,9 @@ public class Tictactoe implements Game {
                     /**
                      * 异常处理
                      */
-                    while(point==0){
-                        try{
-                            System.out.println("请输入要走的坐标:");
-                            Scanner Scan = new Scanner(System.in);
-                            point=Scan.nextInt();
-                        }catch(InputMismatchException e){
-                            System.out.println("Exception thrown  :" + e);
-                            System.out.println("输入错误，应输入数字！！");
-                        }
-                    }
 
+                    System.out.println("请输入要走的坐标:");
+                    point=exceptionHandle.exception();
                 }
                 while (tictactoeFactory.getchess(point, abstractChess, chessBoard) == false);
 
@@ -172,16 +169,8 @@ public class Tictactoe implements Game {
                     /**
                      * 异常处理
                      */
-                    while(point==0){
-                        try{
-                            System.out.println("请输入要走的坐标:");
-                            Scanner Scan = new Scanner(System.in);
-                            point=Scan.nextInt();
-                        }catch(InputMismatchException e){
-                            System.out.println("Exception thrown  :" + e);
-                            System.out.println("输入错误，应输入数字！！");
-                        }
-                    }
+                    System.out.println("请输入要走的坐标:");
+                    point=exceptionHandle.exception();
                 }
                 while (tictactoeFactory.getchess(point, abstractChess, chessBoard) == false);
                 abstractChess.Point(point);
@@ -224,7 +213,7 @@ public class Tictactoe implements Game {
         if (result == 3) {score = 5;}
         if (result == chesstype) {score = 10;}
         mole.setScore(score + mole.getScore());
-        System.out.println("小摩尔此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
+        System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
 
         System.out.println("\n正在退出摩摩井字棋......\n成功退出，已返回游乐园！\n");
 

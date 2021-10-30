@@ -1,5 +1,7 @@
 package Framework.SimpleFactory;
 
+import ExceptionHandle.ExceptionHandle;
+
 import java.util.Scanner;
 
 public class MoleCreator {
@@ -16,18 +18,27 @@ public class MoleCreator {
      */
     public Mole createMole(){
         Scanner input = new Scanner(System.in);
+        //用于异常处理
+
+        ExceptionHandle exceptionHandle=new ExceptionHandle();
+
+        int roleNum=0, colorNum=0;
 
         System.out.println("请输入你的名字：");
         String name = input.nextLine();
 
+
         System.out.println("选择你的角色：[1]Molele [2]Momo [3]Kura");
-        int roleNum = input.nextInt();
+
+        roleNum=exceptionHandle.exception();
+
 
         System.out.println("选择外观颜色：[1]Red [2]Green [3]Blue");
-        int colorNum = input.nextInt();
+        colorNum = exceptionHandle.exception();
 
         String role = "Molele";
         String color = "red";
+
         switch(roleNum){
             case 1:
                 role="Molele";
