@@ -5,6 +5,7 @@ import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
+import moleFarm.FarmProcess;
 
 import java.util.Scanner;
 
@@ -84,6 +85,7 @@ public class MoleManor {
                     break;
                 case 2:
                     System.out.println("欢迎来到摩尔农场！\n");
+                    FarmProcess.newInstance().process();
                     break;
                 case 3:
                     System.out.println("欢迎来到摩尔商场！\n");
