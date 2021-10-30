@@ -9,11 +9,15 @@ import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.JsonOp;
+import moleFarm.pattern.adapter.Weather;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.Home;
+import moleFarm.pattern.state.Context;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +26,11 @@ public class FarmGrowth {
     /**
      * 种植方法是一个静态类()有很多静态方法
      */
+    private static WeatherAdapter weatherAdapter=WeatherAdapter.getInstance();
+
     private static MoleAdapter mole=MoleAdapter.getInstance();
+
+    private static Context context=new Context(weatherAdapter.getFarmWeather(),farmBlock);
 
     private static final SeedFactory seedFactory = Home.seedFactory;
 
@@ -94,11 +102,7 @@ public class FarmGrowth {
      * 浇水
      */
     public static void watering(MoleFarmBlock farmBlock) {
-        //判断是否存在干旱状态，若存在则将其去除
-        farmBlock.getBlockStatusSet().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT));
-        //使用浇水壶浇水
-        moleFarmWarehouse.getWateringCan().ToolBehavior();
-
+        context.watering();
     }
 
     /**
