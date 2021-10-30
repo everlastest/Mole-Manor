@@ -68,9 +68,11 @@ public class MoleManor {
          * 主菜单
          */
         currentMenu = MenuList.getInstance().meanMenu();
+        BlackboardUI blackboard = new BlackboardUI();
 
         while(true){
 
+            blackboard.showBlackboard();
             printMenu();
 
             int i = input.nextInt();
@@ -96,7 +98,6 @@ public class MoleManor {
                     break;
                 case 5:
                     System.out.println("\n正在显示广告牌内容！");
-                    BlackboardUI blackboard = new BlackboardUI();
                     blackboard.showBlackboard();
                     break;
                 case 0:

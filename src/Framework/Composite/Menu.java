@@ -37,7 +37,11 @@ public class Menu extends Component {
         int i = 0;
         for (Component item : menu) {
             i++;
-            System.out.println(i + " ----- " + item.getName());
+            System.out.print(i + " ----- " + item.getName());
+            if (item.getMenu() != null) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
         if (lastMenu != null) System.out.println("0 ----- 返回" + lastMenu.getName());
         else System.out.println("0 ----- 退出游戏");
