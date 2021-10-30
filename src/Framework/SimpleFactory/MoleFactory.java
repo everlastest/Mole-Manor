@@ -8,21 +8,6 @@ public class MoleFactory {
         mole.setMoleRole(moleIngredientFactory.setRole(role));
         mole.setMoleColor(moleIngredientFactory.setColor(color));
         mole.setMoleName(color+role);
-        if(mole.getMoleRole().getRole()=="Molele"){
-            mole.setMoney(500);
-            mole.setTicket(0);
-            mole.setScore(0);
-        }
-        else if(mole.getMoleRole().getRole()=="Momo"){
-            mole.setMoney(600);
-            mole.setTicket(0);
-            mole.setScore(0);
-        }
-        else if(mole.getMoleRole().getRole()=="Kura"){
-            mole.setMoney(400);
-            mole.setTicket(0);
-            mole.setScore(0);
-        }
         return mole;
     }
 }

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 //组合模式：菜单和菜单选项的组合
 public abstract class Component {
-    public Object option;
 
     public abstract String getName();
 
@@ -24,6 +23,7 @@ public abstract class Component {
     public void setLastMenu(Menu lastMenu){
         System.out.println("");
     }
+    public abstract Component moveTo(int index);
 
     public ArrayList<Component> getMenu(){return null;}
 }

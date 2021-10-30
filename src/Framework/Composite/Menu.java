@@ -40,7 +40,7 @@ public class Menu extends Component {
             System.out.println(i + " ----- " + item.getName());
         }
         if (lastMenu != null) System.out.println("0 ----- 返回" + lastMenu.getName());
-        else System.out.println("0 ----- 退出");
+        else System.out.println("0 ----- 退出游戏");
     }
 
     public Menu getLast() {
@@ -56,5 +56,14 @@ public class Menu extends Component {
     @Override
     public ArrayList<Component> getMenu() {
         return menu;
+    }
+
+    /**
+     *
+     */
+    @Override
+    public Component moveTo(int index){
+        if (index >= menu.size() || index < 0) {return menu.get(0);}
+        return menu.get(index);
     }
 }

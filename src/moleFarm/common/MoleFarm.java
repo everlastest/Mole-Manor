@@ -158,5 +158,9 @@ public class MoleFarm implements IFarm {
             System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.println(i == 0 ? "①~③" : i == 3 ? "④~⑥" : "⑦~⑨");
         }
+        //随即添加农田块状态
+        for(MoleFarmBlock block:farmBlockList){
+            block.addStatus();
+        }
     }
 }

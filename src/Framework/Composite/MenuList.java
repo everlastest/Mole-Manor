@@ -7,22 +7,18 @@ public class MenuList {
      * 单例模式：菜单表
      */
     private static MenuList instance = new MenuList();
-    public static MenuList getInstance(){
+
+    public static MenuList getInstance() {
         return instance;
     }
 
-    private final Menu menulist = new Menu("菜单列表");
+    private final Menu meanMenu = new Menu("摩尔大厅");
 
     /**
      * 设置菜单
      */
-    private MenuList(){
+    private MenuList() {
 
-        /**
-         *主菜单
-         */
-        Menu meanMenu = new Menu("摩尔大厅");
-        menulist.add(meanMenu);
         /**
          * 大厅菜单
          */
@@ -54,31 +50,9 @@ public class MenuList {
     }
 
     /**
-     * 获取菜单
-     * @param menuname
-     * @return
+     * 获取主菜单
      */
-    public Component getMenulist(String menuname){
-        return getSublist(menulist.getMenu(), menuname);
-    }
-
-    private Component getSublist(ArrayList<Component> sublist, String menuname){
-        Component temp;
-
-        if (sublist == null){return null;}
-
-        /**
-         * 递归
-         */
-        for (Component i : sublist){
-            if(i.getName() == menuname){
-                return i;
-            }
-            temp = getSublist(i.getMenu(), menuname);
-            if(temp != null){
-                return temp;
-            }
-        }
-        return null;
+    public Component meanMenu() {
+        return meanMenu;
     }
 }
