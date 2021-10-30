@@ -2,8 +2,7 @@ package MoleAmuse.GamePackage.CookingPackage;
 
 import Framework.SimpleFactory.Mole;
 import MoleAmuse.GamePackage.Game;
-import MoleAmuse.GamePackage.MementoPackage.RecordList;
-import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
+import MoleAmuse.GamePackage.MementoPackage.*;
 import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;

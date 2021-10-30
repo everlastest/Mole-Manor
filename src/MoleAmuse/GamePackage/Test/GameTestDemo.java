@@ -1,6 +1,7 @@
-package MoleAmuse.GamePackage;
+package MoleAmuse.GamePackage.Test;
 
 import Framework.SimpleFactory.Mole;
+import MoleAmuse.GamePackage.GameMaker;
 import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
 import Singleton_LazyInitialization.MoleManor;

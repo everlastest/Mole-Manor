@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  */
 //利用枚举类型实现多例模式
 public enum ManorZones {
-    MOLEAMUSE_ZONE,MOLEFARM_ZONE,MOLEMALL_ZONE,CHATROOM_ZONE;
+    MOLEAMUSE_ZONE, MOLEFARM_ZONE, MOLEMALL_ZONE, CHATROOM_ZONE;
     /**
      * 获取摩尔庄园特定分区的单例
      * @param zoneName 分区名称
@@ -15,10 +15,10 @@ public enum ManorZones {
      */
     public static ManorZones getInstance(String zoneName){
         return switch (zoneName){
-            case "MoleAmuse"->MOLEAMUSE_ZONE;
-            case "MoleFarm"->MOLEFARM_ZONE;
-            case "MoleMall1" ->MOLEMALL_ZONE;
-            case "Chatroom"->CHATROOM_ZONE;
+            case "MoleAmuse" -> MOLEAMUSE_ZONE;
+            case "MoleFarm" -> MOLEFARM_ZONE;
+            case "MoleMall" -> MOLEMALL_ZONE;
+            case "Chatroom" -> CHATROOM_ZONE;
             default->throw new NoSuchElementException("Zone doesn't exist.");
         };
     }
