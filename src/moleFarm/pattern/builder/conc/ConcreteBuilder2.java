@@ -2,7 +2,7 @@ package moleFarm.pattern.builder.conc;
 
 import moleFarm.common.FarmGrowth;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.product.fertilizer.MiddleFertilizer;
+import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.pattern.builder.Builder;
 
 /**
@@ -12,7 +12,7 @@ public class ConcreteBuilder2 extends Builder {
     @Override
     public void buildPlant(AbstractSeed seed) {
         FarmGrowth.plantSeed(seed, farmBlock);
-        FarmGrowth.applyFertilizer(new MiddleFertilizer(), farmBlock);
+        FarmGrowth.applyFertilizer(new PrimaryFertilizer(), farmBlock);
     }
 
 }
