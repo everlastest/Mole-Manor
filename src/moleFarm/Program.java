@@ -6,6 +6,5 @@ public class Program {
     public static void main(String[] args) throws CloneNotSupportedException {
         MoleManor MM = MoleManor.getInstance();
         MM.flowController();
-        System.out.println(MoleManor.getPlayer());
     }
 }

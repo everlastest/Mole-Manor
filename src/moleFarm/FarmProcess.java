@@ -20,6 +20,7 @@ import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 import moleFarm.pattern.observer.WeatherObserver;
+import moleFarm.pattern.proxy.Proxy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,8 @@ public class FarmProcess {
 
     //Map<String,String>，负责将product的中英文名对应
     private final Map<String, String> map = JsonOp.searchMapper();
+    //代理模式
+    private Proxy proxy = new Proxy();
 
     private FarmProcess() {}
 
@@ -192,22 +195,23 @@ public class FarmProcess {
             Scanner input = new Scanner(System.in);
             String objClassName = map.get(objName);
             IProduct obj = factory.create(objClassName);
-            System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoney() + "摩尔豆):");
+            System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoleDou() + "摩尔豆):");
             int objNum = input.nextInt();
             Double price = objNum * obj.getPrice();
             if (obj instanceof AbstractSeed) {
-                if (shop.buySeeds((AbstractSeed) obj, objNum)) {
+                //if (shop.buySeeds((AbstractSeed) obj, objNum)) {
+                if (proxy.seedPurchase((AbstractSeed) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
-                            "剩余" + mole.getMoney() + "摩尔豆\n");
+                            "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足");
                 }
             } else {
-                if (shop.buyFertilizer((AbstractFertilizer) obj, objNum)) {
+                if (proxy.fertilizerPurchase((AbstractFertilizer) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
-                            "剩余" + mole.getMoney() + "摩尔豆\n");
+                            "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足\n");
                 }

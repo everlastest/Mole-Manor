@@ -1,5 +1,6 @@
 package moleFarm.common;
 
+import Framework.SimpleFactory.Mole;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -27,9 +28,9 @@ import java.util.Map;
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
 
-    private MoleAdapter mole;
+    private Mole mole;
 
-    private MoleFarmWarehouse(MoleAdapter mole) {
+    private MoleFarmWarehouse(Mole mole) {
         this.mole=mole;
         this.seedMap.put(new CabbageSeed(), 5);
         this.seedMap.put(new EggplantSeed(), 5);
@@ -74,6 +75,10 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         this.mole = mole;
     }
 
+    public Mole getMole(){
+        return mole;
+    }
+
     public Hoe getHoe() {
         return hoe;
     }
@@ -106,7 +111,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return cropsMap;
     }
 
-    public static MoleFarmWarehouse getInstance(MoleAdapter mole){
+    public static MoleFarmWarehouse getInstance(Mole mole){
         return new MoleFarmWarehouse(mole);
     }
 
@@ -114,18 +119,18 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器
-        Double money = mole.getMoleDou();
+        Double money = mole.getMoney();
         if (money < price) {
             return false;
         }
-        mole.setMoleDou(money - price);
+        mole.setMoney(money - price);
         try {
             Method method = MoleFarmWarehouse.class.getDeclaredMethod(methodName);
             Map<T, Integer> objectMap = (Map<T, Integer>) method.invoke(this);
-            Integer orinum = objectMap.putIfAbsent(object, num);
+            Integer oriNum = objectMap.putIfAbsent(object, num);
             //若仓库中原本有库存，则将其与新增进货量累加
-            if (orinum != null) {
-                objectMap.put(object, num + orinum);
+            if (oriNum != null) {
+                objectMap.put(object, num + oriNum);
             }
             return true;
             //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
@@ -176,7 +181,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
             return false;
         }
         this.getCropsMap().put(crops, left - num);
-        mole.setMoney(mole.getMoney() + crops.getPrice() * num);
+        mole.setMoney(mole.getMoney()+ crops.getPrice() * num);
         System.out.println("卖出成功，共进账" + crops.getPrice() * num + "摩尔豆！" + "当前余额(" + mole.getMoney() + ")");
         return true;
     }

@@ -10,14 +10,14 @@ import moleFarm.pattern.command.conc.SeedCommand;
  * 仓库向商店进货
  */
 public class Proxy {
-    private static FertilizerCommand fertilizerCommand;
-    private static SeedCommand seedCommand;
-    public static void seedPurchase(AbstractSeed seed, int num){
+    private FertilizerCommand fertilizerCommand;
+    private SeedCommand seedCommand;
+    public boolean seedPurchase(AbstractSeed seed, int num){
         seedCommand=new SeedCommand();
-        seedCommand.execute(seed,num);
+        return seedCommand.execute(seed,num);
     }
-    public static void fertilizerPurchase(AbstractFertilizer fertilizer, int num){
+    public boolean fertilizerPurchase(AbstractFertilizer fertilizer, int num){
         fertilizerCommand=new FertilizerCommand();
-        fertilizerCommand.execute(fertilizer,num);
+        return fertilizerCommand.execute(fertilizer,num);
     }
 }

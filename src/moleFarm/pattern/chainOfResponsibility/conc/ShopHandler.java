@@ -14,11 +14,11 @@ public class ShopHandler extends Handler {
     public <T extends IProduct> boolean provideSeeds(List<T> list) {
         for (T item : list) {
             Double price = item.getPrice();
-            if (mole.getMoney() < price) {
+            if (mole.getMoleDou() < price) {
                 System.out.println("抱歉，摩尔豆不足，进货失败");
                 return false;
             } else {
-                double newPrice = mole.getMoney() - price;
+                double newPrice = mole.getMoleDou() - price;
                 mole.setMoney(newPrice);
             }
         }

@@ -1,8 +1,10 @@
 package moleFarm.pattern.command.conc;
 
 import moleFarm.Home;
+import moleFarm.common.MoleFarmWarehouse;
 import moleFarm.common.Shop;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 
 /**
  * 具体命令
@@ -10,9 +12,9 @@ import moleFarm.common.product.AbstractSeed;
  */
 public class SeedCommand {
     /**
-     * 命令接收方，商店
+     * 命令接收方，仓库
      */
-    private Shop shop = Home.shop;
+    private MoleFarmWarehouse moleFarmWarehouse = MoleAdapter.getInstance().getFarmWarehouse();
 
     /**
      * 商店接收命令，为仓库买入种子
@@ -20,8 +22,7 @@ public class SeedCommand {
      * @param seed
      * @param num
      */
-    public void execute(AbstractSeed seed, int num) {
-        shop.buySeeds(seed, num);
+    public boolean execute(AbstractSeed seed, int num) {
+        return moleFarmWarehouse.buySeeds(seed, num);
     }
-
 }

@@ -17,7 +17,7 @@ public enum ManorZones {
         return switch (zoneName){
             case "MoleAmuse"->MOLEAMUSE_ZONE;
             case "MoleFarm"->MOLEFARM_ZONE;
-            case "MoleMall"->MOLEMALL_ZONE;
+            case "MoleMall1" ->MOLEMALL_ZONE;
             case "Chatroom"->CHATROOM_ZONE;
             default->throw new NoSuchElementException("Zone doesn't exist.");
         };
