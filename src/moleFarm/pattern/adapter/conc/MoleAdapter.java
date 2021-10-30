@@ -12,19 +12,22 @@ import moleFarm.pattern.adapter.Target;
 /**
  * 摩尔角色适配器
  * 这里采用了单例模式(因为只有一个mole)
+ * 因为框架端没有农场，也没有仓库，所以要用适配器
  */
 public class MoleAdapter extends Mole implements Target {
 
     private static MoleAdapter moleAdapter=new MoleAdapter(MoleManor.getPlayer());
+
     //这个mole对象要从外界传进来的，因为这是适配器
     private Mole mole;
 
     private MoleFarm moleFarm=MoleFarm.getInstance();
 
-    private MoleFarmWarehouse farmWarehouse=MoleFarmWarehouse.getInstance(moleAdapter);
+    private MoleFarmWarehouse farmWarehouse;
 
     private MoleAdapter(Mole mole){
         this.mole=mole;
+        farmWarehouse=MoleFarmWarehouse.getInstance(mole);
     }
 
     //返回mole适配器对象实例
@@ -32,9 +35,13 @@ public class MoleAdapter extends Mole implements Target {
         return moleAdapter;
     }
 
+    public static void setMoleAdapter(MoleAdapter moleAdapter) {
+        MoleAdapter.moleAdapter = moleAdapter;
+    }
+
     @Override
     public Double getMoleDou() {
-        return getMoney();
+        return mole.getMoney();
     }
 
     @Override

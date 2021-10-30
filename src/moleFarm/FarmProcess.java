@@ -192,14 +192,14 @@ public class FarmProcess {
             Scanner input = new Scanner(System.in);
             String objClassName = map.get(objName);
             IProduct obj = factory.create(objClassName);
-            System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoney() + "摩尔豆):");
+            System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoleDou() + "摩尔豆):");
             int objNum = input.nextInt();
             Double price = objNum * obj.getPrice();
             if (obj instanceof AbstractSeed) {
                 if (shop.buySeeds((AbstractSeed) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
-                            "剩余" + mole.getMoney() + "摩尔豆\n");
+                            "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足");
                 }
@@ -207,7 +207,7 @@ public class FarmProcess {
                 if (shop.buyFertilizer((AbstractFertilizer) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
                             "，共消费" + price + "摩尔豆，" +
-                            "剩余" + mole.getMoney() + "摩尔豆\n");
+                            "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足\n");
                 }
