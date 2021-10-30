@@ -24,6 +24,7 @@ import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
+import moleFarm.pattern.observer.WeatherObserver;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -310,6 +311,9 @@ public class FarmProcess {
             while ("1".equals(str1)) {
                 //绘制农田状态图
                 farm.showFarm();
+                //观察者模式
+                WeatherObserver weatherObserver = WeatherObserver.getInstance();
+                weatherObserver.observer(weatherAdapter);
                 System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入b选择批量操作：");
                 String str2 = input.next();
                 if ("0".equals(str2)) {
