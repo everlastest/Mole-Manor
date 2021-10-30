@@ -12,7 +12,7 @@ import moleFarm.pattern.command.Command;
  * 具体命令
  * 仓库向商店发生请求，进货肥料
  */
-public class FertilizerCommand implements Command {
+public class FertilizerCommand extends Command {
     /**
      * 命令接收方，仓库
      */
@@ -24,14 +24,9 @@ public class FertilizerCommand implements Command {
      * @param fertilizer
      * @param num
      */
-    @Override
+
     public boolean execute(AbstractFertilizer fertilizer, int num) {
         return moleFarmWarehouse.buyFertilizer(fertilizer, num);
     }
 
-    @Override
-    public boolean execute(IProduct product, int num) {
-        if(product instanceof AbstractFertilizer)
-        return moleFarmWarehouse.buyFertilizer((AbstractFertilizer) product, num);
-    }
 }
