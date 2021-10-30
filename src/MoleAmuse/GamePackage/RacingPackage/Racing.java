@@ -7,6 +7,7 @@ import MoleAmuse.GamePackage.RacingPackage.Template.AbstractRacing;
 import MoleAmuse.GamePackage.RacingPackage.Template.DriftRace;
 import MoleAmuse.GamePackage.RacingPackage.Template.ObstacleRace;
 import MoleAmuse.GamePackage.RacingPackage.Template.TimeRace;
+import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
 
@@ -14,16 +15,15 @@ public class Racing implements Game{
     @Override
     public void Play() {
 
-        MenuList menuList = MenuList.getInstance();
-        Component raceMenu = menuList.getMenulist("摩摩赛车场");
-
         AbstractRacing abstractRacing = null;
         int racingType = 0;
 
         Scanner scan = new Scanner(System.in);
 
         while (racingType == 0) {
-            raceMenu.printMenu();
+
+            MoleManor.printMenu();
+
             switch (scan.nextInt()) {
                 case 1:
                     racingType = 1;
@@ -46,8 +46,11 @@ public class Racing implements Game{
                 default:
                     break;
             }
+
             abstractRacing.StartRacing();
+
             racingType = 0;
+
         }
     }
 }

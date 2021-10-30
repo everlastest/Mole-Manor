@@ -2,14 +2,20 @@ package MoleAmuse.GamePackage;
 
 import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import MoleAmuse.GamePackage.MementoPackage.ScoreOriginator;
+import Singleton_LazyInitialization.MoleManor;
 
 
 public class GameTestDemo {
 
     public static void main(String[] args) {
+
+        MoleManor moleManor = MoleManor.getInstance();
+        moleManor.test();
+
         ScoreOriginator scoreOriginator = new ScoreOriginator();
         RecordList dartsRecordList = new RecordList();
         GameMaker gameMaker = new GameMaker();
+
 
         gameMaker.playTictactoe();
         scoreOriginator.setRecord(10,"五子棋游戏");

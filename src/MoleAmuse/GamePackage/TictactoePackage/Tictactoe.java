@@ -13,6 +13,8 @@ public class Tictactoe implements Game {
 
     private Mole mole = MoleManor.getPlayer();
 
+    public Tictactoe(){mole = MoleManor.getPlayer();}
+
     /**
      * 检票
      * @return

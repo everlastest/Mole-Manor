@@ -12,12 +12,8 @@ public class ChatUI {
     //添加角色和聊天室
     private Mole mole = MoleManor.getPlayer();
     private Chatroom chatroom = Chatroom.getInstance();
-    private MenuList menuList = MenuList.getInstance();
-    private Component chatMenu;
 
-    public ChatUI(){
-        this.chatMenu = menuList.getMenulist("摩尔聊天室");
-    }
+    public ChatUI(){}
 
     //发送消息
     private void sendMessage(String message){
@@ -31,9 +27,13 @@ public class ChatUI {
 
     //聊天界面接口
     public void chating(){
-        chatMenu.printMenu();
+
+        MoleManor.printMenu();
+
         while (true){
+
             Scanner scan = new Scanner(System.in);
+
             switch (scan.nextInt()) {
                 case 1:
                     String message = null;
