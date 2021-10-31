@@ -110,7 +110,7 @@ public class MoleFarm implements IFarm {
          * 存入map里面
          */
         for (MoleFarmBlock item : farmBlockList) {
-            if (item.getSeedStatus() != null && item.getSeedStatus() >= 6) {
+            if (item.getSeed()!=null&&item.getSeedStatus() != null && item.getSeedStatus() >= 6) {
                 String name = item.getSeed().getName().replace("种子","");
                 item.setSeed(null);
                 CropsFactory cropsFactory = CropsFactory.newInstance();

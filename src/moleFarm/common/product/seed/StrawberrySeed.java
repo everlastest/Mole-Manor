@@ -27,7 +27,7 @@ public class StrawberrySeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 6.0;
+    private final Double price = 12.0;
 
     public StrawberrySeed() {
     }

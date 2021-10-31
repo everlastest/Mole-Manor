@@ -27,7 +27,7 @@ public class EggplantSeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 5.0;
+    private final Double price = 10.0;
 
     private EggplantSeed(String name, Color color, Size size, String growthCycle, Double price) {
         super(name, color, size, growthCycle, price);

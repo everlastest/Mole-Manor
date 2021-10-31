@@ -23,7 +23,7 @@ public class Strawberry extends AbstractCrops implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 30.0;
+    private final Double price = 15.0;
 
     public Strawberry() {
     }
