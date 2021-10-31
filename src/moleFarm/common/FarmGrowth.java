@@ -17,16 +17,15 @@ import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.Home;
 import moleFarm.pattern.state.Context;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 /**
  * 种植方法是一个静态类()有很多静态方法
  */
 public class FarmGrowth {
-    public static WeatherAdapter weather=WeatherAdapter.getInstance();
+    public static WeatherAdapter weather = WeatherAdapter.getInstance();
 
-    private static MoleAdapter mole=MoleAdapter.getInstance();
+    private static MoleAdapter mole = MoleAdapter.getInstance();
 
     private static final SeedFactory seedFactory = Home.seedFactory;
 
@@ -34,14 +33,16 @@ public class FarmGrowth {
 
     private static final CropsFactory cropsFactory = Home.cropsFactory;
 
-    private static final MoleFarmWarehouse moleFarmWarehouse=mole.getFarmWarehouse();
+    private static final MoleFarmWarehouse moleFarmWarehouse = mole.getFarmWarehouse();
 
     private static final Map<String, String> map = JsonOp.searchMapper();
+
     /**
      * 播种
+     *
      * @param seed
      */
-    public static boolean plantSeed(AbstractSeed seed,MoleFarmBlock farmBlock) {
+    public static boolean plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
         if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
             return false;
@@ -93,16 +94,18 @@ public class FarmGrowth {
      * 浇水
      */
     public static void watering(MoleFarmBlock farmBlock) {
-        Context context=new Context(weather,farmBlock);
+        Context context = new Context(weather, farmBlock);
         context.watering();
     }
+
     /**
      * 除虫
      */
     public static void disinsection(MoleFarmBlock farmBlock) {
-        Context context=new Context(weather,farmBlock);
+        Context context = new Context(weather, farmBlock);
         context.disInsection();
     }
+
     /**
      * 施肥
      *
@@ -114,7 +117,7 @@ public class FarmGrowth {
         } else if (farmBlock.getSeed() != null && farmBlock.getSeedStatus() != null && farmBlock.getSeedStatus() < 6) {
             Map<AbstractFertilizer, Integer> fertilizerMap = moleFarmWarehouse.getFertilizerMap();
             int oriNum = fertilizerMap.get(fertilizer);
-            if(oriNum<=0){
+            if (oriNum <= 0) {
                 System.out.println("抱歉，该肥料暂无库存");
                 return;
             }
@@ -168,11 +171,28 @@ public class FarmGrowth {
             farmBlock.setSeed(null);
             try {
                 AbstractCrops crops = cropsFactory.create(map.get(name));
-                if(crops==null)return crops;
-                System.out.println("成功收获一株"+name+"，正在将其运往仓库...");
+                if (crops == null) {
+                    return crops;
+                }
+                //根据农田不同的情况来设置产出的数量
+                int cropsNum;
+                Set<FarmBlockStatus> blockStatusSet = farmBlock.getBlockStatusSet();
+                Random random = new Random();
+                if (blockStatusSet.size() == 3) {
+                    cropsNum = random.nextInt(2, 4);
+                }
+                else if (blockStatusSet.size() == 2) {
+                    cropsNum = random.nextInt(5, 7);
+                }
+                else if(blockStatusSet.size()==1){
+                    cropsNum=random.nextInt(8,9);
+                }else{
+                    cropsNum=10;
+                }
+                System.out.println("成功收获" + cropsNum + "株" + name + "，正在将其运往仓库...");
                 Map<AbstractCrops, Integer> cropsMap = moleFarmWarehouse.getCropsMap();
                 int oriNum = cropsMap.get(crops);
-                cropsMap.put(crops,oriNum+1);
+                cropsMap.put(crops, oriNum + cropsNum);
                 return crops;
             } catch (CropsNotFoundException e) {
                 e.printStackTrace();
@@ -180,5 +200,4 @@ public class FarmGrowth {
         }
         return null;
     }
-
 }

@@ -198,7 +198,14 @@ public class FarmProcess {
             String objClassName = map.get(objName);
             IProduct obj = factory.create(objClassName);
             System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoleDou() + "摩尔豆):");
-            int objNum = input.nextInt();
+            int objNum;
+            String str = input.next();
+            if (str.matches("[0-9]+")) {
+                objNum = Integer.parseInt(str);
+            } else {
+                System.out.println("请输入正确的数字哦\n");
+                return;
+            }
             Double price = objNum * obj.getPrice();
             if (obj instanceof AbstractSeed) {
                 //if (shop.buySeeds((AbstractSeed) obj, objNum)) {
@@ -266,7 +273,14 @@ public class FarmProcess {
                     }
                     String cropClassName = map.get(cropName);
                     System.out.println("请输入想要卖出的作物数目：");
-                    int cropNum = input.nextInt();
+                    String next = input.next();
+                    int cropNum;
+                    if(next.matches("[0-9]+")){
+                        cropNum=Integer.parseInt(next);
+                    }else{
+                        System.out.println("请输入正确的数字哦\n");
+                        return;
+                    }
                     try {
                         warehouse.sellCrops(cropFactory.create(cropClassName), cropNum);
                     } catch (CropsNotFoundException e) {

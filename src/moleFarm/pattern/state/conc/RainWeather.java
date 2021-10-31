@@ -22,9 +22,8 @@ public class RainWeather extends WeatherAdapter {
     @Override
     public void disInsection(MoleFarmBlock farmBlock) {
         Set<FarmBlockStatus> blockStatusSet = farmBlock.getBlockStatusSet();
-        if(blockStatusSet.contains(FarmBlockStatus.DROUGHT)) {
+        if(blockStatusSet.removeIf(s->s.equals(FarmBlockStatus.INSECT_DISASTER))) {
             pesticide.ToolBehavior();
-            blockStatusSet.remove(FarmBlockStatus.INSECT_DISASTER);
         }
         else{
             System.out.println("农场一片祥和，没有遭遇虫灾");
