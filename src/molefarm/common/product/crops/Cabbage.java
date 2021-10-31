@@ -23,7 +23,7 @@ public class Cabbage extends AbstractCrops implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 10.0;
+    private final Double price = 5.0;
 
     public Cabbage() {
     }

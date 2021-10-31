@@ -31,7 +31,7 @@ public class CabbageSeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private Double price = 3.0;
+    private Double price = 6.0;
 
     public CabbageSeed() {
     }

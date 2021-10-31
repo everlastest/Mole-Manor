@@ -23,7 +23,7 @@ public class Rice extends AbstractCrops implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 4.0;
+    private final Double price = 2.0;
 
     public Rice() {
     }

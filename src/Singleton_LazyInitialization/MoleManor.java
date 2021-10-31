@@ -3,7 +3,7 @@ package Singleton_LazyInitialization;
 import Framework.Blackboard.BlackboardUI;
 import Framework.Composite.*;
 import Framework.SimpleFactory.*;
-import MoleAmuse.RobotPackage.*;
+import ChatRoom.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
 import molefarm.FarmProcess;

@@ -1,23 +1,27 @@
-package MoleAmuse.RobotPackage;
+package ChatRoom.RobotPackage;
 
 import ChatRoom.Chatroom;
 
 import java.util.Random;
 
-//机器人，可以聊天
+/**
+ * 聊天机器人
+ */
 public class Robot implements Runnable {
 
+    //终止线程标识符
     public volatile boolean exit = false;
 
     private Thread t;
+
+    //线程名字
     private String RobotName;
+
     private Chatroom chatroom = Chatroom.getInstance();
+
     private String[] randMessage = {"", "今天天气不错", "中午吃什么", "我要去游乐园","你好呀"};
     private Random random = new Random();
 
-    private void sendMessage(String message){
-        chatroom.addMessage(RobotName, message);
-    }
 
     public Robot(String name) {
         RobotName = name;
@@ -29,21 +33,32 @@ public class Robot implements Runnable {
         return randMessage[r];
     }
 
+    private void sendMessage(String message){
+        chatroom.addMessage(RobotName, message);
+    }
 
+
+
+    /**
+     * 线程操作：向聊天室添加消息
+     */
     public void run() {
 
         try {
             while (exit) {
 
                 String str = BuildMessage();
-                chatroom.lock.lock();
+
+                //获取线程锁
+                chatroom.Lock();
+                //发送信息
                 try {
                     sendMessage(str);
                 } finally {
-                    chatroom.lock.unlock();
+                    chatroom.unLock();//解锁
                 }
 
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             }
         }catch (InterruptedException e) {
             System.out.println("Thread " +  RobotName + " interrupted.");
@@ -53,7 +68,9 @@ public class Robot implements Runnable {
     }
 
 
-    //开启线程
+    /**
+     * 启动线程
+     */
     public void start () {
 
         if (t == null) {
@@ -64,9 +81,5 @@ public class Robot implements Runnable {
 
     }
 
-    public void stop() {
-
-        exit = false;
-
-    }
+    public void stop() {exit = false;}
 }

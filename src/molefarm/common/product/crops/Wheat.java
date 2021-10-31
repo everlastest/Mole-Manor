@@ -23,7 +23,7 @@ public class Wheat extends AbstractCrops implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 5.0;
+    private final Double price = 2.0;
 
     public Wheat() {
     }

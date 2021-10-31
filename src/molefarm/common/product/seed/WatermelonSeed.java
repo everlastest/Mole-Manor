@@ -27,7 +27,7 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 5.0;
+    private final Double price = 10.0;
 
     public WatermelonSeed() {
     }

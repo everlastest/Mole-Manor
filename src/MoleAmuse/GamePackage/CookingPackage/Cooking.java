@@ -44,10 +44,10 @@ public class Cooking implements Game {
         }
 
         mole.setScore(mole.getScore() + index);
-        System.out.println("\n小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得游戏积分：" + index + ", 总积分为：" + mole.getScore());
+        System.out.println("\n小摩尔["+MoleManor.getPlayer().getMoleName()+"]此次获得游戏积分：" + index + ", 总积分为：" + mole.getScore());
 
         mole.setMoney(mole.getMoney() + 100 * index);
-        System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得摩尔豆：" + 100 * index + ", 总摩尔豆为：" + mole.getMoney());
+        System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName()+"]此次获得摩尔豆：" + 100 * index + ", 总摩尔豆为：" + mole.getMoney());
 
         /**
          * 添加备忘录

@@ -27,7 +27,7 @@ public class WheatSeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 3.0;
+    private final Double price = 6.0;
 
     public WheatSeed() {
     }

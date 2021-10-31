@@ -37,7 +37,7 @@ public class DriftRace extends AbstractRacing{
         for(int i=0;i<10;i++) {
 
             try {
-                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName() +"进入弯道！！");
+                System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName() +"]进入弯道！！");
                 Thread.sleep(800);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -47,9 +47,9 @@ public class DriftRace extends AbstractRacing{
             if (r == 0) {
                 Score++;
                 score(Score);
-                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"成功完成一次漂移！！");
+                System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName()+"]成功完成一次漂移！！");
             } else
-                System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次漂移失败，再接再厉！！");
+                System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName()+"]此次漂移失败，再接再厉！！");
 
             try {
                 Thread.sleep(2000);
@@ -63,8 +63,8 @@ public class DriftRace extends AbstractRacing{
     @Override
     protected int getScore(int Score) {
 
-        System.out.println("\n"+"小摩尔"+MoleManor.getPlayer().getMoleName()+"完成此次漂移赛");
-        System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"的最终的分为："+Score+"（满分10分）");
+        System.out.println("\n"+"小摩尔["+MoleManor.getPlayer().getMoleName()+"]完成此次漂移赛");
+        System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName()+"]的最终的分为："+Score+"（满分10分）");
         System.out.println("再接再厉！！");
 
         /**

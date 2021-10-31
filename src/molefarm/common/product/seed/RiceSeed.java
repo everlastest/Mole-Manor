@@ -27,7 +27,7 @@ public class RiceSeed extends AbstractSeed implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 2.0;
+    private final Double price = 4.0;
 
     public RiceSeed() {
     }
