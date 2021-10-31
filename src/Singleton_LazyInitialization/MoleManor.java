@@ -6,7 +6,7 @@ import Framework.SimpleFactory.*;
 import MoleAmuse.RobotPackage.*;
 import ChatRoom.*;
 import MoleAmuse.GamePackage.*;
-import moleFarm.FarmProcess;
+import molefarm.FarmProcess;
 
 import java.util.Scanner;
 
