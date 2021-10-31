@@ -21,10 +21,9 @@ public class Director {
         this.farmBlock = farmBlock;
     }
 
-    public MoleFarmBlock getMoleFarmBlock(AbstractSeed seed) {
+    public void getMoleFarmBlock(AbstractSeed seed) {
         //要先初始化农田块
         builder.setFarmBlock(farmBlock);
         builder.buildPlant(seed);
-        return builder.getFarmBlock();
     }
 }

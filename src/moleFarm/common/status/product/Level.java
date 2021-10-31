@@ -10,4 +10,8 @@ public enum Level {
     Level(String text) {
         this.text = text;
     }
+
+    public String getText() {
+        return text;
+    }
 }
