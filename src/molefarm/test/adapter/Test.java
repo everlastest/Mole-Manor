@@ -1,6 +1,6 @@
 package molefarm.test.adapter;
 
-import Framework.SimpleFactory.Mole;
+import framework.simplefactory.Mole;
 import molefarm.common.MoleFarmBlock;
 import molefarm.pattern.adapter.conc.MoleAdapter;
 import molefarm.pattern.adapter.conc.WeatherAdapter;

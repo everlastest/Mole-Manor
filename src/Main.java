@@ -1,7 +1,5 @@
-import ExceptionHandle.ExceptionHandle;
-import Singleton_LazyInitialization.MoleManor;
-
-import java.util.Scanner;
+import exceptionhandle.ExceptionHandle;
+import singletonlazyinitialization.MoleManor;
 
 /**
  * 项目主流程

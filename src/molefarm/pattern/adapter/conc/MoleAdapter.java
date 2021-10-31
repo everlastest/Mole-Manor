@@ -3,8 +3,8 @@ package molefarm.pattern.adapter.conc;
 
 //import molefarm.pattern.adapter.Mole;
 
-import Framework.SimpleFactory.Mole;
-import Singleton_LazyInitialization.MoleManor;
+import framework.simplefactory.Mole;
+import singletonlazyinitialization.MoleManor;
 import molefarm.common.MoleFarm;
 import molefarm.common.MoleFarmWarehouse;
 import molefarm.pattern.adapter.Target;

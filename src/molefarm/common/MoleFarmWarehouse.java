@@ -1,6 +1,6 @@
 package molefarm.common;
 
-import Framework.SimpleFactory.Mole;
+import framework.simplefactory.Mole;
 import molefarm.common.product.AbstractCrops;
 import molefarm.common.product.AbstractFertilizer;
 import molefarm.common.product.AbstractSeed;

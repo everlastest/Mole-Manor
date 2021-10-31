@@ -1,6 +1,6 @@
 package molefarm;
 
-import Singleton_LazyInitialization.MoleManor;
+import singletonlazyinitialization.MoleManor;
 
 public class Program {
     public static void main(String[] args) throws CloneNotSupportedException {
