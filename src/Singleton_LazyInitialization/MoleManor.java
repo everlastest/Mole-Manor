@@ -70,10 +70,10 @@ public class MoleManor {
          */
         currentMenu = MenuList.getInstance().meanMenu();
         BlackboardUI blackboard = new BlackboardUI();
+        blackboard.showBlackboard();
 
         while(true){
 
-            blackboard.showBlackboard();
             printMenu();
 
             int i = input.nextInt();

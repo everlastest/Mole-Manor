@@ -40,18 +40,17 @@ public class ChatUI {
             i= exceptionHandle.exception();
             switch (i) {
                 case 1:
-                    String message = null;
-                    if (scan.hasNext()) {
-                        message = scan.next();
-                    }
-
+                    String message = scan.nextLine();
                     chatroom.lock.lock();
+
                     try {
                         sendMessage(message);
                     } finally {
                         chatroom.lock.unlock();
                     }
+
                     break;
+
                 case 2:
                     showMessage();
                     break;

@@ -19,6 +19,7 @@ public class MealCache {
      */
     public static AbstractMeal getMeal(String mealId) {
         AbstractMeal cachedMeal = mealMap.get(mealId);
+        if (cachedMeal == null) {return null;}
         return (AbstractMeal) cachedMeal.clone();
     }
 
