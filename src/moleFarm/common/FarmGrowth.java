@@ -24,7 +24,7 @@ import java.util.Map;
  * 种植方法是一个静态类()有很多静态方法
  */
 public class FarmGrowth {
-    private static WeatherAdapter weather=WeatherAdapter.getInstance();
+    public static WeatherAdapter weather=WeatherAdapter.getInstance();
 
     private static MoleAdapter mole=MoleAdapter.getInstance();
 
