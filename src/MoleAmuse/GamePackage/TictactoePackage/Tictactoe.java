@@ -215,7 +215,7 @@ public class Tictactoe implements Game {
         if (result == 3) {score = 5;}
         if (result == chesstype) {score = 10;}
         mole.setScore(score + mole.getScore());
-        System.out.println("小摩尔"+MoleManor.getPlayer().getMoleName()+"此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
+        System.out.println("小摩尔["+MoleManor.getPlayer().getMoleName()+"]此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
 
         /**
          * 添加备忘录

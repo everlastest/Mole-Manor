@@ -1,25 +1,46 @@
 package ChatRoom;
 
-import java.util.*;
-import java.util.concurrent.locks.ReentrantLock;
+import ChatRoom.Mutex.Lock;
+import ChatRoom.Mutex.Mutex;
 
-//中介者模式：聊天室
+import java.util.*;
+
+/**
+ * 中介者模式：聊天室
+ */
 public class Chatroom {
 
-    //单例
     private static Chatroom instance = new Chatroom();
     private Chatroom(){}
     public static Chatroom getInstance(){
         return instance;
     }
 
-    //消息锁
-    public ReentrantLock lock = new ReentrantLock();
-
-    //消息队列
     private LinkedList<String> MessageList = new LinkedList<String>();
 
-    //添加消息
+    /**
+     * 消息互斥锁
+     * 只有一个线程能进入聊天室添加消息
+     */
+    private final static Lock lock = new Mutex();
+
+
+    /**
+     * 上锁
+     * @throws InterruptedException
+     */
+    public static void Lock() throws InterruptedException {lock.acquire();}
+
+    /**
+     * 解锁
+     */
+    public static void unLock() {lock.release();}
+
+    /**
+     * 添加消息
+     * @param username
+     * @param message
+     */
     public void addMessage(String username, String message){
         MessageList.addLast(new Date().toString()
                 + " [" + username +"] : " + message);
@@ -30,7 +51,9 @@ public class Chatroom {
         }
     }
 
-    //显示消息
+    /**
+     * 显示消息
+     */
     public void showMessage(){
 
         Iterator<String> it = MessageList.iterator();

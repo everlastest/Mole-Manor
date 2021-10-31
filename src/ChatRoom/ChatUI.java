@@ -7,7 +7,6 @@ import Singleton_LazyInitialization.MoleManor;
 
 import java.util.Scanner;
 
-//中介者模式：聊天界面
 public class ChatUI {
 
     //添加角色和聊天室
@@ -26,27 +25,32 @@ public class ChatUI {
     }
 
 
-    //聊天界面接口
+    /**
+     * 聊天界面接口
+     */
     public void chatting(){
 
         Scanner scan = new Scanner(System.in);
-        ExceptionHandle exceptionHandle=new ExceptionHandle();
+        ExceptionHandle exceptionHandle = new ExceptionHandle();
         int i = 0;
 
         MoleManor.printMenu();
 
         while (true){
 
-            i= exceptionHandle.exception();
+            i = exceptionHandle.exception();
+
             switch (i) {
                 case 1:
                     String message = scan.nextLine();
-                    chatroom.lock.lock();
 
                     try {
+                        chatroom.Lock();
                         sendMessage(message);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     } finally {
-                        chatroom.lock.unlock();
+                        chatroom.unLock();
                     }
 
                     break;

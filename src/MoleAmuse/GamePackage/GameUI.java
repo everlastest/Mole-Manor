@@ -4,8 +4,6 @@ package MoleAmuse.GamePackage;
 import ExceptionHandle.ExceptionHandle;
 import MoleAmuse.GamePackage.MementoPackage.RecordList;
 import Singleton_LazyInitialization.MoleManor;
-import MoleAmuse.Servant.Preparation;
-import MoleAmuse.Servant.Worker;
 
 import java.util.Scanner;
 

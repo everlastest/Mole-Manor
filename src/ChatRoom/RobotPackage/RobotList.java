@@ -1,6 +1,4 @@
-package MoleAmuse.RobotPackage;
-
-import Framework.SimpleFactory.MoleCreator;
+package ChatRoom.RobotPackage;
 
 import java.util.ArrayList;
 

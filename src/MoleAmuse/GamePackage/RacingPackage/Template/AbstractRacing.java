@@ -85,7 +85,7 @@ public abstract class AbstractRacing{
 
         score = getScore(score);
         mole.setScore(mole.getScore() + score);
-        System.out.println("小摩尔" + MoleManor.getPlayer().getMoleName() + "此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
+        System.out.println("小摩尔[" + MoleManor.getPlayer().getMoleName() + "]此次获得游戏积分：" + score + ", 总积分为：" + mole.getScore());
 
         System.out.println("正在返回摩摩赛车城...\n");
     }

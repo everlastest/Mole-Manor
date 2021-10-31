@@ -2,7 +2,7 @@ package ChatRoom;
 
 import Framework.SimpleFactory.Mole;
 import Framework.SimpleFactory.MoleFactory;
-import MoleAmuse.RobotPackage.Robot;
+import ChatRoom.RobotPackage.Robot;
 
 public class MediatorTestDemo {
     public static void main(String[] args) {
