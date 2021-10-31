@@ -153,7 +153,7 @@ public class FarmProcess {
             //批量操作
             if ("b".equals(str2)) {
                 System.out.println("\n批量操作");
-                System.out.println("请选择操作：[1]选择批量播种 [2]选择批量收获 [3]返回上级：");
+                System.out.println("请选择操作：[0]返回上级 [1]选择批量播种 [2]选择批量收获 ：");
                 String str3 = input.next();
                 if ("1".equals(str3)) {
                     System.out.println("请输入想要种植的作物种子：(白菜/茄子/水稻/草莓/西瓜/小麦种子)");
@@ -207,7 +207,7 @@ public class FarmProcess {
                             "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
-                    System.out.println("抱歉你的摩尔豆不足");
+                    System.out.println("购买失败！");
                 }
             } else {
                 if (proxy.fertilizerPurchase(objName, objNum)) {
@@ -215,7 +215,7 @@ public class FarmProcess {
                             "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoleDou() + "摩尔豆\n");
                 } else {
-                    System.out.println("抱歉你的摩尔豆不足\n");
+                    System.out.println("购买失败！");
                 }
             }
         } catch (ProductNotFoundException e) {

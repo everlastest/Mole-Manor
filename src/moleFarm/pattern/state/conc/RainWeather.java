@@ -1,7 +1,10 @@
 package moleFarm.pattern.state.conc;
 
 import moleFarm.common.MoleFarmBlock;
+import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
+
+import java.util.Set;
 
 public class RainWeather extends WeatherAdapter {
     private final String weatherStatus="雨天";
@@ -18,6 +21,13 @@ public class RainWeather extends WeatherAdapter {
 
     @Override
     public void disInsection(MoleFarmBlock farmBlock) {
-        System.out.println("农场一片祥和，没有遭遇虫灾");
+        Set<FarmBlockStatus> blockStatusSet = farmBlock.getBlockStatusSet();
+        if(blockStatusSet.contains(FarmBlockStatus.DROUGHT)) {
+            pesticide.ToolBehavior();
+            blockStatusSet.remove(FarmBlockStatus.INSECT_DISASTER);
+        }
+        else{
+            System.out.println("农场一片祥和，没有遭遇虫灾");
+        }
     }
 }
