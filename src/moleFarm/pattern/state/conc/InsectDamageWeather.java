@@ -1,7 +1,6 @@
 package moleFarm.pattern.state.conc;
 
 import moleFarm.common.MoleFarmBlock;
-import moleFarm.common.product.tool.Pesticide;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
 
@@ -21,7 +20,10 @@ public class InsectDamageWeather extends WeatherAdapter {
 
     @Override
     public void disInsection(MoleFarmBlock farmBlock) {
-        pesticide.ToolBehavior();
-        farmBlock.getBlockStatusSet().removeIf(s->s.equals(FarmBlockStatus.INSECT_DISASTER));
+        if (farmBlock.getBlockStatusSet().removeIf(s -> s.equals(FarmBlockStatus.INSECT_DISASTER))) {
+            pesticide.ToolBehavior();
+        } else {
+            System.out.println("就算是虫灾天，喷洒农药也要适量哦");
+        }
     }
 }

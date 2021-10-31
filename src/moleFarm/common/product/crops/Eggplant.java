@@ -23,7 +23,7 @@ public class Eggplant extends AbstractCrops implements Cloneable {
     /**
      * 价格
      */
-    private final Double price = 20.0;
+    private final Double price = 10.0;
 
     public Eggplant() {
     }

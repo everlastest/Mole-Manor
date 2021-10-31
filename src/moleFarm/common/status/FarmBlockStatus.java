@@ -5,7 +5,7 @@ package moleFarm.common.status;
  */
 public enum FarmBlockStatus {
     WEEDS("杂草"),
-    INSECT_DISASTER("虫灾"),
+    INSECT_DISASTER("长虫"),
     DROUGHT("干旱");
     String text;
 

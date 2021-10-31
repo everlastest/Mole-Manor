@@ -6,6 +6,7 @@ import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.farm.IFarm;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.product.Shape;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.conc.MoleAdapter;
@@ -109,14 +110,28 @@ public class MoleFarm implements IFarm {
          * 存入map里面
          */
         for (MoleFarmBlock item : farmBlockList) {
-            if (item.getSeedStatus() != null && item.getSeedStatus() >= 6) {
+            if (item.getSeed()!=null&&item.getSeedStatus() != null && item.getSeedStatus() >= 6) {
                 String name = item.getSeed().getName().replace("种子","");
                 item.setSeed(null);
                 CropsFactory cropsFactory = CropsFactory.newInstance();
                 try {
                     AbstractCrops crops = cropsFactory.create(mapJson.get(name));
                     int num=map.get(crops)==null?0:map.get(crops);
-                    map.put(crops,num+1);
+                    int cropsNum;
+                    Set<FarmBlockStatus> blockStatusSet = item.getBlockStatusSet();
+                    Random random = new Random();
+                    if (blockStatusSet.size() == 3) {
+                        cropsNum = random.nextInt(2, 4);
+                    }
+                    else if (blockStatusSet.size() == 2) {
+                        cropsNum = random.nextInt(5, 7);
+                    }
+                    else if(blockStatusSet.size()==1){
+                        cropsNum=random.nextInt(8,9);
+                    }else{
+                        cropsNum=10;
+                    }
+                    map.put(crops,num+cropsNum);
                 } catch (CropsNotFoundException e) {
                     e.printStackTrace();
                 }
