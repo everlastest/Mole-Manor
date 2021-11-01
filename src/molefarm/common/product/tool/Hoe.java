@@ -22,7 +22,7 @@ public class Hoe extends AbstractTool {
 
     @Override
     public void ToolBehavior() {
-        System.out.println("正在用" + name + "种植作物...");
+        System.out.println("正在用" + name + "松土.。。");
     }
 
     @Override
