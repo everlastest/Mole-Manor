@@ -1,5 +1,7 @@
 package singletonlazyinitialization;
 
+import backpack.MVC.BackpackController;
+import backpack.MVC.BackpackView;
 import backpack.information.PutInformation;
 import framework.blackboard.BlackboardUI;
 import framework.composite.*;
@@ -72,6 +74,8 @@ public class MoleManor {
         currentMenu = MenuList.getInstance().meanMenu();
         BlackboardUI blackboard = new BlackboardUI();
         blackboard.showBlackboard();
+        BackpackView backpackView=new BackpackView();
+        BackpackController controller=new BackpackController(player.getBackpack(),backpackView);
         PutInformation putInformation=new PutInformation();
         while(true){
 
@@ -106,7 +110,7 @@ public class MoleManor {
                     break;
                 case 6:
                     System.out.println("\n正在显示摩尔的基本信息！");
-                    putInformation.showMoleInformation(player);
+                    putInformation.showMoleInformation(player,controller);
                     ;
                     break;
                 case 0:
