@@ -57,7 +57,6 @@ public class BackpackController {
 
     //遍历背包
     public void updateView(){
-        System.out.println("物品" + '\t' + '\t' +'\t' +"数量");
         view.printBackpack(model.getClothes());
         view.printBackpack(model.getFood());
     }

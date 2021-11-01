@@ -24,8 +24,7 @@ public class MenuList {
         Menu farmMenu = new Menu("摩尔农场");
         Menu shopMenu = new Menu("摩尔商场");
         Menu chatMenu = new Menu("摩尔聊天室");
-        meanMenu.add(amuseMenu, farmMenu, shopMenu, chatMenu, new MenuOption("查看公告"));
-
+        meanMenu.add(amuseMenu, farmMenu, shopMenu, chatMenu, new MenuOption("查看公告"),new MenuOption("查看摩尔基本信息"));
         /**
          * 聊天室菜单
          */

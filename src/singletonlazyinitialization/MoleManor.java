@@ -1,5 +1,6 @@
 package singletonlazyinitialization;
 
+import backpack.information.PutInformation;
 import framework.blackboard.BlackboardUI;
 import framework.composite.*;
 import framework.simplefactory.*;
@@ -71,7 +72,7 @@ public class MoleManor {
         currentMenu = MenuList.getInstance().meanMenu();
         BlackboardUI blackboard = new BlackboardUI();
         blackboard.showBlackboard();
-
+        PutInformation putInformation=new PutInformation();
         while(true){
 
             printMenu();
@@ -102,6 +103,11 @@ public class MoleManor {
                 case 5:
                     System.out.println("\n正在显示广告牌内容！");
                     blackboard.showBlackboard();
+                    break;
+                case 6:
+                    System.out.println("\n正在显示摩尔的基本信息！");
+                    putInformation.showMoleInformation(player);
+                    ;
                     break;
                 case 0:
                     goback();

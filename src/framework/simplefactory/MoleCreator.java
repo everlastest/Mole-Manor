@@ -1,5 +1,6 @@
 package framework.simplefactory;
 
+import backpack.MVC.Backpack;
 import exceptionhandle.ExceptionHandle;
 
 import java.util.Scanner;
@@ -70,12 +71,13 @@ public class MoleCreator {
 
         MoleFactory moleFactory = new MoleFactory();
         Mole mole = moleFactory.createMole(role,color);
+        Backpack backpack=new Backpack();
 
         mole.setMoleName(name);
         mole.setMoney(1000);
         mole.setTicket(2);
         mole.setScore(0);
-        mole.setBackpack();
+        mole.setBackpack(backpack);
 
         return mole;
     }
