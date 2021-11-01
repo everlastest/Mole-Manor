@@ -73,6 +73,7 @@ public class MoleCreator {
         mole.setMoney(1000);
         mole.setTicket(2);
         mole.setScore(0);
+        mole.setBackpack();
 
         return mole;
     }
