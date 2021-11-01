@@ -47,7 +47,6 @@ public class Racing implements Game {
                     System.out.println("\n" + "正在退出摩摩赛车场......\n成功离开，已返回游乐园！\n");
                     return;
                 default:
-                    System.out.println("输入错误，请重新输入！！");
                     racingType = 0;
                     break;
             }
