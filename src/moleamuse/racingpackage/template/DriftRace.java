@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * 漂移赛车
  */
-public class DriftRace extends AbstractRacing{
+public class  DriftRace extends AbstractRacing{
 
     public DriftRace(){
         super(2);
@@ -20,6 +20,7 @@ public class DriftRace extends AbstractRacing{
         System.out.println("正在检票......");
         if(ticket==0) {
             System.out.println("票数不足，无法参加漂移赛，请先购买票！！");
+
             return false;
         }
         else{

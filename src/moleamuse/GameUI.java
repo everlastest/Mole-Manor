@@ -2,6 +2,8 @@ package moleamuse;
 
 
 import exceptionhandle.ExceptionHandle;
+import framework.interpreter.BuyTicket;
+import framework.simplefactory.Mole;
 import moleamuse.mementopackage.RecordList;
 import singletonlazyinitialization.MoleManor;
 
@@ -10,6 +12,8 @@ import java.util.Scanner;
 public class GameUI {
 
     private GameMaker gameMaker = GameMaker.getInstance();
+    private Mole mole=MoleManor.getPlayer();
+    BuyTicket by=new BuyTicket(mole);
 
 
     public GameUI(){
@@ -46,6 +50,9 @@ public class GameUI {
                     break;
                 case 4:
                     RecordList.getInstance().printList();
+                    break;
+                case 5:
+                    by.buyTicket();
                     break;
                 case 0:
                     MoleManor.goback();

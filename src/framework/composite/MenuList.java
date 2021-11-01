@@ -34,7 +34,7 @@ public class MenuList {
          * 游乐园菜单
          */
         Menu raceMenu = new Menu("摩摩赛车场");
-        amuseMenu.add(new MenuOption("摩尔厨房"), raceMenu, new MenuOption("摩摩井字棋"), new MenuOption("摩尔备忘录"));
+        amuseMenu.add(new MenuOption("摩尔厨房"), raceMenu, new MenuOption("摩摩井字棋"), new MenuOption("摩尔备忘录"),new MenuOption("购买门票"));
         raceMenu.add(new MenuOption("摩摩竞速赛"), new MenuOption("摩摩漂移赛"), new MenuOption("摩摩障碍赛"));
         /**
          * 农场菜单
