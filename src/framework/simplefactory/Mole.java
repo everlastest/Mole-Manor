@@ -2,7 +2,7 @@ package framework.simplefactory;
 
 import framework.simplefactory.color.Color;
 import framework.simplefactory.role.Role;
-
+import backpack.MVC.*;
 //摩尔角色相关信息
 public class Mole {
     private String MoleName;      //名字
@@ -11,6 +11,7 @@ public class Mole {
     private double money;      //摩尔豆
     private int ticket;      //游乐园票数
     private int score;      //游戏积分
+    private Backpack backpack;//背包
 
     public Mole(){
     }
@@ -43,6 +44,9 @@ public class Mole {
 
     public void setScore(int score){this.score=score;}
     public int getScore(){return score;}
+
+    public void setBackpack(){this.backpack=new Backpack();}
+    public Backpack getBackpack(){return backpack;}
 
     public void showMoleInformation(){
         System.out.println("Name is"+MoleName+"!");

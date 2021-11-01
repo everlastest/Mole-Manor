@@ -1,5 +1,8 @@
 package backpack.MVC;
 
+/**
+ * 背包控制器
+ */
 public class BackpackController {
     private Backpack model;
     private BackpackView view;
@@ -8,11 +11,8 @@ public class BackpackController {
         this.model=model;
         this.view=view;
     }
-    /*public void a(String item,int num)
-    {
-        model.getClothesNum(item);
-    }*/
 
+    //添加物品到背包
     public void AddBackpackItem(String item,int num,String type){
         switch(type)
         {
@@ -21,30 +21,39 @@ public class BackpackController {
 
                     Integer n=model.getClothesNum(item);
                     n+=num;
-                    model.Delclothes(item);
-                    model.Addclothes(item,n);
+                    model.DelClothes(item);
+                    model.AddClothes(item,n);
                 }
                 else
-                    model.Addclothes(item,num);
+                    model.AddClothes(item,num);
                 break;
             case "food":
                 if(model.getClothes().containsKey(item)){
                     Integer n=model.getFoodNum(item);
                     n+=num;
-                    model.Delfood(item);
-                    model.Addfood(item,n);
+                    model.DelFood(item);
+                    model.AddFood(item,n);
                 }
                 else
-                    model.Addfood(item,num);
+                    model.AddFood(item,num);
                 break;
         }
 
     }
-    /*
-    public void DelBackpackItem(String item,){
-        model.Delitem(item);
+
+    //删除背包中的物品
+    public void DelBackpackItem(String item,String type){
+        switch(type)
+        {
+            case "clothes":
+                model.DelClothes(item);
+                break;
+            case "food":
+                model.DelFood(item);
+                break;
+        }
     }
-    */
+
 
     //遍历背包
     public void updateView(){

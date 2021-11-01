@@ -3,15 +3,24 @@ package backpack.MVC;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 背包模型
+ */
 public class Backpack {
 
-    private Map clothes=new HashMap<String,Integer>();
-    private Map food=new HashMap<String,Integer>();
-    public void Addclothes(String item,int num){
+    private Map clothes;
+    private Map food;
+
+    public Backpack(){
+        clothes=new HashMap<String,Integer>();
+        food=new HashMap<String,Integer>();
+    }
+
+    public void AddClothes(String item,int num){
         clothes.put(item,num);
 
     }
-    public void Addfood(String item,int num){
+    public void AddFood(String item,int num){
         food.put(item,num);
 
     }
@@ -30,10 +39,10 @@ public class Backpack {
         return ((Integer) food.get(item));
     }
 
-    public void Delclothes(String item){
+    public void DelClothes(String item){
         clothes.remove(item);
     }
-    public void Delfood(String item){
+    public void DelFood(String item){
         clothes.remove(item);
     }
 

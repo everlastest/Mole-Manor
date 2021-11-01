@@ -11,12 +11,14 @@ public class BackpackTestDemo {
         //controller.a("夹克",1);
         controller.AddBackpackItem("夹克",1,"clothes");
         controller.updateView();
+        controller.DelBackpackItem("夹克","clothes");
+        controller.updateView();
     }
 
     private static Backpack retrieveStudentFromDatabase(){
-        Backpack backpack = new Backpack();
-        backpack.Addclothes("夹克",1);
-        backpack.Addfood("食物",3);
+        Backpack backpack=new Backpack();
+        backpack.AddClothes("夹克",1);
+        backpack.AddFood("食物",3);
         return backpack;
     }
 }
