@@ -1,6 +1,7 @@
 package framework.interpreter;
 
 import framework.simplefactory.Mole;
+import molefarm.common.MoleFarmWarehouse;
 import singletonlazyinitialization.MoleManor;
 
 import java.util.Scanner;
@@ -24,7 +25,7 @@ public class BuyTicket {
         int num=input.nextInt();
 
         Expression Efare=new Number(fare);
-        Expression Enum=new Number((double)num);
+        Expression Enum=new Number(num);
         Expression Emoney=new Number(money);
 
         Expression Eresult=new Sub(Emoney,new Mul(Enum,Efare));
@@ -34,6 +35,7 @@ public class BuyTicket {
         if(result>=0){
             ticket+=num;
             money=result;
+            MoleManor.getPlayer().setMoney(money);
             System.out.println("购买门票成功，现有门票"+ticket+"张，"+money+"摩尔豆\n");
         }
         else{
