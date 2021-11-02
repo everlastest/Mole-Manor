@@ -2,28 +2,51 @@ package chatroom.robotpackage;
 
 import chatroom.Chatroom;
 
-import java.util.Random;
+import java.util.*;
 
 /**
- * 聊天机器人
+ * NPC
  */
-public class Robot implements Runnable {
+public enum Robot implements Runnable {
+
+    /**
+     * 使用枚举类型实现多例模式
+     * 3个NPC：菩提大伯，么么公主，瑞琪
+     */
+    UnclePuti("菩提大伯"), PrincessMeme("么么公主"), Ruiqi("瑞琪");
+
+
+    /**
+     * 获取一个NPC的单例
+     * @param robotName
+     * @return
+     */
+    public static Robot getInstance(String robotName){
+        return switch (robotName){
+            case "菩提大伯" -> UnclePuti;
+            case "么么公主" -> PrincessMeme;
+            case "瑞琪" -> Ruiqi;
+            default->throw new NoSuchElementException("找不到该NPC!");
+        };
+    }
 
     //终止线程标识符
     public volatile boolean exit = false;
 
     private Thread t;
 
-    //线程名字
+    //NPC名字
     private String RobotName;
-
-    private Chatroom chatroom = Chatroom.getInstance();
 
     private String[] randMessage = {"", "今天天气不错", "中午吃什么", "我要去游乐园","你好呀"};
     private Random random = new Random();
 
 
-    public Robot(String name) {
+    /**
+     * 私有构造函数
+     * @param name
+     */
+    Robot(String name) {
         RobotName = name;
         randMessage[0] = "我是" + name;
     }
@@ -34,13 +57,15 @@ public class Robot implements Runnable {
     }
 
     private void sendMessage(String message){
-        chatroom.addMessage(RobotName, message);
+        Chatroom.getInstance().addMessage(RobotName, message);
     }
 
-
+    public String getRobotName() {
+        return RobotName;
+    }
 
     /**
-     * 线程操作：向聊天室添加消息
+     * NPC操作：向聊天室添加消息
      */
     public void run() {
 
@@ -50,12 +75,12 @@ public class Robot implements Runnable {
                 String str = BuildMessage();
 
                 //获取线程锁
-                chatroom.Lock();
+                Chatroom.getInstance().Lock();
                 //发送信息
                 try {
                     sendMessage(str);
                 } finally {
-                    chatroom.unLock();//解锁
+                    Chatroom.getInstance().unLock();//解锁
                 }
 
                 Thread.sleep(1000);
@@ -69,7 +94,7 @@ public class Robot implements Runnable {
 
 
     /**
-     * 启动线程
+     * 启动NPC
      */
     public void start () {
 

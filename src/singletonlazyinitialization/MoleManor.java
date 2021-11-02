@@ -46,12 +46,7 @@ public class MoleManor {
     }
 
 
-    //输出测试信息
-    public void showMessage(){
-        System.out.println("MoleManor is created successfully!");
-    }
 
-    //整个流程
     public void flowController() throws CloneNotSupportedException{
         System.out.println("欢迎来到摩尔庄园！\n\n\n");
         Scanner input = new Scanner(System.in);
@@ -63,20 +58,29 @@ public class MoleManor {
         System.out.println("\n角色创建成功，正在进入摩尔大厅！！！\n\n\n");
 
         /**
-         * 添加聊天机器人
+         * 添加NPC
          */
-
-        RobotList.getInstance().addRobot("菩提大伯", "么么公主", "瑞琪");
+        NPCList.getInstance().start();
 
         /**
          * 主菜单
          */
         currentMenu = MenuList.getInstance().meanMenu();
+
+        /**
+         * 公告
+         */
         BlackboardUI blackboard = new BlackboardUI();
         blackboard.showBlackboard();
-        BackpackView backpackView=new BackpackView();
-        BackpackController controller=new BackpackController(player.getBackpack(),backpackView);
-        PutInformation putInformation=new PutInformation();
+
+        /**
+         * 背包信息
+         */
+        BackpackView backpackView = new BackpackView();
+        BackpackController controller = new BackpackController(player.getBackpack(), backpackView);
+        PutInformation putInformation = new PutInformation();
+
+
         while(true){
 
             printMenu();
@@ -110,13 +114,13 @@ public class MoleManor {
                     break;
                 case 6:
                     System.out.println("\n正在显示摩尔的基本信息！");
-                    putInformation.showMoleInformation(player,controller);
-                    ;
+                    putInformation.showMoleInformation(player,controller);;
                     break;
                 case 0:
                     goback();
                     System.out.println("\n您即将离开摩尔庄园，再见是为了更好的重逢！");
-                    RobotList.getInstance().stop();
+                    //终止NPC线程
+                    NPCList.getInstance().stop();
                     return;
                 default:
                     break;
@@ -130,7 +134,12 @@ public class MoleManor {
     public static Mole getPlayer() {
         return player;
     }
-    //需要才创建，保证线程安全
+
+
+    /**
+     * 单例
+     * 需要才创建，保证线程安全
+     */
     private static class SingletonHolder{
         private static MoleManor instance =new MoleManor();
     }

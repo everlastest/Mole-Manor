@@ -3,7 +3,6 @@ package moleamuse;
 
 import exceptionhandle.ExceptionHandle;
 import framework.interpreter.BuyTicket;
-import framework.simplefactory.Mole;
 import moleamuse.mementopackage.RecordList;
 import singletonlazyinitialization.MoleManor;
 
@@ -12,8 +11,7 @@ import java.util.Scanner;
 public class GameUI {
 
     private GameMaker gameMaker = GameMaker.getInstance();
-    private Mole mole=MoleManor.getPlayer();
-    BuyTicket by=new BuyTicket(mole);
+    BuyTicket by = new BuyTicket(MoleManor.getPlayer());
 
 
     public GameUI(){
@@ -33,19 +31,13 @@ public class GameUI {
 
             switch(i){
                 case 1:
-                    //Worker worker1=new Worker();
-                    //worker1.prepare((Preparation) gameMaker);
                     gameMaker.playCooking();
                     break;
                 case 2:
-                    //Worker worker2=new Worker();
-                    //worker2.prepare((Preparation) gameMaker);
                     System.out.println("\n正在进入摩摩赛车场！");
                     gameMaker.playRacing();
                     break;
                 case 3:
-                    //Worker worker3=new Worker();
-                    //worker3.prepare((Preparation) gameMaker);
                     gameMaker.playTictactoe();
                     break;
                 case 4:

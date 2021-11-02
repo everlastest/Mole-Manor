@@ -1,7 +1,6 @@
 package chatroom;
 
-import chatroom.mutex.Lock;
-import chatroom.mutex.Mutex;
+import chatroom.mutex.*;
 
 import java.util.*;
 
@@ -20,7 +19,7 @@ public class Chatroom {
 
     /**
      * 消息互斥锁
-     * 只有一个线程能进入聊天室添加消息
+     * 只有一个NPC能进入聊天室添加消息
      */
     private final static Lock lock = new Mutex();
 
@@ -42,6 +41,7 @@ public class Chatroom {
      * @param message
      */
     public void addMessage(String username, String message){
+
         MessageList.addLast(new Date().toString()
                 + " [" + username +"] : " + message);
 
