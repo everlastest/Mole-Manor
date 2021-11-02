@@ -3,7 +3,7 @@ package framework.interpreter;
 import framework.simplefactory.Mole;
 import singletonlazyinitialization.MoleManor;
 
-public class BuyTicketTestDemo{
+public class InterpreterTestDemo {
     public static void main(String []args){
         MoleManor moleManor=MoleManor.getInstance();
         moleManor.test();
