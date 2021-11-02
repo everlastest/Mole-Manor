@@ -1,13 +1,18 @@
 package molemall;
-//import molemall.abstractFactory.CommodityFood;
+//import molemall.pattern.abstractFactory.CommodityFood;
 
-import molemall.shops.ClothesShop;
-import molemall.shops.FoodShop;
-import molemall.utils.JsonUtils;
+import framework.simplefactory.Mole;
+import molemall.other.shops.ClothesShop;
+import molemall.other.shops.FoodShop;
+import molemall.other.utils.JsonUtils;
+import singletonlazyinitialization.MoleManor;
+
 import java.util.*;
 
 
 public class MallProcess {
+    //摩尔
+    private Mole mole= MoleManor.getPlayer();
     //服装店
     private ClothesShop clothesShop=ClothesShop.newInstance();
     //食品店
@@ -30,10 +35,10 @@ public class MallProcess {
     public void process() {
         ClothesShop clothesShop = ClothesShop.newInstance();
 
-        System.out.println("欢迎来到商场！");
+        System.out.println("您的余额为"+mole.getMoney());
 
         while(true){
-            System.out.println("\n请选择你要进入的商店：1——服装店，2——食品店，0——游戏首页");
+            System.out.println("\n请选择您要进入的商店：1——服装店，2——食品店，0——游戏首页");
             Scanner input=new Scanner(System.in);
             int shopSelect = input.nextInt();
             if(shopSelect==1){
@@ -51,14 +56,14 @@ public class MallProcess {
                 }
                 while(true) {
                     while(true){
-                    System.out.println("\n请输入你想要选择的服装名称");
+                    System.out.println("\n请输入您想要选择的服装名称");
                     String clothesName = input.next();
                     List<String> clo=Arrays.asList("夹克", "衬衫", "牛仔裤", "短裤");
                     if(clo.contains(clothesName)){
                         clothesShop.createClothes(clothesName);
                         break;
                     }}
-                    System.out.println("你还要继续逛服装店吗?(按y继续)");
+                    System.out.println("您还要继续逛服装店吗?(按y继续)");
                     String in = input.next();
                     if (in.equals("y")) {
                         continue;
@@ -75,7 +80,7 @@ public class MallProcess {
                 foodShop.showFoodShop();
                 while(true) {
                     while(true){
-                        System.out.println("\n请输入你想要选择的食品名称");
+                        System.out.println("\n请输入您想要选择的食品名称");
                         String foodName = input.next();
                         List<String> clo=Arrays.asList("汉堡", "苏打水", "西瓜");
                         if(clo.contains(foodName)){
@@ -84,7 +89,7 @@ public class MallProcess {
                         }
                         else System.out.println("没有找到该食品哦");
                     }
-                    System.out.println("你还要继续逛食品店吗?(按y继续)");
+                    System.out.println("您还要继续逛食品店吗?(按y继续)");
                     String in = input.next();
                     if (in.equals("y")) {
                         continue;

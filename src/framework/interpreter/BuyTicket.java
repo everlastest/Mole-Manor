@@ -36,6 +36,7 @@ public class BuyTicket {
             ticket+=num;
             money=result;
             MoleManor.getPlayer().setMoney(money);
+            MoleManor.getPlayer().setTicket(ticket);
             System.out.println("购买门票成功，现有门票"+ticket+"张，"+money+"摩尔豆\n");
         }
         else{
