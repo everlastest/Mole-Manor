@@ -6,7 +6,19 @@ public class NPCList {
 
     private ArrayList<Robot> NpcList = new ArrayList<>();
 
-    private NPCList() {}
+    /**
+     * 构造函数
+     * 获取三个NPC的实例并添加到NPC列表中
+     */
+    private NPCList() {
+        Robot UnclePuti = Robot.getInstance("菩提大伯");
+        Robot PrincessMeme = Robot.getInstance("么么公主");
+        Robot Ruiqi = Robot.getInstance("瑞琪");
+
+        NpcList.add(UnclePuti);
+        NpcList.add(PrincessMeme);
+        NpcList.add(Ruiqi);
+    }
     private static NPCList instance = new NPCList();
     public static NPCList getInstance(){
         return instance;
@@ -14,20 +26,12 @@ public class NPCList {
 
 
     /**
-     * 获取三个NPC的实例并添加到NPC列表中
+     * 启动NPC
      */
     public void start(){
-        Robot UnclePuti = Robot.getInstance("菩提大伯");
-        Robot PrincessMeme = Robot.getInstance("么么公主");
-        Robot Ruiqi = Robot.getInstance("瑞琪");
-
-        UnclePuti.start();
-        PrincessMeme.start();
-        Ruiqi.start();
-
-        NpcList.add(UnclePuti);
-        NpcList.add(PrincessMeme);
-        NpcList.add(Ruiqi);
+        for(Robot r : NpcList){
+            r.start();
+        }
     }
 
     /**
