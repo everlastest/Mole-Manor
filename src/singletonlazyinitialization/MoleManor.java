@@ -10,6 +10,7 @@ import chatroom.robotpackage.*;
 import chatroom.*;
 import moleamuse.GameUI;
 import molefarm.FarmProcess;
+import molemall.MallProcess;
 
 import java.util.Scanner;
 
@@ -102,6 +103,8 @@ public class MoleManor {
                     break;
                 case 3:
                     System.out.println("欢迎来到摩尔商场！\n");
+                    MallProcess mallProcess=MallProcess.newInstance();
+                    mallProcess.process();
                     break;
                 case 4:
                     System.out.println("\n正在进入摩尔聊天室！");

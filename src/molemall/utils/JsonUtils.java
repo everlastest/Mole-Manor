@@ -22,7 +22,7 @@ public class JsonUtils {
     }
     public static Map<String, String> searchMapper() {
         try {
-            String jsonPath = "src/MoleMall/resources/mapper.json";
+            String jsonPath = "src/molemall/resources/mapper.json";
             JSONObject json = getJson(jsonPath);
             String s = json.toJSONString();
             return (Map<String, String>) JSON.parseObject(s, Map.class);
@@ -59,7 +59,7 @@ public class JsonUtils {
      * @return
      */
     public static String getPathJson(String name) {
-        String jsonPath = "src/MoleMall/resources/path.json";
+        String jsonPath = "src/molemall/resources/path.json";
         try {
             JSONObject json = getJson(jsonPath);
             return (String) json.get(name);

@@ -1,5 +1,5 @@
 package molemall;
-//import MoleMall.abstractFactory.CommodityFood;
+//import molemall.abstractFactory.CommodityFood;
 
 import molemall.shops.ClothesShop;
 import molemall.shops.FoodShop;
@@ -96,7 +96,7 @@ public class MallProcess {
                 foodShop.checkout();//结账
             }
             else if(shopSelect==0){
-
+                break;
             }
             else {
                 continue;

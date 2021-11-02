@@ -1,9 +1,9 @@
 {
-  "AbstractFactory": "MoleMall.abstractFactory.AbstractFactory.",
-  "ClothesFactory": "MoleMall.abstractFactory.factory.ClothesFactory.",
-  "FoodFactory": "MoleMall.abstractFactory.factory.FoodFactory.",
-  "SeedFactory": "MoleMall.abstractFactory.factory.SeedFactory.",
-  "Clothes": "MoleMall.commodities.clothes.",
-  "Food": "MoleMall.commodities.food.",
-  "Seed": "MoleMall.commodities.seed."
+  "AbstractFactory": "molemall.abstractFactory.AbstractFactory.",
+  "ClothesFactory": "molemall.abstractFactory.factory.ClothesFactory.",
+  "FoodFactory": "molemall.abstractFactory.factory.FoodFactory.",
+  "SeedFactory": "molemall.abstractFactory.factory.SeedFactory.",
+  "Clothes": "molemall.commodities.clothes.",
+  "Food": "molemall.commodities.food.",
+  "Seed": "molemall.commodities.seed."
 }
