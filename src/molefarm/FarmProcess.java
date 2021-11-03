@@ -241,7 +241,7 @@ public class FarmProcess {
                 case "1":
                     String text1 = "种子";
                     System.out.println("请输入想要购买的" + text1 + "类型" +
-                            "(白菜种子--3.0，茄子种子--5.0，水稻种子--2.0，草莓种子--6.0，西瓜种子--5.0，小麦种子--3.0)，" +
+                            "(白菜种子--6.0，茄子种子--10.0，水稻种子--4.0，草莓种子--12.0，西瓜种子--10.0，小麦种子--6.0)，" +
                             "输入0返回上级：");
                     String objName = input.next();
                     if ("0".equals(objName)) {
@@ -264,7 +264,7 @@ public class FarmProcess {
                 case "3":
                     //挑选种类，输入数目，卖出作物
                     System.out.println("请输入想要卖出的作物类型" +
-                            "(白菜--10.0，茄子--20.0，水稻--4.0，草莓--30.0，西瓜--20.0，小麦--5.0)"
+                            "(白菜--5.0，茄子--10.0，水稻--2.0，草莓--15.0，西瓜--10.0，小麦--2.0)"
                             + "，输入0返回上级：");
                     String cropName = input.next();
                     if (cropName.equals("0")) {
