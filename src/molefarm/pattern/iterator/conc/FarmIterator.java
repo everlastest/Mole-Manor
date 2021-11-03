@@ -19,9 +19,7 @@ public class FarmIterator implements Iterator {
 
     @Override
     public MoleFarmBlock first() {
-        index = 0;
-        MoleFarmBlock block = farmBlockList.get(index);
-        return block;
+        return farmBlockList.get(0);
     }
 
     @Override

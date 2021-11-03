@@ -25,7 +25,7 @@ import java.util.*;
 public class FarmGrowth {
     public static WeatherAdapter weather = WeatherAdapter.getInstance();
 
-    private static MoleAdapter mole = MoleAdapter.getInstance();
+    private static final MoleAdapter mole = MoleAdapter.getInstance();
 
     private static final SeedFactory seedFactory = Home.seedFactory;
 
