@@ -12,7 +12,6 @@ public abstract class AbstractRacing{
     private int ticket;
     private int score;
     private int type;
-    private final double fare=100;
 
     public AbstractRacing(int type) {
         this.type = type;

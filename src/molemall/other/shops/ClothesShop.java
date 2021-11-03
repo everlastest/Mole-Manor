@@ -1,23 +1,21 @@
 package molemall.other.shops;
 
-import framework.simplefactory.Mole;
-import molemall.pattern.abstractFactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractClothes;
 import molemall.pattern.bridge.Blue;
 import molemall.pattern.bridge.Red;
 import molemall.pattern.bridge.Yellow;
-import molemall.pattern.clothesFilter.IFilter;
-import molemall.pattern.clothesFilter.priceFilter;
+import molemall.pattern.clothesfilter.IFilter;
+import molemall.pattern.clothesfilter.PriceFilter;
 import molemall.other.commodities.clothes.Jackets;
 import molemall.other.commodities.clothes.Jeans;
 import molemall.other.commodities.clothes.Shorts;
 import molemall.other.commodities.clothes.Tshirt;
-import molemall.pattern.abstractFactory.factory.ClothesFactory;
+import molemall.pattern.abstractfactory.factory.ClothesFactory;
 import molemall.other.shops.cart.ShoppingCart;
 import molemall.other.utils.JsonUtils;
 import molemall.pattern.visitor.ClothesLeaseVisitor;
 import molemall.pattern.visitor.ClothesPurchaseVisitor;
 import molemall.pattern.visitor.ClothesVisitor;
-import singletonlazyinitialization.MoleManor;
 
 import java.util.*;
 
@@ -137,7 +135,7 @@ public class ClothesShop extends Shop{
         }
     }
     public void filterClothes(double start_price,double end_price){
-        IFilter priceFilter = new priceFilter();
+        IFilter priceFilter = new PriceFilter();
         List<AbstractClothes> filter_clothes = priceFilter.filter(clothesShop.clothesList, start_price, end_price);
         if (filter_clothes.size() == 0) {
             System.out.println("没有筛选到商品哦");

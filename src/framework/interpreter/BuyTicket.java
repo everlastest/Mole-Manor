@@ -1,7 +1,10 @@
 package framework.interpreter;
 
+import framework.interpreter.calculate.Expression;
+import framework.interpreter.calculate.Mul;
+import framework.interpreter.calculate.Number;
+import framework.interpreter.calculate.Sub;
 import framework.simplefactory.Mole;
-import molefarm.common.MoleFarmWarehouse;
 import singletonlazyinitialization.MoleManor;
 
 import java.util.Scanner;

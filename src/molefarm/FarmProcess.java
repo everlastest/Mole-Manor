@@ -308,7 +308,7 @@ public class FarmProcess {
                     "今日天气：");
             //获取今日天气并输出
             System.out.print(this.weatherAdapter.getWeather() + "\n");
-            System.out.println("请选择您要去的地方：[0]游戏首页 [1]农田 [2]仓库 ");
+            System.out.println("请选择您要去的地方：[1]农田 [2]仓库 [0]摩尔大厅");
             String str1 = input.next();
             if("0".equals(str1))break;
             //农田模块

@@ -1,6 +1,8 @@
-package framework.interpreter;
+package framework.interpreter.calculate;
 
-public class Mul implements Expression{
+import framework.interpreter.calculate.Expression;
+
+public class Mul implements Expression {
     private Expression left,right;
 
     public Mul(Expression left,Expression right){

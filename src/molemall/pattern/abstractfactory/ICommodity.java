@@ -1,4 +1,4 @@
-package molemall.pattern.abstractFactory;
+package molemall.pattern.abstractfactory;
 
 public interface ICommodity {
     /**

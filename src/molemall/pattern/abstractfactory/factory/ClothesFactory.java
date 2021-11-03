@@ -1,9 +1,9 @@
-package molemall.pattern.abstractFactory.factory;
+package molemall.pattern.abstractfactory.factory;
 
-import molemall.pattern.abstractFactory.AbstractClothes;
-import molemall.pattern.abstractFactory.AbstractFactory;
-import molemall.pattern.abstractFactory.AbstractFood;
-import molemall.pattern.abstractFactory.AbstractSeed;
+import molemall.pattern.abstractfactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractFactory;
+import molemall.pattern.abstractfactory.AbstractFood;
+import molemall.pattern.abstractfactory.AbstractSeed;
 import molemall.pattern.bridge.ClothesColor;
 import molemall.other.commodities.clothes.Jackets;
 import molemall.other.commodities.clothes.Jeans;

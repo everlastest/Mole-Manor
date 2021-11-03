@@ -1,6 +1,6 @@
 package molemall.other.commodities.clothes;
 
-import molemall.pattern.abstractFactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractClothes;
 import molemall.pattern.bridge.ClothesColor;
 import molemall.pattern.visitor.ClothesVisitor;
 

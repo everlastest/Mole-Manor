@@ -2,12 +2,9 @@ package molemall.other.shops.cart;
 
 import backpack.MVC.Backpack;
 import framework.simplefactory.Mole;
-import molemall.MallProcess;
-import molemall.other.shops.ClothesShop;
-import molemall.other.shops.Shop;
-import molemall.pattern.abstractFactory.AbstractClothes;
-import molemall.pattern.abstractFactory.AbstractFood;
-import molemall.pattern.abstractFactory.ICommodity;
+import molemall.pattern.abstractfactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractFood;
+import molemall.pattern.abstractfactory.ICommodity;
 import molemall.pattern.visitor.ClothesVisitor;
 import molemall.pattern.strategy.SaleSelect;
 import singletonlazyinitialization.MoleManor;

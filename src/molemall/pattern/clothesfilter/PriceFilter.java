@@ -1,10 +1,10 @@
-package molemall.pattern.clothesFilter;
+package molemall.pattern.clothesfilter;
 
-import molemall.pattern.abstractFactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractClothes;
 import java.util.List;
 import java.util.ArrayList;
 
-public class priceFilter implements IFilter
+public class PriceFilter implements IFilter
 { //过滤价格在start_price至end_price间的商品
     @Override
     public List<AbstractClothes> filter(List<AbstractClothes> clothesList, double start_price, double end_price)

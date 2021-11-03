@@ -1,6 +1,6 @@
-package framework.interpreter;
+package framework.interpreter.calculate;
 
-import singletonlazyinitialization.MoleManor;
+import framework.interpreter.calculate.Expression;
 
 public class Number implements Expression {
 

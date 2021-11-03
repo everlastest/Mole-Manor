@@ -1,7 +1,7 @@
 package molemall.other.shops;
 
-import molemall.pattern.abstractFactory.AbstractFood;
-import molemall.pattern.abstractFactory.factory.FoodFactory;
+import molemall.pattern.abstractfactory.AbstractFood;
+import molemall.pattern.abstractfactory.factory.FoodFactory;
 import molemall.other.commodities.food.Hamburger;
 import molemall.other.commodities.food.Soda;
 import molemall.other.commodities.food.Watermelon;

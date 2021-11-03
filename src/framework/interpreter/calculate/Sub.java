@@ -1,6 +1,8 @@
-package framework.interpreter;
+package framework.interpreter.calculate;
 
-public class Sub implements Expression{
+import framework.interpreter.calculate.Expression;
+
+public class Sub implements Expression {
     private Expression left,right;
 
     public Sub(Expression left,Expression right){

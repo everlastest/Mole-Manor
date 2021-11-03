@@ -38,7 +38,7 @@ public class MallProcess {
         System.out.println("您的余额为"+mole.getMoney());
 
         while(true){
-            System.out.println("\n请选择您要进入的商店：1——服装店，2——食品店，0——游戏首页");
+            System.out.println("\n请选择您要去的地方：[1]服装店 [2]食品店 [0]摩尔大厅");
             Scanner input=new Scanner(System.in);
             int shopSelect = input.nextInt();
             if(shopSelect==1){

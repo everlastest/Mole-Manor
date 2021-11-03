@@ -1,6 +1,6 @@
 package molemall.other.commodities.seed;
 
-import molemall.pattern.abstractFactory.AbstractSeed;
+import molemall.pattern.abstractfactory.AbstractSeed;
 
 public class Carrot implements AbstractSeed {
 

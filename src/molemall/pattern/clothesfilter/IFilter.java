@@ -1,6 +1,6 @@
-package molemall.pattern.clothesFilter;
+package molemall.pattern.clothesfilter;
 
-import molemall.pattern.abstractFactory.AbstractClothes;
+import molemall.pattern.abstractfactory.AbstractClothes;
 import java.util.List;
 
 public interface IFilter
