@@ -4,6 +4,7 @@ import exceptionhandle.ExceptionHandle;
 import framework.simplefactory.Mole;
 import singletonlazyinitialization.MoleManor;
 
+import java.security.PublicKey;
 import java.util.Scanner;
 
 public abstract class AbstractRacing{
@@ -89,5 +90,15 @@ public abstract class AbstractRacing{
 
         System.out.println("正在返回摩摩赛车城...\n");
     }
+
+
+    /**
+     * @test
+     */
+    public void test(){
+        RacingProcess(score);
+        score = getScore(score);
+    }
+
 
 }

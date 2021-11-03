@@ -16,7 +16,7 @@ public class Racing implements Game {
         int racingType = 0;
 
         //用于异常处理
-        ExceptionHandle exceptionHandle=new ExceptionHandle();
+        ExceptionHandle exceptionHandle = new ExceptionHandle();
 
         while (racingType == 0) {
 
