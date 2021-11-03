@@ -1,5 +1,6 @@
 package molemall.other.shops;
 
+import exceptionhandle.ExceptionHandle;
 import molemall.pattern.abstractfactory.AbstractFood;
 import molemall.pattern.abstractfactory.factory.FoodFactory;
 import molemall.other.commodities.food.Hamburger;
@@ -79,8 +80,8 @@ public class FoodShop extends Shop{
             System.out.println("请输入你要购买"+name+"的数量");
         }
         while(true){
-        Scanner input=new Scanner(System.in);
-        int num=input.nextInt();
+        ExceptionHandle exceptionHandle = new ExceptionHandle();
+        int num=exceptionHandle.exception();
         if(num<=0){
             System.out.println("输入数量应为正数");
             continue;

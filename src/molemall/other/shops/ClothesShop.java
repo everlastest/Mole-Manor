@@ -62,7 +62,7 @@ public class ClothesShop extends Shop{
         boolean colorSelect = true;
         while(colorSelect)
         {
-            System.out.println("请选择颜色：1——红色，2——蓝色，3——黄色");
+            System.out.println("请选择颜色：[1]红色 [2]蓝色 [3]黄色");
             Scanner input=new Scanner(System.in);
             int select = input.nextInt();
             switch (select)
@@ -82,7 +82,7 @@ public class ClothesShop extends Shop{
          * 可能会改写到别的地方，租赁or购买询问
          */
         while(true){
-            System.out.println("请问您是要购买还是租赁这件服装：1——购买，2——租赁");
+            System.out.println("请问您是要购买还是租赁这件服装：[1]购买 [2]租赁");
             Scanner input=new Scanner(System.in);
             int select = input.nextInt();
             if(select==1){//购买

@@ -1,6 +1,7 @@
 package molemall;
 //import molemall.pattern.abstractFactory.CommodityFood;
 
+import exceptionhandle.ExceptionHandle;
 import framework.simplefactory.Mole;
 import molemall.other.shops.ClothesShop;
 import molemall.other.shops.FoodShop;
@@ -40,7 +41,8 @@ public class MallProcess {
         while(true){
             System.out.println("\n请选择您要去的地方：[1]服装店 [2]食品店 [0]摩尔大厅");
             Scanner input=new Scanner(System.in);
-            int shopSelect = input.nextInt();
+            ExceptionHandle exceptionHandle = new ExceptionHandle();
+            int shopSelect=exceptionHandle.exception();
             if(shopSelect==1){
                 System.out.println("欢迎进入服装店！");
                 System.out.println("服装店售卖情况如下：\n");
