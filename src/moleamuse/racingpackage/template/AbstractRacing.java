@@ -77,7 +77,8 @@ public abstract class AbstractRacing{
             return;
         }
 
-        mole.setTicket(ticket - 1);
+
+        mole.setTicket(--ticket);
 
         Prepare();
 

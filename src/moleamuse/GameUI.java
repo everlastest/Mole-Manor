@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class GameUI {
 
     private GameMaker gameMaker = GameMaker.getInstance();
-    BuyTicket by = new BuyTicket(MoleManor.getPlayer());
+    BuyTicket by;
 
 
     public GameUI(){
@@ -44,6 +44,7 @@ public class GameUI {
                     RecordList.getInstance().printList();
                     break;
                 case 5:
+                    by = new BuyTicket(MoleManor.getPlayer());
                     by.buyTicket();
                     break;
                 case 0:
