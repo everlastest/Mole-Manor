@@ -1,6 +1,6 @@
 package molemall.other.commodities.food;
 
-import molemall.pattern.abstractfactory.AbstractFood;
+import molemall.pattern.abstractFactory.AbstractFood;
 
 public class Soda extends AbstractFood {
     protected double price;

@@ -1,4 +1,4 @@
-package molemall.pattern.abstractfactory;
+package molemall.pattern.abstractFactory;
 
 public interface AbstractSeed {
     public void Purchase();//购买

@@ -1,4 +1,4 @@
-package molemall.pattern.abstractfactory;
+package molemall.pattern.abstractFactory;
 
 import molemall.pattern.bridge.ClothesColor;
 

@@ -1,4 +1,4 @@
-package molemall.pattern.abstractfactory;
+package molemall.pattern.abstractFactory;
 
 public abstract class AbstractFood implements ICommodity{
     public abstract void Purchase();//购买

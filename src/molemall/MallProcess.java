@@ -42,7 +42,7 @@ public class MallProcess {
             System.out.println("\n请选择您要去的地方：[1]服装店 [2]食品店 [0]摩尔大厅");
             Scanner input=new Scanner(System.in);
             ExceptionHandle exceptionHandle = new ExceptionHandle();
-            int shopSelect=exceptionHandle.exception();
+            int shopSelect = exceptionHandle.exception();
             if(shopSelect==1){
                 System.out.println("欢迎进入服装店！");
                 System.out.println("服装店售卖情况如下：\n");
@@ -109,7 +109,6 @@ public class MallProcess {
                 continue;
             }
         }
-
     }
 
     public static void main(String[] args){//测试用

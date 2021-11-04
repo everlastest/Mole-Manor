@@ -74,7 +74,7 @@ public class MoleCreator {
         Backpack backpack=new Backpack();
 
         mole.setMoleName(name);
-        mole.setMoney(1000);
+        mole.setMoney(2000);
         mole.setTicket(2);
         mole.setScore(0);
         mole.setBackpack(backpack);

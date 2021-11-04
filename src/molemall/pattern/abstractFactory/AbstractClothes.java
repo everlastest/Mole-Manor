@@ -1,4 +1,4 @@
-package molemall.pattern.abstractfactory;
+package molemall.pattern.abstractFactory;
 
 
 import molemall.pattern.bridge.ClothesColor;
@@ -15,9 +15,4 @@ public abstract class AbstractClothes implements ICommodity{
     public abstract String getItem();
     public abstract String getColor();
     public abstract void setItem();
-    /**
-     * visitor模式：接受租赁和购买两种操作
-     * @param clothesVisitor
-     */
-    public abstract void accept(ClothesVisitor clothesVisitor);
 }
