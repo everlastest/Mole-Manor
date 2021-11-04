@@ -41,7 +41,7 @@ public class MoleManor {
         MoleFactory moleFactory = new MoleFactory();
         player = moleFactory.createMole("Momo","Red");
         player.setMoleName("test");
-        player.setMoney(1000);
+        player.setMoney(2000);
         player.setTicket(2);
         player.setScore(0);
     }

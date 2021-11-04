@@ -2,9 +2,12 @@ package molemall.other.shops.cart;
 
 import backpack.MVC.Backpack;
 import framework.simplefactory.Mole;
-import molemall.pattern.abstractfactory.AbstractClothes;
-import molemall.pattern.abstractfactory.AbstractFood;
-import molemall.pattern.abstractfactory.ICommodity;
+import molemall.MallProcess;
+import molemall.other.shops.ClothesShop;
+import molemall.other.shops.Shop;
+import molemall.pattern.abstractFactory.AbstractClothes;
+import molemall.pattern.abstractFactory.AbstractFood;
+import molemall.pattern.abstractFactory.ICommodity;
 import molemall.pattern.visitor.ClothesVisitor;
 import molemall.pattern.strategy.SaleSelect;
 import singletonlazyinitialization.MoleManor;
@@ -16,6 +19,7 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
     private Mole mole= MoleManor.getPlayer();
     //使用list装载购买的物品
     List<CommodityForCart> commoditylist=new ArrayList<CommodityForCart>();
+    private Double realprice;
     /**
      * @param newInstance
      */
@@ -74,28 +78,14 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
         }
             System.out.println("\n\n总价格 \t\t"+sumPrice);
             System.out.println("-------------------");
-            /**
-             * mole付款
-             */
-            if(moleConsume(sumPrice)){//true:交易成功
-                /**
-                 * 背包增加获得的物品
-                 */
-                Backpack backpack=mole.getBackpack();
-                for(int i=0;i<commoditylist.size();i++){
-                    backpack.AddFood(commoditylist.get(i).item,commoditylist.get(i).num);}
-                mole.setBackpack(backpack);
-            }
-            /**
-             * 清空购物车
-             */
-            commoditylist.clear();
+            setPrice(sumPrice);//消费确认
             return sumPrice;
         }
         else{
             return 0.0;
         }
     }
+
     /**
      * 打印小票
      */
@@ -117,29 +107,13 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
             Double realPrice=SaleSelect.sale(sumPrice);
             System.out.println("实付价格\t\t"+realPrice);
             System.out.println("-------------------");
-            /**
-             * mole付款
-             */
-            if(moleConsume(realPrice)){//true:交易成功
-                /**
-                 * 背包增加获得的物品
-                 */
-                Backpack backpack=mole.getBackpack();
-                for(int i=0;i<commoditylist.size();i++){
-                    backpack.AddClothes(commoditylist.get(i).item,commoditylist.get(i).num);}
-                mole.setBackpack(backpack);
-            }
-            /**
-             * 清空购物车
-             */
-            commoditylist.clear();
+            setPrice(realPrice);//消费确认
             return realPrice;
         }
         else{
             return 0.0;
         }
     }
-
 
     /**
      * 打印小票
@@ -162,20 +136,8 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
             System.out.println("租赁价格 \t\t"+sumPrice*0.1);
             System.out.println("-------------------");
            Double realPrice=sumPrice*0.1;
-            if(moleConsume(realPrice)){//true:交易成功
-                /**
-                 * 背包增加获得的物品
-                 */
-                Backpack backpack=mole.getBackpack();
-                for(int i=0;i<commoditylist.size();i++){
-                    backpack.AddClothes("租赁的"+commoditylist.get(i).item,commoditylist.get(i).num);}
-                mole.setBackpack(backpack);
-            }
-            /**
-             * 清空购物车
-             */
-            commoditylist.clear();
-            return  sumPrice*0.1;
+            setPrice(realPrice);//消费确认
+            return  realPrice;
         }
         else{
             return 0.0;
@@ -184,7 +146,7 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
     public boolean moleConsume(Double price){//摩尔付款
         Double money = this.mole.getMoney();
         this.mole.getBackpack();
-        if(price<=0){//没有消费行为
+        if(price==null||price<=0){//没有消费行为
             return false;
         }
         if (money < price) {
@@ -195,5 +157,36 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
         System.out.println("交易成功，余额为"+mole.getMoney());
         return true;
     }
+    public void consume(Double sumPrice,String commodityType){
+        /**
+         * mole付款
+         */
+        if(moleConsume(sumPrice)){//true:交易成功
+            /**
+             * 背包增加获得的物品
+             */
+            Backpack backpack=mole.getBackpack();
+            for(int i=0;i<commoditylist.size();i++){
+                if(commodityType.equals("food")){
+                    backpack.AddFood(commoditylist.get(i).item,commoditylist.get(i).num);
+                }
+                else if(commodityType.equals("pclothes")){
+                    backpack.AddClothes(commoditylist.get(i).item,commoditylist.get(i).num);
+                }
+                else if(commodityType.equals("lclothes")){
+                    backpack.AddClothes("租赁的"+commoditylist.get(i).item,commoditylist.get(i).num);
+                }
+                 mole.setBackpack(backpack);
+             }
+        }
+        /**
+         * 清空购物车
+         */
+        commoditylist.clear();
+
+    }
+    public void setPrice(Double realprice){ this.realprice=realprice;}
+    public Double getPrice() {
+            return realprice;}
 
 }

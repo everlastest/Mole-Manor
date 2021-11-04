@@ -10,7 +10,6 @@ public class Main {
         //异常处理
         ExceptionHandle exceptionHandle=new ExceptionHandle();
 
-
         int key=0;
         while(key==0) {
             System.out.println("选择运行方式：[1]游玩模式 [2]测试模式");

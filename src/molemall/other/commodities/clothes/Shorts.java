@@ -1,6 +1,6 @@
 package molemall.other.commodities.clothes;
 
-import molemall.pattern.abstractfactory.AbstractClothes;
+import molemall.pattern.abstractFactory.AbstractClothes;
 import molemall.pattern.bridge.ClothesColor;
 import molemall.pattern.visitor.ClothesVisitor;
 
@@ -45,8 +45,4 @@ public class Shorts extends AbstractClothes {
         System.out.printf("You have transferred a "+this.color.color+" "+this.item);
     }
 
-    @Override
-    public void accept(ClothesVisitor clothesVisitor) {
-        clothesVisitor.visit(this);
-    }
 }
