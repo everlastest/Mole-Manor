@@ -1,5 +1,6 @@
 package molefarm.test.abstractfactory;
 
+import molefarm.Home;
 import molefarm.common.exception.factory.FactoryNotFoundException;
 import molefarm.common.exception.product.FactoryNotProduceException;
 import molefarm.common.product.AbstractFertilizer;
@@ -11,10 +12,9 @@ import java.util.Map;
 
 //finish
 public class Test {
-    private static final Map<String,String>map= JsonOp.searchMapper();
 
     private static void factory1ProduceSeed(String seedName){
-        String name=map.get(seedName);
+        String name= Home.seedMap.get(seedName);
         try {
             final IFactory FACTORY1 = IFactory.newConcreteFactory("ConcreteFactory1");
 
@@ -33,7 +33,7 @@ public class Test {
     }
 
     private static void factory2ProduceSeed(String seedName){
-        String name=map.get(seedName);
+        String name=Home.seedMap.get(seedName);
         try {
             final IFactory FACTORY2 = IFactory.newConcreteFactory("ConcreteFactory2");
 
@@ -53,7 +53,7 @@ public class Test {
     }
 
     private static void factory1ProduceFertilizer(String fertilizerName){
-        String name=map.get(fertilizerName);
+        String name=Home.fertilizerMap.get(fertilizerName);
         try {
             final IFactory FACTORY1 = IFactory.newConcreteFactory("ConcreteFactory1");
 
@@ -70,7 +70,7 @@ public class Test {
     }
 
     private static void factory2ProduceFertilizer(String fertilizerName){
-        String name=map.get(fertilizerName);
+        String name=Home.fertilizerMap.get(fertilizerName);
         try {
             final IFactory FACTORY2 = IFactory.newConcreteFactory("ConcreteFactory2");
 

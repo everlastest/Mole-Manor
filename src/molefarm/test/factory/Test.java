@@ -1,5 +1,6 @@
 package molefarm.test.factory;
 
+import molefarm.Home;
 import molefarm.common.exception.product.conc.CropsNotFoundException;
 import molefarm.common.exception.product.conc.SeedNotFoundException;
 import molefarm.common.product.AbstractCrops;
@@ -11,14 +12,13 @@ import molefarm.pattern.factory.conc.SeedFactory;
 import java.util.Map;
 
 public class Test {
-    private static Map<String,String> map= JsonOp.searchMapper();
 
     private static SeedFactory seedFactory=SeedFactory.newInstance();
 
     private static CropsFactory cropsFactory=CropsFactory.newInstance();
 
     private static void produceSeed(String seedName){
-        String name=map.get(seedName);
+        String name= Home.seedMap.get(seedName);
         try {
             AbstractSeed seed = seedFactory.create(name);
             System.out.println("种子工厂正在生产"+seedName+"...");
@@ -34,7 +34,7 @@ public class Test {
     }
 
     private static void produceCrops(String cropsName){
-        String name=map.get(cropsName);
+        String name=Home.seedMap.get(cropsName);
         try {
             AbstractCrops crops = cropsFactory.create(name);
             System.out.println("种子工厂正在生产"+cropsName+"...");

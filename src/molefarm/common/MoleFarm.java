@@ -1,5 +1,6 @@
 package molefarm.common;
 
+import molefarm.Home;
 import molefarm.common.exception.MyException;
 import molefarm.common.exception.product.conc.CropsNotFoundException;
 import molefarm.common.exception.product.conc.SeedNotFoundException;
@@ -20,7 +21,6 @@ import java.util.*;
  */
 public class MoleFarm implements IFarm {
 
-    private static final Map<String, String> mapJson = JsonOp.searchMapper();
     /**
      * 农田块数量
      */
@@ -113,7 +113,7 @@ public class MoleFarm implements IFarm {
                 item.setSeed(null);
                 CropsFactory cropsFactory = CropsFactory.newInstance();
                 try {
-                    AbstractCrops crops = cropsFactory.create(mapJson.get(name));
+                    AbstractCrops crops = cropsFactory.create(Home.cropsMap.get(name));
                     int num=map.get(crops)==null?0:map.get(crops);
                     int cropsNum;
                     Set<FarmBlockStatus> blockStatusSet = item.getBlockStatusSet();

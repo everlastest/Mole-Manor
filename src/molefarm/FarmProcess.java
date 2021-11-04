@@ -47,8 +47,6 @@ public class FarmProcess {
     //天气适配器
     private WeatherAdapter weatherAdapter=WeatherAdapter.getInstance();
 
-    //Map<String,String>，负责将product的中英文名对应
-    private final Map<String, String> map = JsonOp.searchMapper();
     //代理模式
     private Proxy proxy = new Proxy();
 
@@ -79,13 +77,13 @@ public class FarmProcess {
                                 ConcreteBuilder2 concreteBuilder2 = new ConcreteBuilder2();
                                 concreteBuilder2.setFarmBlock(block);
                                 Director director = new Director(concreteBuilder2, block);
-                                director.getMoleFarmBlock(seedFactory.create(map.get(seedName)));
+                                director.getMoleFarmBlock(seedFactory.create(Home.seedMap.get(seedName)));
                                 break;
                             case "3":
                                 ConcreteBuilder1 concreteBuilder1 = new ConcreteBuilder1();
                                 concreteBuilder1.setFarmBlock(block);
                                 Director director1 = new Director(concreteBuilder1, block);
-                                director1.getMoleFarmBlock(seedFactory.create(map.get(seedName)));
+                                director1.getMoleFarmBlock(seedFactory.create(Home.seedMap.get(seedName)));
                                 break;
                             default:
                                 break;
@@ -194,7 +192,13 @@ public class FarmProcess {
     private <T extends Factory> void warehouseSmallProcess(String objName, String name, T factory) {
         try {
             Scanner input = new Scanner(System.in);
-            String objClassName = map.get(objName);
+            String objClassName;
+            if(Home.seedMap.get(objName)==null) {
+                objClassName = Home.fertilizerMap.get(objName);
+            }
+            else {
+                objClassName=Home.seedMap.get(objName);
+            }
             IProduct obj = factory.create(objClassName);
             System.out.println("请输入想要购买的" + name + "数目(您现在有" + mole.getMoleDou() + "摩尔豆):");
             int objNum;
@@ -270,7 +274,7 @@ public class FarmProcess {
                     if (cropName.equals("0")) {
                         return;
                     }
-                    String cropClassName = map.get(cropName);
+                    String cropClassName =Home.cropsMap.get(cropName);
                     System.out.println("请输入想要卖出的作物数目：");
                     String next = input.next();
                     int cropNum;

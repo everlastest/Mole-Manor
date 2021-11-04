@@ -35,7 +35,6 @@ public class FarmGrowth {
 
     private static final MoleFarmWarehouse moleFarmWarehouse = mole.getFarmWarehouse();
 
-    private static final Map<String, String> map = JsonOp.searchMapper();
 
     /**
      * 播种
@@ -67,7 +66,7 @@ public class FarmGrowth {
      * @param name
      */
     public static boolean plantSeed(String name, MoleFarmBlock farmBlock) throws SeedNotFoundException {
-        AbstractSeed seed = seedFactory.create(map.get(name));
+        AbstractSeed seed = seedFactory.create(Home.seedMap.get(name));
         return plantSeed(seed, farmBlock);
     }
 
@@ -140,7 +139,7 @@ public class FarmGrowth {
      */
     public static void applyFertilizer(String name, MoleFarmBlock farmBlock) throws FertilizerNotFoundException {
         AbstractFertilizer fertilizer;
-        fertilizer = fertilizerFactory.create(map.get(name));
+        fertilizer = fertilizerFactory.create(Home.fertilizerMap.get(name));
         applyFertilizer(fertilizer, farmBlock);
     }
 
@@ -170,7 +169,7 @@ public class FarmGrowth {
             String name = farmBlock.getSeed().getName().replace("种子", "");
             farmBlock.setSeed(null);
             try {
-                AbstractCrops crops = cropsFactory.create(map.get(name));
+                AbstractCrops crops = cropsFactory.create(Home.cropsMap.get(name));
                 if (crops == null) {
                     return crops;
                 }

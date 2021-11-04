@@ -26,17 +26,19 @@ public class JsonOp {
         return (JSONObject) jsonReader.readObject();
     }
 
-    public static Map<String, String> searchMapper() {
+    public static Map<String, String> searchMapper(String name) {
         try {
             String jsonPath = commonPath + "molefarm/common/resources/mapper.json";
             JSONObject json = getJson(jsonPath);
-            String s = json.toJSONString();
+            JSONObject json1 = json.getJSONObject(name);
+            String s = json1.toJSONString();
             return (Map<String, String>) JSON.parseObject(s, Map.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 
     /**
      * 解析farm.json

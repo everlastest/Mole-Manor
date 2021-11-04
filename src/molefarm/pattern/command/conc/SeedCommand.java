@@ -1,5 +1,6 @@
 package molefarm.pattern.command.conc;
 
+import molefarm.Home;
 import molefarm.common.MoleFarmWarehouse;
 import molefarm.common.exception.product.conc.SeedNotFoundException;
 import molefarm.common.product.AbstractSeed;
@@ -15,7 +16,6 @@ import java.util.Map;
  * 仓库发送请求，从商店进货种子
  */
 public class SeedCommand implements Command {
-    private final Map<String, String> map = JsonOp.searchMapper();
     private SeedFactory seedFactory = SeedFactory.newInstance();
     /**
      * 命令接收方，仓库
@@ -31,7 +31,7 @@ public class SeedCommand implements Command {
     public boolean execute(String name, int num) {
         AbstractSeed seed =null;
         try{
-            seed = seedFactory.create(map.get(name));
+            seed = seedFactory.create(Home.seedMap.get(name));
         } catch (SeedNotFoundException e){e.printStackTrace();}
         return moleFarmWarehouse.buySeeds(seed, num);
     }

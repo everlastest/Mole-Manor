@@ -1,5 +1,6 @@
 package molefarm.pattern.command.conc;
 
+import molefarm.Home;
 import molefarm.common.MoleFarmWarehouse;
 import molefarm.common.exception.product.conc.FertilizerNotFoundException;
 import molefarm.common.product.AbstractFertilizer;
@@ -15,7 +16,6 @@ import java.util.Map;
  * 仓库向商店发生请求，进货肥料
  */
 public class FertilizerCommand implements Command {
-    private final Map<String, String> map = JsonOp.searchMapper();
     private FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
     /**
      * 命令接收方，仓库
@@ -32,7 +32,7 @@ public class FertilizerCommand implements Command {
     public boolean execute(String name, int num) {
         AbstractFertilizer fertilizer =null;
         try{
-            fertilizer = fertilizerFactory.create(map.get(name));
+            fertilizer = fertilizerFactory.create(Home.fertilizerMap.get(name));
         } catch (FertilizerNotFoundException e){e.printStackTrace();}
         return moleFarmWarehouse.buyFertilizer(fertilizer, num);
     }

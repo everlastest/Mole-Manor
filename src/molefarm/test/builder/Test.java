@@ -1,5 +1,6 @@
 package molefarm.test.builder;
 
+import molefarm.Home;
 import molefarm.common.FarmGrowth;
 import molefarm.common.MoleFarmBlock;
 import molefarm.common.exception.product.conc.SeedNotFoundException;
@@ -17,8 +18,6 @@ import java.util.Map;
 //false
 public class Test {
 
-    static final Map<String,String>map= JsonOp.searchMapper();
-
     static {
         FarmGrowth.weather= WeatherAdapter.changeWeather();
         System.out.println("农场今日天气为："+FarmGrowth.weather.getWeather());
@@ -27,7 +26,7 @@ public class Test {
     private static AbstractSeed createSeed(String seedName){
         AbstractSeed seed=null;
         try {
-             seed= SeedFactory.newInstance().create(map.get(seedName));
+             seed= SeedFactory.newInstance().create(Home.seedMap.get(seedName));
         } catch (SeedNotFoundException e) {
             System.out.println(e.getMessage());
         }
