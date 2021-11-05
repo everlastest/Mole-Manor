@@ -24,14 +24,32 @@ public class Shop {
         return new Shop();
     }
 
+    /**
+     * 购买种子
+     * @param seed
+     * @param num
+     * @return
+     */
     public boolean buySeeds(AbstractSeed seed, int num) {
         return moleFarmWarehouse.buySeeds(seed, num);
     }
 
+    /**
+     * 购买肥料
+     * @param fertilizer
+     * @param num
+     * @return
+     */
     public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) {
         return moleFarmWarehouse.buyFertilizer(fertilizer, num);
     }
 
+    /**
+     * 售卖作物
+     * @param crops
+     * @param num
+     * @return
+     */
     public boolean sellCrops(AbstractCrops crops, int num) {
         return moleFarmWarehouse.sellCrops(crops, num);
     }

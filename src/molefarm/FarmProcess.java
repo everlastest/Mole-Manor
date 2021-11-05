@@ -58,6 +58,11 @@ public class FarmProcess {
         return farmProcess;
     }
 
+    /**
+     * 农场进程
+     * @param str3
+     * @param block
+     */
     public void farmSmallProcess(String str3, MoleFarmBlock block) {
         Scanner input = new Scanner(System.in);
         switch (str3) {
@@ -135,7 +140,6 @@ public class FarmProcess {
                 FarmGrowth.eradicateCrops(block);
                 break;
             default:
-                return;
         }
     }
 
@@ -189,6 +193,13 @@ public class FarmProcess {
         }
     }
 
+    /**
+     * 仓库进程
+     * @param objName
+     * @param name
+     * @param factory
+     * @param <T>
+     */
     private <T extends Factory> void warehouseSmallProcess(String objName, String name, T factory) {
         try {
             Scanner input = new Scanner(System.in);
@@ -310,21 +321,22 @@ public class FarmProcess {
             //欢迎辞
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
+
             //获取今日天气并输出
             System.out.print(this.weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：[1]农田 [2]仓库 [0]摩尔大厅");
             String str1 = input.next();
             if("0".equals(str1))break;
+            for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
+                MoleFarmBlock next = it.next();
+                if (next.getSeed() != null && next.getSeedStatus() != null) {
+                    next.growth();
+                }
+            }
             //农田模块
             while ("1".equals(str1)) {
                 //绘制农田状态图
                 farm.showFarm(this.weatherAdapter.getWeather());
-                for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
-                    MoleFarmBlock next = it.next();
-                    if (next.getSeed() != null && next.getSeedStatus() != null) {
-                        next.growth();
-                    }
-                }
                 System.out.println("请选择操作：[0]返回农场首页 [1~9]查看具体农田块状态 [b]批量操作：");
                 String str2 = input.next();
                 List<String> con = new ArrayList<>();

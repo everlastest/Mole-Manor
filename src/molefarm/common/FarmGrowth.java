@@ -23,9 +23,9 @@ import java.util.*;
  * 种植方法是一个静态类()有很多静态方法
  */
 public class FarmGrowth {
-
+    //摩尔
     private static final MoleAdapter mole = MoleAdapter.getInstance();
-
+    //
     private static final SeedFactory seedFactory = Home.seedFactory;
 
     private static final FertilizerFactory fertilizerFactory = Home.fertilizerFactory;
@@ -59,8 +59,7 @@ public class FarmGrowth {
     }
 
     /**
-     * 播种
-     * 重载
+     * 播种（重载）
      *
      * @param name
      */

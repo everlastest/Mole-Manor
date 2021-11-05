@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 要调用商店的接口，进行
+ * 定义仓库的行为
  */
 public interface IFarmWareHouse {
     /**
@@ -42,7 +42,7 @@ public interface IFarmWareHouse {
     /**
      * 给摩尔提供需要的东西
      *
-     * @param objectList 这里肯定要修改，比较怪异
+     * @param objectList
      * @return
      */
     <T extends IProduct> boolean provideItemToMole(List<T> objectList);

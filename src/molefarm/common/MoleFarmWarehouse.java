@@ -115,6 +115,14 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return new MoleFarmWarehouse(mole);
     }
 
+    /**
+     * 购买种子和肥料
+     * @param object
+     * @param num
+     * @param methodName
+     * @param <T>
+     * @return
+     */
     public <T extends IProduct> boolean buyObject(T object, int num, String methodName) {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
@@ -140,6 +148,12 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return false;
     }
 
+    /**
+     * 给摩尔提供需要的东西
+     * @param objectList
+     * @param <T>
+     * @return
+     */
     @Override
     public <T extends IProduct> boolean provideItemToMole(List<T> objectList) {
         //调用职责链模式
@@ -149,6 +163,12 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return wareHouseHandler.provideSeeds(objectList);
     }
 
+    /**
+     * 购买种子
+     * @param seed
+     * @param num
+     * @return
+     */
     @Override
     public boolean buySeeds(AbstractSeed seed, int num) {
         if(num<=0){
@@ -158,6 +178,12 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return buyObject(seed, num, "getSeedMap");
     }
 
+    /**
+     * 购买肥料
+     * @param fertilizer
+     * @param num
+     * @return
+     */
     @Override
     public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) {
         if(num<=0){
@@ -167,6 +193,12 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 
+    /**
+     * 销售作物
+     * @param crops
+     * @param num
+     * @return
+     */
     @Override
     public boolean sellCrops(AbstractCrops crops, int num) {
         if(num<=0){
@@ -186,6 +218,11 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return true;
     }
 
+    /**
+     * 存作物到仓库
+     * @param otherCropsMap
+     * @return
+     */
     @Override
     public boolean storeToRepository(Map<AbstractCrops, Integer> otherCropsMap) {
         if (otherCropsMap == null || otherCropsMap.size() == 0) {
@@ -200,6 +237,9 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return true;
     }
 
+    /**
+     * 输出仓库信息
+     */
     public void showRepertory() {
         System.out.println("\n仓库库存如下：");
         System.out.println("白菜\uD83E\uDD66\t茄子\uD83C\uDF46\t水稻\uD83C\uDF3E\t草莓\uD83C\uDF53\t西瓜\uD83C\uDF49\t小麦\uD83C\uDF3F   ");
