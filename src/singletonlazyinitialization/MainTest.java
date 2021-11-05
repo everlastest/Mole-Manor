@@ -53,6 +53,7 @@ public class MainTest {
         MediatorTest();
         MutexTest();
         MultipletonTest();
+        SingletonTest();
     }
 
     //1 适配器模式（Adapter Pattern）
@@ -290,6 +291,17 @@ public class MainTest {
         System.out.println("实现接口：Robot.getInstance()");
         System.out.println("测试信息：");
         MultipletonTest.test();
+        System.out.println();
+    }
+
+    //22 单例模式
+    public void SingletonTest(){
+        System.out.println("22 单例模式（Singleton Pattern)");
+        System.out.println("包:singletonlazyinitialization/MoleManor");
+        System.out.println("类：MoleManor");
+        System.out.println("实现接口：MoleManor.getInstance()");
+        System.out.println("测试信息：");
+        SingletonTest.test();
         System.out.println();
     }
     public static void main(String[] args) throws InterruptedException {
