@@ -24,7 +24,10 @@ public class WareHouseHandler extends Handler {
             else {
                 if (item instanceof AbstractSeed) {
                     farmWarehouse.getSeedMap().put((AbstractSeed) item, num - 1);
-                } else farmWarehouse.getFertilizerMap().put((AbstractFertilizer) item, num - 1);
+                } else {
+
+                    farmWarehouse.getFertilizerMap().put((AbstractFertilizer) item, num - 1);
+                }
             }
         }
         return true;

@@ -8,14 +8,21 @@ import molefarm.pattern.command.conc.SeedCommand;
  * 仓库向商店进货
  */
 public class Proxy {
-    private FertilizerCommand fertilizerCommand;
-    private SeedCommand seedCommand;
+    private FertilizerCommand fertilizerCommand = new FertilizerCommand();;
+    private SeedCommand seedCommand = new SeedCommand();;
+
+    public void setFertilizerCommand(FertilizerCommand fertilizerCommand) {
+        this.fertilizerCommand = fertilizerCommand;
+    }
+
+    public void setSeedCommand(SeedCommand seedCommand) {
+        this.seedCommand = seedCommand;
+    }
+
     public boolean seedPurchase(String name, int num){
-        seedCommand=new SeedCommand();
         return seedCommand.execute(name,num);
     }
     public boolean fertilizerPurchase(String name, int num){
-        fertilizerCommand=new FertilizerCommand();
         return fertilizerCommand.execute(name,num);
     }
 }

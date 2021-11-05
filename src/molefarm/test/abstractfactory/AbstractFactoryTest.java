@@ -11,7 +11,7 @@ import molefarm.pattern.abstractFactory.IFactory;
 import java.util.Map;
 
 //finish
-public class Test {
+public class AbstractFactoryTest {
 
     private static void factory1ProduceSeed(String seedName){
         String name= Home.seedMap.get(seedName);

@@ -22,6 +22,10 @@ public class FertilizerCommand implements Command {
      */
     private MoleFarmWarehouse moleFarmWarehouse = MoleAdapter.getInstance().getFarmWarehouse();
 
+    public void setMoleFarmWarehouse(MoleFarmWarehouse moleFarmWarehouse) {
+        this.moleFarmWarehouse = moleFarmWarehouse;
+    }
+
     /**
      * 商店接收命令，为仓库买入肥料
      *

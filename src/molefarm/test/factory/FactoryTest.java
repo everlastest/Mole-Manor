@@ -11,13 +11,14 @@ import molefarm.pattern.factory.conc.SeedFactory;
 
 import java.util.Map;
 
-public class Test {
+public class FactoryTest {
 
     private static SeedFactory seedFactory=SeedFactory.newInstance();
 
     private static CropsFactory cropsFactory=CropsFactory.newInstance();
 
-    private static void produceSeed(String seedName){
+    public static void produceSeed(String seedName){
+        System.out.println("----调用工厂模式ing----");
         String name= Home.seedMap.get(seedName);
         try {
             AbstractSeed seed = seedFactory.create(name);

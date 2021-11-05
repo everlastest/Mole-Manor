@@ -5,7 +5,7 @@ import molefarm.pattern.adapter.conc.WeatherAdapter;
 import molefarm.pattern.state.Context;
 
 //根据天气状态的变化，浇水和除虫的方法也有变化
-public class Test {
+public class StateTest {
     private static WeatherAdapter weather;
     //这里天气是随机变化的
     static {
@@ -15,6 +15,7 @@ public class Test {
         System.out.println("---------------------");
     }
     public static void main(String[] args) {
+        System.out.println("----调用状态模式ing----");
         //初始化一个农田块
         MoleFarmBlock block=new MoleFarmBlock();
         //初始化上下文

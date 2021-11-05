@@ -16,14 +16,14 @@ import molefarm.pattern.factory.conc.SeedFactory;
 import java.util.Map;
 
 //false
-public class Test {
+public class BuilderTest {
 
     static {
         FarmGrowth.weather= WeatherAdapter.changeWeather();
         System.out.println("农场今日天气为："+FarmGrowth.weather.getWeather());
     }
 
-    private static AbstractSeed createSeed(String seedName){
+    public static AbstractSeed createSeed(String seedName){
         AbstractSeed seed=null;
         try {
              seed= SeedFactory.newInstance().create(Home.seedMap.get(seedName));
@@ -32,7 +32,7 @@ public class Test {
         }
         return seed;
     }
-    private static void builder1(MoleFarmBlock block,AbstractSeed seed){
+    public static void builder1(MoleFarmBlock block, AbstractSeed seed){
         Builder builder1 = new ConcreteBuilder1();
 
         Director director=new Director(builder1,block);
