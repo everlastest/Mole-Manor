@@ -58,6 +58,11 @@ public class FarmProcess {
         return farmProcess;
     }
 
+    /**
+     * 农场进程
+     * @param str3
+     * @param block
+     */
     public void farmSmallProcess(String str3, MoleFarmBlock block) {
         Scanner input = new Scanner(System.in);
         switch (str3) {
@@ -188,6 +193,13 @@ public class FarmProcess {
         }
     }
 
+    /**
+     * 仓库进程
+     * @param objName
+     * @param name
+     * @param factory
+     * @param <T>
+     */
     private <T extends Factory> void warehouseSmallProcess(String objName, String name, T factory) {
         try {
             Scanner input = new Scanner(System.in);

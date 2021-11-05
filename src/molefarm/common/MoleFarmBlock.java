@@ -8,6 +8,7 @@ import molefarm.common.status.SeedStatus;
 import molefarm.common.status.product.Shape;
 
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class MoleFarmBlock implements IFarmBlock {
@@ -98,14 +99,9 @@ public class MoleFarmBlock implements IFarmBlock {
         Double random = Math.floor(Math.random() * 5);
         int i = random.intValue();
         if(i>=3) return;
-        if(i==2&&weather=="雨天")return;
+        if(i==2&& Objects.equals(weather, "雨天"))return;
         FarmBlockStatus value = FarmBlockStatus.values()[i];
         blockStatusSet.add(value);
-//        for (FarmBlockStatus value : FarmBlockStatus.values()) {
-//            if (random.intValue() == value.ordinal()) {
-//                if (!statusList.contains(value)) statusList.add(value);
-//            }
-//        }
     }
 
     /**

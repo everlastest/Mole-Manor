@@ -1,6 +1,5 @@
 package molefarm.test.chainOfResponsibility;
 
-import molefarm.common.exception.MyException;
 import molefarm.common.product.AbstractFertilizer;
 import molefarm.common.product.AbstractSeed;
 import molefarm.common.product.fertilizer.AdvancedFertilizer;
