@@ -1,7 +1,6 @@
 package singletonlazyinitialization;
 
-import backpack.MVC.BackpackController;
-import backpack.MVC.BackpackView;
+import backpack.MVC.*;
 import backpack.information.PutInformation;
 import framework.blackboard.BlackboardUI;
 import framework.composite.*;
@@ -35,7 +34,7 @@ public class MoleManor {
 
     /**
      * 测试用例！！！！
-     * 不使用该函数！！！！
+     * @test
      */
     public void test() {
         MoleFactory moleFactory = new MoleFactory();

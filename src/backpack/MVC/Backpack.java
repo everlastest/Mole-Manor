@@ -13,6 +13,8 @@ public class Backpack {
     private Map clothes;
     private Map food;
 
+
+
     public Backpack(){
         clothes=new HashMap<String,Integer>();
         food=new HashMap<String,Integer>();
@@ -65,6 +67,13 @@ public class Backpack {
         clothes.remove(item);
     }
 
+    /**
+     * 用于测试
+     */
+    public void test(){
+        clothes=new HashMap<String,Integer>();
+        food=new HashMap<String,Integer>();
     }
+}
 
 
