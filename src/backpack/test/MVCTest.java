@@ -1,4 +1,4 @@
-package backpack;
+package backpack.test;
 import backpack.MVC.*;
 public class MVCTest {
     public static void test()

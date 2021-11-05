@@ -1,6 +1,6 @@
 package singletonlazyinitialization;
 
-import backpack.MVCTest;
+import backpack.test.MVCTest;
 import chatroom.test.MediatorTest;
 import chatroom.test.MultipletonTest;
 import chatroom.test.MutexTest;
