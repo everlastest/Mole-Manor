@@ -309,6 +309,7 @@ public class FarmProcess {
             //欢迎辞
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
+
             //获取今日天气并输出
             System.out.print(this.weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：[1]农田 [2]仓库 [0]摩尔大厅");
