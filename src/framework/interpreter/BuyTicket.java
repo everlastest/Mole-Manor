@@ -20,12 +20,15 @@ public class BuyTicket {
     }
 
     public void buyTicket(){
-
         System.out.println("票的价格为"+fare+"摩尔豆，"+"现有"+money+"摩尔豆");
         System.out.print("请选择买票的张数：");
 
         Scanner input=new Scanner(System.in);
-        int num=input.nextInt();
+        int num = input.nextInt();
+        changeTicket(num);
+    }
+
+    public void changeTicket(int num){
 
         Expression Efare=new Number(fare);
         Expression Enum=new Number(num);
