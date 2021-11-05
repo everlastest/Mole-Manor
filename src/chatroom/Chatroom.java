@@ -58,8 +58,13 @@ public class Chatroom {
 
         Iterator<String> it = MessageList.iterator();
 
-        while(it.hasNext()) {
-            System.out.println(it.next());
+        try{
+            while (it.hasNext()) {
+                System.out.println(it.next());
+            }
+        }catch (ConcurrentModificationException e)
+        {
+            System.out.println("Exception thrown  :" + e);
         }
 
     }
