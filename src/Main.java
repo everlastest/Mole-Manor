@@ -1,4 +1,5 @@
 import exceptionhandle.ExceptionHandle;
+import singletonlazyinitialization.MainTest;
 import singletonlazyinitialization.MoleManor;
 
 /**
@@ -20,6 +21,8 @@ public class Main {
                     MM.flowController();
                     break;
                 case 2:
+                    MainTest MT= MainTest.getInstance();
+                    MT.TestController();
                     break;
                 default:
                     key=0;
