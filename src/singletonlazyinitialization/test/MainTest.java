@@ -18,6 +18,7 @@ import molefarm.test.iterator.IteratorTest;
 import molefarm.test.observer.ObserverTest;
 import molefarm.test.proxy.ProxyTest;
 import molefarm.test.state.StateTest;
+import molemall.test.*;
 
 import java.lang.reflect.Method;
 
@@ -52,6 +53,13 @@ public class MainTest {
         MultipletonTest();
         SingletonTest();
         LazyinitializationTest();
+        //moleMall
+        strategyTest();
+        visitorTest();
+        filterTest();
+        decoratorTest();
+        abstractFactoryTest();
+        bridgeTest();
     }
 
     //1 适配器模式（Adapter Pattern）
@@ -311,6 +319,72 @@ public class MainTest {
         System.out.println("实现接口：SingletonHolder.getInstance()");
         System.out.println("测试信息：");
         LazyinitializationTest.test();
+        System.out.println();
+    }
+
+    //13 策略模式
+    public void strategyTest(){
+        System.out.println("13 策略模式（Strategy Pattern)");
+        System.out.println("包:molemall.pattern.strategy");
+        System.out.println("类：CashContext/CashSuper/CashNormal/CashRebate/CashReturn");
+        System.out.println("实现接口：SaleSelect.sale(Double sumPrice)");
+        System.out.println("测试信息：");
+        StrategyTest.test();
+        System.out.println();
+    }
+
+    //14 访问者模式
+    public void visitorTest(){
+        System.out.println("14 访问者模式（Visitor Pattern)");
+        System.out.println("包:molemall.pattern.visitor");
+        System.out.println("类：ClothesVisitor/ClothesPurchaseVisitor/ClothesLeaseVisitor/ShoppingCart");
+        System.out.println("实现接口：clothesPurchaseCart.accept(visitor)");
+        System.out.println("测试信息：");
+        VisitorTest.test();
+        System.out.println();
+    }
+
+    //15 过滤器模式
+    public void filterTest(){
+        System.out.println("15 过滤器模式（Filter Pattern)");
+        System.out.println("包:molemall.pattern.ClothesFilter");
+        System.out.println("类：priceFilter");
+        System.out.println("实现接口：clothesShop.filterClothes()");
+        System.out.println("测试信息：");
+        ClothesFilterTest.test();
+        System.out.println();
+    }
+
+    //16 装饰器模式
+    public void decoratorTest(){
+        System.out.println("16 装饰器模式（Decorator Pattern)");
+        System.out.println("包:molemall.pattern.decorator");
+        System.out.println("类：Beef/Codfish/CondimentDecorator/Shrimp");
+        System.out.println("实现接口：Beef(new Hamburger())/Codfish(new Hamburger())/Shrimp(new Hamburger())");
+        System.out.println("测试信息：");
+        DecoratorTest.test();
+        System.out.println();
+    }
+
+    //17 抽象工厂模式
+    public void abstractFactoryTest(){
+        System.out.println("17 抽象工厂模式（AbstractFactory Pattern)");
+        System.out.println("包:molemall.pattern.abstractFactory");
+        System.out.println("类：AbstractFactory/AbstractClothes/AbstractSeed/AbstractFood/ClothesFactory/FoodFactory/SeedFactory");
+        System.out.println("实现接口：Factory.CreateClothes(String,Double,ClothesColor)");
+        System.out.println("测试信息：");
+        AbstractFactoryTest.test();
+        System.out.println();
+    }
+
+    //18 桥接模式
+    public void bridgeTest(){
+        System.out.println("18 桥接模式（Bridge Pattern)");
+        System.out.println("包:molemall.pattern.bridge");
+        System.out.println("类：Blue/ClothesColor/Red/Yellow");
+        System.out.println("实现接口：Blue()/Red()/Yellow()");
+        System.out.println("测试信息：");
+        BridgeTest.test();
         System.out.println();
     }
     public static void main(String[] args) throws InterruptedException {
