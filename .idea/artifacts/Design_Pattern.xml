@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Design-Pattern">
+    <output-path>$PROJECT_DIR$/out/artifacts/Design_Pattern</output-path>
+    <root id="archive" name="Design-Pattern.jar">
+      <element id="module-output" name="Team-Software-Design-Pattern" />
+      <element id="file-copy" path="$PROJECT_DIR$/libs/fastjson-1.2.75.jar" />
+    </root>
+  </artifact>
+</component>
