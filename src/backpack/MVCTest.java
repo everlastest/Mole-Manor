@@ -1,17 +1,22 @@
 package backpack;
 import backpack.MVC.*;
-public class BackpackTestDemo {
+public class MVCTest {
     public static void main(String[] args) {
 
         Backpack model= retrieveStudentFromDatabase();
         BackpackView view=new BackpackView();
         BackpackController controller=new BackpackController(model,view);
+        System.out.println("----使用MVC模式ing----");
+        System.out.println("背包物品\t\t\t数量");
         controller.updateView();
         System.out.println();
-        //controller.a("夹克",1);
+        System.out.println("加入一件夹克");
         controller.AddBackpackItem("夹克",1,"clothes");
+        System.out.println("背包物品\t\t\t数量");
         controller.updateView();
+        System.out.println("\n删除所有夹克");
         controller.DelBackpackItem("夹克","clothes");
+        System.out.println("背包物品\t\t\t数量");
         controller.updateView();
     }
 
