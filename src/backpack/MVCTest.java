@@ -1,8 +1,8 @@
 package backpack;
 import backpack.MVC.*;
 public class MVCTest {
-    public static void main(String[] args) {
-
+    public static void test()
+    {
         Backpack model= retrieveStudentFromDatabase();
         BackpackView view=new BackpackView();
         BackpackController controller=new BackpackController(model,view);
@@ -18,6 +18,9 @@ public class MVCTest {
         controller.DelBackpackItem("夹克","clothes");
         System.out.println("背包物品\t\t\t数量");
         controller.updateView();
+    }
+    public static void main(String[] args) {
+        test();
     }
 
     private static Backpack retrieveStudentFromDatabase(){

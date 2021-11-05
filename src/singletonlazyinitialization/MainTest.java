@@ -1,8 +1,16 @@
 package singletonlazyinitialization;
 
+import backpack.MVCTest;
+import chatroom.test.MediatorTest;
+import chatroom.test.MultipletonTest;
+import chatroom.test.MutexTest;
 import framework.test.BlackboardTest;
 import framework.test.ComponentTest;
 import framework.test.InterpreterTest;
+import moleamuse.test.FacadeTest;
+import moleamuse.test.FlyweightTest;
+import moleamuse.test.MementoTest;
+import moleamuse.test.TemplateTest;
 import molefarm.common.MoleFarmBlock;
 import molefarm.test.adapter.AdapterTest;
 import molefarm.test.builder.BuilderTest;
@@ -36,6 +44,15 @@ public class MainTest {
         blackboardTest();
         compositeTest();
         interpreterTest();
+        MVCTest();
+        FacadeTest();
+        FlyweightTest();
+        MementoTest();
+        PrototypeTest();
+        TemplateTest();
+        MediatorTest();
+        MutexTest();
+        MultipletonTest();
     }
 
     //1 适配器模式（Adapter Pattern）
@@ -157,7 +174,7 @@ public class MainTest {
 
     //11 组合模式
     public void compositeTest(){
-        System.out.println("10 组合模式（Composite Pattern)");
+        System.out.println("11 组合模式（Composite Pattern)");
         System.out.println("包:framework.composite");
         System.out.println("类：Menu/MenuList/Component");
         System.out.println("实现接口：menu.add(menu1, menu2, menu3)");
@@ -168,7 +185,7 @@ public class MainTest {
 
     //12 解释器模式
     public void interpreterTest(){
-        System.out.println("10 解释器模式（Interpreter Pattern)");
+        System.out.println("12 解释器模式（Interpreter Pattern)");
         System.out.println("包:framework.interpreter");
         System.out.println("类：Sub/Number/BuyTicket");
         System.out.println("实现接口：by.buyTicket()");
@@ -177,6 +194,104 @@ public class MainTest {
         System.out.println();
     }
 
+    //13 MVC模式
+    public void MVCTest(){
+        System.out.println("13 MVC模式（MVC Pattern)");
+        System.out.println("包:backpack.MVC");
+        System.out.println("类：Backpack/BackpackController/BackpackView");
+        System.out.println("实现接口：controller.updateView()");
+        System.out.println("测试信息：");
+        MVCTest.test();
+        System.out.println();
+    }
+
+    //14 外观模式
+    public void FacadeTest(){
+        System.out.println("14 外观模式（Facade Pattern)");
+        System.out.println("包:moleamuse");
+        System.out.println("类：Game/GameMaker");
+        System.out.println("实现接口：gameMaker.play()");
+        System.out.println("测试信息：");
+        FacadeTest.test();
+        System.out.println();
+    }
+
+    //15 享元模式
+    public void FlyweightTest(){
+        System.out.println("15 享元模式（Flyweight Pattern)");
+        System.out.println("包:moleamuse.tictactoepackage");
+        System.out.println("类：TictactoeFactory");
+        System.out.println("实现接口：f.getChessObject()");
+        System.out.println("测试信息：");
+        FlyweightTest.test();
+        System.out.println();
+    }
+
+    //16 备忘录模式
+    public void MementoTest(){
+        System.out.println("16 备忘录模式（Memento Pattern)");
+        System.out.println("包:moleamuse.mementopackage");
+        System.out.println("类：RecordList/RecordMemento/ScoreOriginator");
+        System.out.println("实现接口：r.getRecord()");
+        System.out.println("测试信息：");
+        MementoTest.test();
+        System.out.println();
+    }
+
+    //17 原型模式
+    public void PrototypeTest(){
+        System.out.println("17 原型模式（Prototype Pattern)");
+        System.out.println("包:moleamuse.cookingpackage.prototype");
+        System.out.println("类：AbstractMeal/GongBaoJiDing/SuanCaiYu/TangCuLiJi");
+        System.out.println("实现接口：MealCache.getMeal()");
+        System.out.println("测试信息：");
+        ProxyTest.test();
+        System.out.println();
+    }
+
+    //18 模板模式
+    public void TemplateTest(){
+        System.out.println("18 模板模式（Template Pattern)");
+        System.out.println("包:moleamuse.racingpackage.template");
+        System.out.println("类：AbstractRacing/DriftRace/ObstacleRace/TimeRace");
+        System.out.println("实现接口：abstractRacing.StartRacing()");
+        System.out.println("测试信息：");
+        TemplateTest.test();
+        System.out.println();
+    }
+
+    //19 中介者模式
+    public void MediatorTest(){
+        System.out.println("19 中介者模式（Mediator Pattern)");
+        System.out.println("包:chatroom");
+        System.out.println("类：Chatroom");
+        System.out.println("实现接口：Chatroom.addMessage()");
+        System.out.println("测试信息：");
+        MediatorTest.test();
+        System.out.println();
+    }
+
+    //20 互斥模式
+    public void MutexTest(){
+        System.out.println("20 互斥模式（Mutex Pattern)");
+        System.out.println("包:chatroom/mutex");
+        System.out.println("类：Lock/Mutex");
+        System.out.println("实现接口：mutex.acquire()/mutex.release()");
+        System.out.println("测试信息：");
+        MutexTest.test();
+        System.out.println();
+    }
+
+    //21 多例模式
+    public void MultipletonTest(){
+        System.out.println("21 多例模式（Multipleton Pattern)");
+        System.out.println("包:chatroom/robotpackage");
+        System.out.println("类：Robot");
+        System.out.println("实现接口：Robot.getInstance()");
+        System.out.println("测试信息：");
+        MultipletonTest.test();
+        System.out.println();
+    }
     public static void main(String[] args) throws InterruptedException {
         MainTest mainTest = new MainTest();
         mainTest.TestController();
