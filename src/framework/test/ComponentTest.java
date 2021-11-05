@@ -1,7 +1,14 @@
-package framework.composite;
+package framework.test;
 
-public class ComponentTestDemo {
-    public static void main(String[] args) {
+
+import framework.composite.*;
+
+public class ComponentTest {
+    /**
+     * @test
+     */
+    public static void test(){
+        System.out.println("----调用组合模式ing----");
 
         Menu menu = new Menu("menu");
 
@@ -26,6 +33,10 @@ public class ComponentTestDemo {
 
         m = m.getLast();
         m.printMenu();
+    }
+
+    public static void main(String[] args) {
+        ComponentTest.test();
 
     }
 }

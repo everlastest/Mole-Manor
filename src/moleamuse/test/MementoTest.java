@@ -3,8 +3,15 @@ package moleamuse.test;
 import moleamuse.GameMaker;
 import moleamuse.mementopackage.RecordList;
 
-public class MementoTestDemo {
-    public static void main(String[] args) {
+
+public class MementoTest {
+
+    /**
+     * @test
+     */
+    public static void test(){
+        System.out.println("----调用备忘录模式ing----");
+
         RecordList r = RecordList.getInstance();
         r.printList();
 
@@ -14,5 +21,10 @@ public class MementoTestDemo {
         r.printList();
         r.getRecord(1);
         r.getRecord(3);
+
+    }
+
+    public static void main(String[] args) {
+        MementoTest.test();
     }
 }
