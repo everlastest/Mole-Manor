@@ -16,8 +16,11 @@ public class TemplateTest {
         AbstractRacing r1 = new TimeRace();
         AbstractRacing r2 = new DriftRace();
         AbstractRacing r3 = new ObstacleRace();
+        System.out.println("\n正在进行竞速赛...");
         r1.test();
+        System.out.println("\n正在进行漂移赛...");
         r2.test();
+        System.out.println("\n正在进行障碍赛...");
         r3.test();
 
     }

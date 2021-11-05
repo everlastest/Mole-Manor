@@ -96,7 +96,6 @@ public abstract class AbstractRacing{
      * @test
      */
     public void test(){
-        RacingProcess(score);
         score = getScore(score);
     }
 
