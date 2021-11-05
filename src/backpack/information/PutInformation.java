@@ -11,8 +11,8 @@ public class PutInformation {
         System.out.println("颜色："+mole.getMoleColor().getColor());
         System.out.println("摩尔豆："+mole.getMoney());
         System.out.println("游戏积分："+mole.getScore());
-        System.out.println("\n背包物品" + '\t' + '\t' +'\t' +"数量");
-        System.out.println("游乐园门票"  + '\t' +'\t' +mole.getTicket());
+        System.out.printf("%-15s\t%s\n","背包物品" ,"数量");
+        System.out.printf("%-15s\t%d\n","游乐园门票" ,mole.getTicket());
         controller.updateView();
         System.out.print("\n\n\n");
     }
