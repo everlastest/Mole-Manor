@@ -398,7 +398,7 @@ public class MainTest {
         System.out.println("\n\n\n");
         System.out.println("28 抽象工厂模式（AbstractFactory Pattern)");
         System.out.println("包:molemall.pattern.abstractFactory");
-        System.out.println("类：AbstractFactory/AbstractClothes/AbstractSeed/AbstractFood/ClothesFactory/FoodFactory/SeedFactory");
+        System.out.println("类：AbstractFactory/AbstractClothes/AbstractFood/ClothesFactory/FoodFactory");
         System.out.println("实现接口：Factory.CreateClothes(String,Double,ClothesColor)");
         System.out.println("测试信息：");
         AbstractFactoryTest.test();
