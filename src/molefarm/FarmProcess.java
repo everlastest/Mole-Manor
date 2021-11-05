@@ -315,16 +315,16 @@ public class FarmProcess {
             System.out.println("请选择您要去的地方：[1]农田 [2]仓库 [0]摩尔大厅");
             String str1 = input.next();
             if("0".equals(str1))break;
+            for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
+                MoleFarmBlock next = it.next();
+                if (next.getSeed() != null && next.getSeedStatus() != null) {
+                    next.growth();
+                }
+            }
             //农田模块
             while ("1".equals(str1)) {
                 //绘制农田状态图
                 farm.showFarm(this.weatherAdapter.getWeather());
-                for (FarmIterator it = farm.getIterator(); it.hasNext(); ) {
-                    MoleFarmBlock next = it.next();
-                    if (next.getSeed() != null && next.getSeedStatus() != null) {
-                        next.growth();
-                    }
-                }
                 System.out.println("请选择操作：[0]返回农场首页 [1~9]查看具体农田块状态 [b]批量操作：");
                 String str2 = input.next();
                 List<String> con = new ArrayList<>();
