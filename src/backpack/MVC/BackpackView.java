@@ -13,13 +13,7 @@ public class BackpackView {
         for (Map.Entry<String, Integer> entry : set) {
             String key = entry.getKey();
             int value = entry.getValue();
-            int length=key.length()-"背包".length();
-            if(length>0&&length<=3)
-                System.out.println(key  + '\t' +'\t'+'\t' +value);
-            else if(length>3)
-                System.out.println(key   +'\t'+'\t' +value);
-            else
-                System.out.println(key  + '\t'+ '\t'+'\t' +'\t' +value);
+            System.out.printf("%-15s\t%d\n",key,value);
         }
 
     }

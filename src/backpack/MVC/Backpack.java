@@ -18,10 +18,12 @@ public class Backpack {
     public Backpack(){
         clothes=new HashMap<String,Integer>();
         food=new HashMap<String,Integer>();
-        clothes.put("红色衬衫",1);
+//        clothes.put("(租)红色牛仔裤",1);
         clothes.put("黄色短裤",1);
         food.put("棒棒糖",5);
-        food.put("面包",1);
+//        food.put("牛肉汉堡🍔",1);
+//        food.put("苏打水🥤",1);
+//        food.put("汉堡🍔",1);
     }
 
     public void AddClothes(String item,int num){

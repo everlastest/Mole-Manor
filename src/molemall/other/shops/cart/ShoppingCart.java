@@ -174,7 +174,7 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
                     backpack.AddClothes(commoditylist.get(i).item,commoditylist.get(i).num);
                 }
                 else if(commodityType.equals("lclothes")){
-                    backpack.AddClothes("租赁的"+commoditylist.get(i).item,commoditylist.get(i).num);
+                    backpack.AddClothes("(租)"+commoditylist.get(i).item,commoditylist.get(i).num);
                 }
                  mole.setBackpack(backpack);
              }
