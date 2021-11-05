@@ -146,7 +146,7 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
     public boolean moleConsume(Double price){//摩尔付款
         Double money = this.mole.getMoney();
         this.mole.getBackpack();
-        if(price==null||price<=0){//没有消费行为
+        if(price==null||price<=0.0){//没有消费行为
             return false;
         }
         if (money < price) {
@@ -187,6 +187,8 @@ public class ShoppingCart{//之后增加继承，目前用于测试；输出：�
     }
     public void setPrice(Double realprice){ this.realprice=realprice;}
     public Double getPrice() {
-            return realprice;}
+        Double price=realprice;
+        realprice=0.0;
+        return price;}
 
 }
