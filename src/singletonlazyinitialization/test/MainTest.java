@@ -322,9 +322,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //13 策略模式
+    //24 策略模式
     public void strategyTest(){
-        System.out.println("13 策略模式（Strategy Pattern)");
+        System.out.println("24 策略模式（Strategy Pattern)");
         System.out.println("包:molemall.pattern.strategy");
         System.out.println("类：CashContext/CashSuper/CashNormal/CashRebate/CashReturn");
         System.out.println("实现接口：SaleSelect.sale(Double sumPrice)");
@@ -333,9 +333,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //14 访问者模式
+    //25 访问者模式
     public void visitorTest(){
-        System.out.println("14 访问者模式（Visitor Pattern)");
+        System.out.println("25 访问者模式（Visitor Pattern)");
         System.out.println("包:molemall.pattern.visitor");
         System.out.println("类：ClothesVisitor/ClothesPurchaseVisitor/ClothesLeaseVisitor/ShoppingCart");
         System.out.println("实现接口：clothesPurchaseCart.accept(visitor)");
@@ -344,9 +344,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //15 过滤器模式
+    //26 过滤器模式
     public void filterTest(){
-        System.out.println("15 过滤器模式（Filter Pattern)");
+        System.out.println("26 过滤器模式（Filter Pattern)");
         System.out.println("包:molemall.pattern.ClothesFilter");
         System.out.println("类：priceFilter");
         System.out.println("实现接口：clothesShop.filterClothes()");
@@ -355,9 +355,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //16 装饰器模式
+    //27 装饰器模式
     public void decoratorTest(){
-        System.out.println("16 装饰器模式（Decorator Pattern)");
+        System.out.println("27 装饰器模式（Decorator Pattern)");
         System.out.println("包:molemall.pattern.decorator");
         System.out.println("类：Beef/Codfish/CondimentDecorator/Shrimp");
         System.out.println("实现接口：Beef(new Hamburger())/Codfish(new Hamburger())/Shrimp(new Hamburger())");
@@ -366,9 +366,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //17 抽象工厂模式
+    //28 抽象工厂模式
     public void abstractFactoryTest(){
-        System.out.println("17 抽象工厂模式（AbstractFactory Pattern)");
+        System.out.println("28 抽象工厂模式（AbstractFactory Pattern)");
         System.out.println("包:molemall.pattern.abstractFactory");
         System.out.println("类：AbstractFactory/AbstractClothes/AbstractSeed/AbstractFood/ClothesFactory/FoodFactory/SeedFactory");
         System.out.println("实现接口：Factory.CreateClothes(String,Double,ClothesColor)");
@@ -377,9 +377,9 @@ public class MainTest {
         System.out.println();
     }
 
-    //18 桥接模式
+    //29 桥接模式
     public void bridgeTest(){
-        System.out.println("18 桥接模式（Bridge Pattern)");
+        System.out.println("29 桥接模式（Bridge Pattern)");
         System.out.println("包:molemall.pattern.bridge");
         System.out.println("类：Blue/ClothesColor/Red/Yellow");
         System.out.println("实现接口：Blue()/Red()/Yellow()");

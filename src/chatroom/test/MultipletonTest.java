@@ -11,7 +11,7 @@ public class MultipletonTest {
      * @test
      */
     public static void test(){
-        System.out.println("----调用多例ing----");
+        System.out.println("----调用多例模式ing----");
 
         String npc1 = "我是" + Robot.getInstance("菩提大伯").getRobotName();
         String npc2 = "我是" + Robot.getInstance("么么公主").getRobotName();
