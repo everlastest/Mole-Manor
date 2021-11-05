@@ -18,6 +18,7 @@ import molefarm.test.iterator.IteratorTest;
 import molefarm.test.observer.ObserverTest;
 import molefarm.test.proxy.ProxyTest;
 import molefarm.test.state.StateTest;
+import molemall.test.*;
 
 import java.lang.reflect.Method;
 
@@ -53,12 +54,12 @@ public class MainTest {
         SingletonTest();
         LazyinitializationTest();
         //moleMall
-        //strategyTest();
-        //visitorTest();
-        //filterTest();
-        //decoratorTest();
-        //abstractFactoryTest();
-        //bridgeTest();
+        strategyTest();
+        visitorTest();
+        filterTest();
+        decoratorTest();
+        abstractFactoryTest();
+        bridgeTest();
     }
 
     //1 适配器模式（Adapter Pattern）
@@ -321,7 +322,7 @@ public class MainTest {
         System.out.println();
     }
 
-    /*//24 策略模式
+    //24 策略模式
     public void strategyTest(){
         System.out.println("24 策略模式（Strategy Pattern)");
         System.out.println("包:molemall.pattern.strategy");
@@ -385,7 +386,7 @@ public class MainTest {
         System.out.println("测试信息：");
         BridgeTest.test();
         System.out.println();
-    }*/
+    }
     public static void main(String[] args) throws InterruptedException {
         MainTest mainTest = new MainTest();
         mainTest.TestController();
