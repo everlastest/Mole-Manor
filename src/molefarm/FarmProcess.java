@@ -135,7 +135,6 @@ public class FarmProcess {
                 FarmGrowth.eradicateCrops(block);
                 break;
             default:
-                return;
         }
     }
 
