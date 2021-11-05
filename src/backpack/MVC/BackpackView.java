@@ -14,10 +14,12 @@ public class BackpackView {
             String key = entry.getKey();
             int value = entry.getValue();
             int length=key.length()-"背包".length();
-            if(length>0&&length<=3)
+            if(length>0&&length<3)
                 System.out.println(key  + '\t' +'\t'+'\t' +value);
-            else if(length>3)
+            else if(length>=3&&length<5)
                 System.out.println(key   +'\t'+'\t' +value);
+            else if(length>=5)
+                System.out.println(key   +'\t' +value);
             else
                 System.out.println(key  + '\t'+ '\t'+'\t' +'\t' +value);
         }
