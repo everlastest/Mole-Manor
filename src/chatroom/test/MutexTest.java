@@ -3,8 +3,6 @@ package chatroom.test;
 import chatroom.Chatroom;
 import chatroom.robotpackage.NPCList;
 
-import java.util.Scanner;
-
 public class MutexTest {
     /**
      * @test
@@ -14,13 +12,13 @@ public class MutexTest {
 
         NPCList.getInstance().start();
 
-        System.out.println("是否查看聊天室信息？[1/0]");
-        Scanner scanner = new Scanner(System.in);
-        int flag = scanner.nextInt();
-        while (flag == 1){
-            Chatroom.getInstance().showMessage();
-            flag = scanner.nextInt();
+        try{
+            Thread.sleep(2000);
+        }catch (InterruptedException e){
+            System.out.println(e);
         }
+
+        Chatroom.getInstance().showMessage();
 
         NPCList.getInstance().stop();
     }

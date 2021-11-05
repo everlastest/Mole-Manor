@@ -1,4 +1,4 @@
-package singletonlazyinitialization;
+package singletonlazyinitialization.test;
 
 import backpack.test.MVCTest;
 import chatroom.test.MediatorTest;

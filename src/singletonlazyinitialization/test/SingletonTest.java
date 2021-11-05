@@ -1,4 +1,6 @@
-package singletonlazyinitialization;
+package singletonlazyinitialization.test;
+
+import singletonlazyinitialization.MoleManor;
 
 public class SingletonTest {
     /**

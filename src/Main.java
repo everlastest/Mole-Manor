@@ -1,5 +1,5 @@
 import exceptionhandle.ExceptionHandle;
-import singletonlazyinitialization.MainTest;
+import singletonlazyinitialization.test.MainTest;
 import singletonlazyinitialization.MoleManor;
 
 /**
