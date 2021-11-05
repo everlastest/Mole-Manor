@@ -2,6 +2,10 @@ package chatroom.test;
 
 import chatroom.robotpackage.Robot;
 
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 public class MultipletonTest {
     /**
      * @test
@@ -14,7 +18,11 @@ public class MultipletonTest {
         String npc3 = "我是" + Robot.getInstance("瑞琪").getRobotName();
         System.out.println(npc1 + "\n" + npc2 + "\n" + npc3);
 
-        Robot r = Robot.getInstance("小摩尔");
+        try {
+            Robot r = Robot.getInstance("小摩尔");
+        } catch (NoSuchElementException e) {
+            System.out.println("Exception thrown  :" + e);
+        }
     }
 
     public static void main(String[] args) {
