@@ -22,6 +22,7 @@ public class MVCTest {
 
     private static Backpack retrieveStudentFromDatabase(){
         Backpack backpack=new Backpack();
+        backpack.test();
         backpack.AddClothes("夹克",1);
         backpack.AddFood("食物",3);
         return backpack;
