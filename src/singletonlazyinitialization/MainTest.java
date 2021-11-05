@@ -7,10 +7,7 @@ import chatroom.test.MutexTest;
 import framework.test.BlackboardTest;
 import framework.test.ComponentTest;
 import framework.test.InterpreterTest;
-import moleamuse.test.FacadeTest;
-import moleamuse.test.FlyweightTest;
-import moleamuse.test.MementoTest;
-import moleamuse.test.TemplateTest;
+import moleamuse.test.*;
 import molefarm.common.MoleFarmBlock;
 import molefarm.test.adapter.AdapterTest;
 import molefarm.test.builder.BuilderTest;
@@ -246,7 +243,7 @@ public class MainTest {
         System.out.println("类：AbstractMeal/GongBaoJiDing/SuanCaiYu/TangCuLiJi");
         System.out.println("实现接口：MealCache.getMeal()");
         System.out.println("测试信息：");
-        ProxyTest.test();
+        PrototypeTest.test();
         System.out.println();
     }
 
