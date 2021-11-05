@@ -14,8 +14,8 @@ public class InterpreterTest {
         MoleManor moleManor=MoleManor.getInstance();
         moleManor.test();
         Mole mole= MoleManor.getPlayer();
-        BuyTicket by=new BuyTicket(mole);
-        by.buyTicket();
+        BuyTicket by = new BuyTicket(mole);
+        by.changeTicket(1);
     }
 
     public static void main(String []args){
