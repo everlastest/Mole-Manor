@@ -51,6 +51,7 @@ public class MainTest {
         MutexTest();
         MultipletonTest();
         SingletonTest();
+        LazyinitializationTest();
     }
 
     //1 适配器模式（Adapter Pattern）
@@ -299,6 +300,17 @@ public class MainTest {
         System.out.println("实现接口：MoleManor.getInstance()");
         System.out.println("测试信息：");
         SingletonTest.test();
+        System.out.println();
+    }
+
+    //23 延迟初始化模式
+    public void LazyinitializationTest(){
+        System.out.println("23 延迟初始化模式（Lazyinitialization Pattern)");
+        System.out.println("包:singletonlazyinitialization/MoleManor");
+        System.out.println("类：SingletonHolder");
+        System.out.println("实现接口：SingletonHolder.getInstance()");
+        System.out.println("测试信息：");
+        LazyinitializationTest.test();
         System.out.println();
     }
     public static void main(String[] args) throws InterruptedException {

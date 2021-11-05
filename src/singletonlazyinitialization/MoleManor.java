@@ -30,7 +30,12 @@ public class MoleManor {
     //构造函数为private，该类不会被实例化
     private MoleManor(){
     }
-    public static MoleManor getInstance(){return SingletonHolder.instance;}
+
+    public static MoleManor getInstance(){return SingletonHolder.getInstance();}
+    //输出测试信息
+    public void showMessage(){
+        System.out.println("MoleManor is created successfully!");
+    }
 
     /**
      * 测试用例！！！！
@@ -139,11 +144,14 @@ public class MoleManor {
 
 
     /**
-     * 单例
+     * 延迟初始化
      * 需要才创建，保证线程安全
      */
     private static class SingletonHolder{
-        private static MoleManor instance =new MoleManor();
+        private static MoleManor instance = new MoleManor();
+        public static MoleManor getInstance() {
+            return instance;
+        }
     }
 
     /**
