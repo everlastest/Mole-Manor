@@ -1,8 +1,7 @@
 package framework.composite;
 
 public class ComponentTestDemo {
-    public static void main(String[] args) {
-
+    public static void test(){
         Menu menu = new Menu("menu");
 
         Menu mmenu1 = new Menu("mmenu1");
@@ -26,6 +25,8 @@ public class ComponentTestDemo {
 
         m = m.getLast();
         m.printMenu();
-
+    }
+    public static void main(String[] args) {
+        test();
     }
 }

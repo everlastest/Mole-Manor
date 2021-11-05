@@ -26,7 +26,7 @@ public class CloudyWeather extends WeatherAdapter {
             pesticide.ToolBehavior();
         }
         else{
-            System.out.println("农场一片祥和，没有遭遇虫灾");
+            System.out.println("未发现作物受到害虫侵扰，请勿滥用农药");
         }
     }
 }

@@ -1,5 +1,8 @@
 package singletonlazyinitialization;
 
+import framework.blackboard.BlackboardTestDemo;
+import framework.composite.ComponentTestDemo;
+import framework.interpreter.InterpreterTestDemo;
 import molefarm.common.MoleFarmBlock;
 import molefarm.test.adapter.AdapterTest;
 import molefarm.test.builder.BuilderTest;
@@ -30,12 +33,15 @@ public class MainTest {
         ObserverTest();
         ProxyTest();
         StateTest();
+        blackboardTest();
+        compositeTest();
+        interpreterTest();
     }
 
     //1 适配器模式（Adapter Pattern）
     public void AdapterTest() {
         System.out.println("1 适配器模式（Adapter Pattern）");
-        System.out.println("包:molefarm.pattern.adapter");
+        System.out.println("包：molefarm.pattern.adapter");
         System.out.println("类：MoleAdapter/WeatherAdapter");
         System.out.println("实现接口：WeatherAdapter.getInstance()");
         System.out.println("测试信息：");
@@ -46,7 +52,7 @@ public class MainTest {
     //2 建造者模式（Builder Pattern）
     public void BuilderTest() {
         System.out.println("2 建造者模式（Builder Pattern）");
-        System.out.println("包:molefarm.pattern.builder");
+        System.out.println("包：molefarm.pattern.builder");
         System.out.println("类：ConcreteBuilder1/ConcreteBuilder2");
         System.out.println("实现接口：ConcreteBuilder1.buildPlant()");
         System.out.println("测试信息：");
@@ -57,7 +63,7 @@ public class MainTest {
     //3 职责链模式（ChainOfResponsibility Pattern）
     public void ChainOfResponsibilityTest() {
         System.out.println("3 职责链模式（ChainOfResponsibility Pattern）");
-        System.out.println("包:molefarm.pattern.chainOfResponsibility");
+        System.out.println("包：molefarm.pattern.chainOfResponsibility");
         System.out.println("类：ShopHandler/WareHouseHandler");
         System.out.println("实现接口：ShopHandler.provideSeeds()");
         System.out.println("测试信息：");
@@ -68,7 +74,7 @@ public class MainTest {
     //4 命令模式（Command Pattern）
     public void CommandTest() {
         System.out.println("4 命令模式（Command Pattern）");
-        System.out.println("包:molefarm.pattern.command");
+        System.out.println("包：molefarm.pattern.command");
         System.out.println("类：FertilizerCommand/SeedCommand");
         System.out.println("实现接口：FertilizerCommand.excute()");
         System.out.println("测试信息：");
@@ -79,7 +85,7 @@ public class MainTest {
     //5 工厂模式（Factory Pattern）
     public void FactoryTest() {
         System.out.println("5 工厂模式（Factory Pattern）");
-        System.out.println("包:molefarm.pattern.factory");
+        System.out.println("包：molefarm.pattern.factory");
         System.out.println("类：CropsFactory/FertilizerFactory/SeedFactory/ToolFactory");
         System.out.println("实现接口：CropsFactory.newInstance()");
         System.out.println("测试信息：");
@@ -90,7 +96,7 @@ public class MainTest {
     //6 迭代器模式（Iterator Pattern）
     public void IteratorTest() {
         System.out.println("6 迭代器模式（Iterator Pattern）");
-        System.out.println("包:molefarm.pattern.iterator");
+        System.out.println("包：molefarm.pattern.iterator");
         System.out.println("类：FarmIterator");
         System.out.println("实现接口：Farm.getIterator()");
         System.out.println("测试信息：");
@@ -101,7 +107,7 @@ public class MainTest {
     //7 观察者模式（Observer Pattern）
     public void ObserverTest() {
         System.out.println("7 观察者模式（Observer Pattern）");
-        System.out.println("包:molefarm.pattern.observer");
+        System.out.println("包：molefarm.pattern.observer");
         System.out.println("类：WeatherObserver");
         System.out.println("实现接口：WeatherObserver.getInstance()");
         System.out.println("测试信息：");
@@ -112,7 +118,7 @@ public class MainTest {
     //8 代理模式（Proxy Pattern）
     public void ProxyTest() {
         System.out.println("8 代理模式（Proxy Pattern）");
-        System.out.println("包:molefarm.pattern.proxy");
+        System.out.println("包：molefarm.pattern.proxy");
         System.out.println("类：Proxy");
         System.out.println("实现接口：Proxy.getInstance()");
         System.out.println("测试信息：");
@@ -123,7 +129,7 @@ public class MainTest {
     //9 状态模式（State Pattern）
     public void StateTest() {
         System.out.println("9 状态模式（State Pattern）");
-        System.out.println("包:molefarm.pattern.state");
+        System.out.println("包：molefarm.pattern.state");
         System.out.println("类：CloudyWeather/InsectDamageWeather/RainWeather/SunnyWeather");
         System.out.println("实现接口：CloudyWeather.getWeather()");
         System.out.println("测试信息：");
@@ -135,6 +141,39 @@ public class MainTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println();
+    }
+
+    //10 黑板模式
+    public void blackboardTest() {
+        System.out.println("10 黑板模式（Blackboard Pattern)");
+        System.out.println("包:framework.blackboard");
+        System.out.println("类：BlackBoard");
+        System.out.println("实现接口：blackboard.show()");
+        System.out.println("测试信息：");
+        BlackboardTestDemo.test();
+        System.out.println();
+    }
+
+    //11 组合模式
+    public void compositeTest(){
+        System.out.println("10 组合模式（Composite Pattern)");
+        System.out.println("包:framework.composite");
+        System.out.println("类：Menu/MenuList/Component");
+        System.out.println("实现接口：menu.add(menu1, menu2, menu3)");
+        System.out.println("测试信息：");
+        ComponentTestDemo.test();
+        System.out.println();
+    }
+
+    //12 解释器模式
+    public void interpreterTest(){
+        System.out.println("10 解释器模式（Interpreter Pattern)");
+        System.out.println("包:framework.interpreter");
+        System.out.println("类：Sub/Number/BuyTicket");
+        System.out.println("实现接口：by.buyTicket()");
+        System.out.println("测试信息：");
+        InterpreterTestDemo.test();
         System.out.println();
     }
 
