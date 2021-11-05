@@ -24,6 +24,8 @@ import java.util.*;
  */
 public class FarmGrowth {
 
+    public static WeatherAdapter weather=WeatherAdapter.getInstance();
+
     private static final MoleAdapter mole = MoleAdapter.getInstance();
 
     private static final SeedFactory seedFactory = Home.seedFactory;
@@ -92,7 +94,7 @@ public class FarmGrowth {
      * 浇水
      */
     public static void watering(MoleFarmBlock farmBlock) {
-        Context context = new Context(WeatherAdapter.getInstance(), farmBlock);
+        Context context = new Context(weather, farmBlock);
         context.watering();
     }
 
@@ -100,7 +102,7 @@ public class FarmGrowth {
      * 除虫
      */
     public static void disinsection(MoleFarmBlock farmBlock) {
-        Context context = new Context(WeatherAdapter.getInstance(), farmBlock);
+        Context context = new Context(weather, farmBlock);
         context.disInsection();
     }
 

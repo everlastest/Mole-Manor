@@ -19,7 +19,8 @@ import java.util.Map;
 public class BuilderTest {
 
     static {
-        System.out.println("农场今日天气为："+WeatherAdapter.getInstance().getWeather());
+        FarmGrowth.weather=WeatherAdapter.changeWeather();
+        System.out.println("农场今日天气为："+FarmGrowth.weather.getWeather());
     }
 
     public static AbstractSeed createSeed(String seedName){
