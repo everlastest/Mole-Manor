@@ -1,8 +1,8 @@
 package singletonlazyinitialization;
 
-import framework.blackboard.BlackboardTestDemo;
-import framework.composite.ComponentTestDemo;
-import framework.interpreter.InterpreterTestDemo;
+import framework.test.BlackboardTest;
+import framework.test.ComponentTest;
+import framework.test.InterpreterTest;
 import molefarm.common.MoleFarmBlock;
 import molefarm.test.adapter.AdapterTest;
 import molefarm.test.builder.BuilderTest;
@@ -151,7 +151,7 @@ public class MainTest {
         System.out.println("类：BlackBoard");
         System.out.println("实现接口：blackboard.show()");
         System.out.println("测试信息：");
-        BlackboardTestDemo.test();
+        BlackboardTest.test();
         System.out.println();
     }
 
@@ -162,7 +162,7 @@ public class MainTest {
         System.out.println("类：Menu/MenuList/Component");
         System.out.println("实现接口：menu.add(menu1, menu2, menu3)");
         System.out.println("测试信息：");
-        ComponentTestDemo.test();
+        ComponentTest.test();
         System.out.println();
     }
 
@@ -173,7 +173,7 @@ public class MainTest {
         System.out.println("类：Sub/Number/BuyTicket");
         System.out.println("实现接口：by.buyTicket()");
         System.out.println("测试信息：");
-        InterpreterTestDemo.test();
+        InterpreterTest.test();
         System.out.println();
     }
 
